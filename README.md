@@ -52,8 +52,39 @@ build.py            Генератор (по избор — виж т. 4)
 The site is fully static. Upload the contents of the folder as they are — to any web server,
 to GitHub Pages, Netlify or Cloudflare Pages. No database and no PHP are required.
 
-**GitHub Pages:** файлът `.nojekyll` вече е включен, за да не се обработва съдържанието от Jekyll.
-За собствен домейн добавете файл `CNAME` с едно единствено съдържание: `spasidete.bg`.
+**Сайтът вече е качен / the site is already deployed**
+
+| | |
+|---|---|
+| Хранилище | https://github.com/Cyb3r-Pony/spasidete.bg |
+| Адрес | https://cyb3r-pony.github.io/spasidete.bg/ |
+| Клон | `main`, коренова папка `/` |
+
+Всяко бутане към `main` преиздава сайта за около минута. За да качите промяна:
+
+```
+git add -A
+git commit -m "кратко описание на промяната"
+git push
+```
+
+**Собственият домейн spasidete.bg.** Файлът `CNAME` стои в папката, но е изваден от
+хранилището чрез `.gitignore`, защото GitHub Pages го приема като команда „сервирай този
+сайт само на spasidete.bg“. Включете го чак когато DNS записите на домейна сочат към
+GitHub Pages:
+
+```
+A     spasidete.bg    185.199.108.153
+A     spasidete.bg    185.199.109.153
+A     spasidete.bg    185.199.110.153
+A     spasidete.bg    185.199.111.153
+CNAME www             cyb3r-pony.github.io
+```
+
+След като записите се разпространят, махнете реда `CNAME` от `.gitignore`, качете файла и
+включете „Enforce HTTPS“ в настройките на хранилището (Settings → Pages).
+
+**Jekyll.** Файлът `.nojekyll` вече е включен, за да не се обработва съдържанието от Jekyll.
 
 **Пренасочвания от стария сайт / redirects from the old site** — ако искате старите адреси да
 продължат да работят:
