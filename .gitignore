@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Изходното видео не се сервира от сайта (ползва се YouTube).
+# The source video is not served by the site (YouTube is used instead).
+assets/video/*.mp4
+
+# Домейнът се включва чак когато DNS записите на spasidete.bg сочат към
+# GitHub Pages. Дотогава файлът стои локално, но не влиза в хранилището.
+# The domain is switched on only once the DNS records for spasidete.bg point
+# at GitHub Pages. Until then the file stays local but out of the repository.
+CNAME

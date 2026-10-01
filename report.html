@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="bg" data-lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-title-bg="Подай сигнал — СпасиДете.БГ" data-title-en="File a report — SpasiDete.BG">Подай сигнал — СпасиДете.БГ</title>
+<meta name="description" data-desc-bg="Формуляр за сигнал за насилие или агресия над дете, насочен към дежурната част на съответната областна дирекция на МВР, плюс справочник с контактите на всички ОДМВР." data-desc-en="A form for reporting violence or aggression against a child, addressed to the duty unit of the relevant regional directorate, plus a directory of all regional directorates." content="Формуляр за сигнал за насилие или агресия над дете, насочен към дежурната част на съответната областна дирекция на МВР, плюс справочник с контактите на всички ОДМВР.">
+<meta name="theme-color" content="#0a1f38">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="СпасиДете.БГ">
+<meta property="og:title" content="Подай сигнал — СпасиДете.БГ">
+<meta property="og:description" content="Формуляр за сигнал за насилие или агресия над дете, насочен към дежурната част на съответната областна дирекция на МВР, плюс справочник с контактите на всички ОДМВР.">
+<meta property="og:locale" content="bg_BG">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:image" content="https://spasidete.bg/assets/img/favicon-180.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<script>
+  /* Задава езика преди рисуване, за да няма премигване.
+     Sets the language before paint so there is no flash. */
+  (function () {
+    try {
+      var p = new URLSearchParams(location.search).get('lang');
+      var l = (p === 'bg' || p === 'en') ? p : (localStorage.getItem('sd-lang') || 'bg');
+      document.documentElement.setAttribute('data-lang', l);
+      document.documentElement.setAttribute('lang', l);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main"><span lang="bg">Към основното съдържание</span><span lang="en">Skip to main content</span></a>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html">
+      <picture><source type="image/webp" srcset="assets/img/cybercrime-gdbop-sm.webp 192w, assets/img/cybercrime-gdbop.webp 341w" sizes="64px"><img src="assets/img/cybercrime-gdbop-sm.png" srcset="assets/img/cybercrime-gdbop-sm.png 192w, assets/img/cybercrime-gdbop.png 341w" sizes="64px" alt="" width="192" height="236" decoding="async" class="brand__mark"></picture>
+      <span class="brand__text">
+        <strong>СпасиДете.БГ</strong>
+        <span class="brand__sub"><span lang="bg">Дирекция „Киберпрестъпност“ · ГДБОП · МВР</span><span lang="en">Cybercrime Directorate · GDBOP · Ministry of Interior</span></span>
+      </span>
+    </a>
+
+    <nav class="nav__links" id="mainnav" aria-label="Основна навигация / Main navigation">
+      <ul>
+        <li><a href="bullying.html"><span lang="bg">Агресия и насилие</span><span lang="en">Aggression &amp; violence</span></a></li>
+        <li><a href="advice.html"><span lang="bg">Съвети</span><span lang="en">Advice</span></a></li>
+        <li><a href="help.html"><span lang="bg">Помощ</span><span lang="en">Help</span></a></li>
+        <li><a href="campaigns.html"><span lang="bg">Кампании</span><span lang="en">Campaigns</span></a></li>
+        <li><a href="news.html"><span lang="bg">Новини</span><span lang="en">News</span></a></li>
+        <li><a href="resources.html"><span lang="bg">Ресурси</span><span lang="en">Resources</span></a></li>
+        <li><a href="about.html"><span lang="bg">За нас</span><span lang="en">About</span></a></li>
+        <li class="nav__extra"><a href="contact.html"><span lang="bg">Контакти</span><span lang="en">Contact</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="nav__actions">
+      <div class="langswitch" role="group" aria-label="Език / Language">
+        <button type="button" data-lang="bg" aria-pressed="true">БГ</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn--danger btn--sm btn--report" href="report.html"><span lang="bg"><span class="lbl-full">Подай сигнал</span><span class="lbl-short">Сигнал</span></span><span lang="en"><span class="lbl-full">Report</span><span class="lbl-short">Report</span></span></a>
+      <button class="navtoggle" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Меню / Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="urgent">
+  <div class="wrap urgent__inner">
+    <span class="urgent__dot" aria-hidden="true"></span>
+    <b lang="bg">Ако дете е в опасност в момента, звъннете веднага:</b><b lang="en">If a child is in danger right now, call immediately:</b>
+    <a href="tel:112">112 <small><span lang="bg">спешен</span><span lang="en">emergency</span></small></a>
+    <span class="sep" aria-hidden="true">·</span>
+    <a href="tel:116111">116 111 <small><span lang="bg">линия за деца</span><span lang="en">child line</span></small></a>
+  </div>
+</div>
+
+<main id="main">
+<section class="pagehead">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html"><span lang="bg">Начало</span><span lang="en">Home</span></a><span>/</span><span lang="bg">Подай сигнал</span><span lang="en">File a report</span></div>
+    <h1 lang="bg">Подай сигнал</h1><h1 lang="en">File a report</h1>
+    <p lang="bg">Опишете всички свидетелства или станали ви известни факти и обстоятелства около случая. Формулярът подготвя писмо до дежурната част на областната дирекция на МВР, която отговаря за мястото на случилото се.</p><p lang="en">Describe every piece of evidence and every fact or circumstance of the case known to you. The form prepares a letter to the duty unit of the regional directorate responsible for the place where it happened.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="callout callout--red">
+      <div class="grid grid--2" style="align-items:center;gap:26px">
+        <div>
+          <h2 lang="bg">Има ли дете в опасност в момента?</h2><h2 lang="en">Is a child in danger right now?</h2>
+          <p lang="bg">Не изчаквайте и не попълвайте формуляр. Обадете се.</p><p lang="en">Do not wait and do not fill in a form. Call.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn--danger btn--lg" href="tel:112"><span lang="bg">Звънни на 112</span><span lang="en">Call 112</span></a>
+          <a class="btn btn--ghost btn--lg" href="tel:116111">116 111</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="formulyar">
+  <div class="wrap">
+    <div class="grid" style="grid-template-columns:1.25fr .75fr;gap:46px;align-items:start" id="formgrid">
+      <div>
+        <span class="eyebrow"><span lang="bg">Формуляр</span><span lang="en">The form</span></span>
+        <h2 lang="bg">Опишете случая</h2><h2 lang="en">Describe the case</h2>
+        <p lang="bg" class="lede">Попълнете каквото знаете. Бутонът отваря пощенската ви програма с готово писмо до избраната дирекция — вие го преглеждате и изпращате сами. Сайтът не съхранява нищо от написаното.</p><p lang="en" class="lede">Fill in what you know. The button opens your e-mail program with a ready letter to the directorate you chose — you review it and send it yourself. The site stores nothing you write.</p>
+
+        <form class="sigform" id="sigform" novalidate>
+          <div class="field">
+            <label for="f-region"><span lang="bg">Област, в която се е случило</span><span lang="en">Region where it happened</span> <span class="req" aria-hidden="true">*</span></label>
+            <select id="f-region" name="region" required>
+              <option value="" data-ph-bg="— изберете област —" data-ph-en="— choose a region —">— изберете област —</option>
+              <option value="blagoevgrad" data-mail="blagoevgrad@mvr.bg" data-tel="073 867 676" data-bg="Благоевград" data-en="Blagoevgrad" data-addr="ул. „Владо Черноземски“ № 3, 2700 Благоевград" data-tlbg="централа" data-tlen="централа">Благоевград</option>
+          <option value="burgas" data-mail="priemna@mvr.bg" data-tel="056 856 555" data-fallback="1" data-bg="Бургас" data-en="Burgas" data-addr="ул. „Христо Ботев“ № 46, Бургас" data-tlbg="гореща линия / ОДЧ" data-tlen="hotline / duty unit">Бургас</option>
+          <option value="varna" data-mail="varna@mvr.bg" data-tel="052 615 166" data-bg="Варна" data-en="Varna" data-addr="ул. „Цар Калоян“ № 2, Варна" data-tlbg="дежурна част" data-tlen="duty unit">Варна</option>
+          <option value="veliko-tarnovo" data-mail="veliko-tarnovo@mvr.bg" data-tel="062 662 662" data-bg="Велико Търново" data-en="Veliko Tarnovo" data-addr="ул. „Бачо Киро“ № 7, Велико Търново" data-tlbg="централа" data-tlen="централа">Велико Търново</option>
+          <option value="vidin" data-mail="vidin@mvr.bg" data-tel="094 600 014" data-bg="Видин" data-en="Vidin" data-addr="ул. „Цар Симеон Велики“ № 87, 3700 Видин" data-tlbg="централа" data-tlen="централа">Видин</option>
+          <option value="vratza" data-mail="odc.vratza@mvr.bg" data-tel="092 692 318" data-bg="Враца" data-en="Vratsa" data-addr="ул. „Поп Косто Буюклийски“ № 10, 3000 Враца" data-tlbg="оперативна дежурна част" data-tlen="duty unit">Враца</option>
+          <option value="gabrovo" data-mail="gabrovo@mvr.bg" data-tel="066 800 860" data-bg="Габрово" data-en="Gabrovo" data-addr="ул. „Орловска“ № 50, 5300 Габрово" data-tlbg="централа, денонощно" data-tlen="switchboard, 24/7">Габрово</option>
+          <option value="dobrich" data-mail="dobrich@mvr.bg" data-tel="058 658 058" data-bg="Добрич" data-en="Dobrich" data-addr="ул. „Максим Горки“ № 12, 9300 Добрич" data-tlbg="централа" data-tlen="централа">Добрич</option>
+          <option value="kardjali" data-mail="kardjali@mvr.bg" data-tel="0361 6 96 99" data-bg="Кърджали" data-en="Kardzhali" data-addr="бул. „България“ № 39, 6600 Кърджали" data-tlbg="централа" data-tlen="централа">Кърджали</option>
+          <option value="kustendil" data-mail="ODMVR_KN@mvr.bg" data-tel="078 557 323" data-bg="Кюстендил" data-en="Kyustendil" data-addr="ул. „Цар Освободител“ № 12, 2500 Кюстендил" data-tlbg="дежурна част" data-tlen="duty unit">Кюстендил</option>
+          <option value="lovech" data-mail="lovech@mvr.bg" data-tel="068 601 112" data-bg="Ловеч" data-en="Lovech" data-addr="ул. „Стефан Караджа“ № 2, 5500 Ловеч" data-tlbg="централа" data-tlen="централа">Ловеч</option>
+          <option value="montana" data-mail="montana@mvr.bg" data-tel="096 396 396" data-bg="Монтана" data-en="Montana" data-addr="бул. „Александър Стамболийски“ № 2, 3400 Монтана" data-tlbg="денонощна линия" data-tlen="24/7 line">Монтана</option>
+          <option value="pazardjik" data-mail="pazardzhik@mvr.bg" data-tel="034 434 400" data-bg="Пазарджик" data-en="Pazardzhik" data-addr="пл. „Съединение“ № 3, 4400 Пазарджик" data-tlbg="дежурен РУ Пазарджик" data-tlen="duty officer">Пазарджик</option>
+          <option value="pernik" data-mail="pernik@mvr.bg" data-tel="076 676 376" data-bg="Перник" data-en="Pernik" data-addr="ул. „Самоков“ № 1, 2300 Перник" data-tlbg="оперативна дежурна част" data-tlen="duty unit">Перник</option>
+          <option value="pleven" data-mail="pleven@mvr.bg" data-tel="064 864 323" data-bg="Плевен" data-en="Pleven" data-addr="ул. „Сан Стефано“ № 3, 5800 Плевен" data-tlbg="дежурен ОДМВР" data-tlen="duty officer">Плевен</option>
+          <option value="plovdiv" data-mail="odmvr_plovdiv@mvr.bg" data-tel="" data-bg="Пловдив" data-en="Plovdiv" data-addr="ул. „Княз Богориди“ № 7, Пловдив" data-tlbg="" data-tlen="">Пловдив</option>
+          <option value="razgrad" data-mail="od_razgrad@mvr.bg" data-tel="084 684 200" data-bg="Разград" data-en="Razgrad" data-addr="ул. „Кирил и Методий“ № 8, 7200 Разград" data-tlbg="централа" data-tlen="централа">Разград</option>
+          <option value="ruse" data-mail="odmvrruse@mvr.bg" data-tel="" data-bg="Русе" data-en="Ruse" data-addr="бул. „Скобелев“ № 49, 7000 Русе" data-tlbg="" data-tlen="">Русе</option>
+          <option value="silistra" data-mail="silistra@mvr.bg" data-tel="0868 86 286" data-bg="Силистра" data-en="Silistra" data-addr="бул. „Македония“ № 144, Силистра" data-tlbg="номератор" data-tlen="switchboard">Силистра</option>
+          <option value="sliven" data-mail="sliven@mvr.bg" data-tel="044 644 644" data-bg="Сливен" data-en="Sliven" data-addr="ул. „Ген. Скобелев“ № 5, 8800 Сливен" data-tlbg="централа" data-tlen="централа">Сливен</option>
+          <option value="smolyan" data-mail="smolyan@mvr.bg" data-tel="0301 35 323" data-bg="Смолян" data-en="Smolyan" data-addr="бул. „България“ № 67, 4700 Смолян" data-tlbg="дежурен ОДМВР" data-tlen="duty officer">Смолян</option>
+          <option value="sdvr" data-mail="sdvr@mvr.bg" data-tel="02 987 77 77" data-bg="София-град (СДВР)" data-en="Sofia city (SDVR)" data-addr="ул. „Антим I“ № 5, 1303 София" data-tlbg="дежурен център" data-tlen="duty centre">София-град (СДВР)</option>
+          <option value="sofia" data-mail="odmvr-sofia@mvr.bg" data-tel="02 873 99 45" data-bg="София-област" data-en="Sofia region" data-addr="бул. „Гео Милев“ № 71, 1574 София" data-tlbg="ОДЧ" data-tlen="duty unit">София-област</option>
+          <option value="stara-zagora" data-mail="stara_zagora@mvr.bg" data-tel="042 602 805" data-bg="Стара Загора" data-en="Stara Zagora" data-addr="ул. „Граф Игнатиев“ № 16, Стара Загора" data-tlbg="централа" data-tlen="централа">Стара Загора</option>
+          <option value="targovishte" data-mail="targovishte@mvr.bg" data-tel="0601 63 797" data-bg="Търговище" data-en="Targovishte" data-addr="ул. „Спиридон Грамадов“ № 36, 7700 Търговище" data-tlbg="дежурна част" data-tlen="duty unit">Търговище</option>
+          <option value="haskovo" data-mail="haskovo@mvr.bg" data-tel="038 640 640" data-bg="Хасково" data-en="Haskovo" data-addr="бул. „България“ № 85, 6300 Хасково" data-tlbg="централа" data-tlen="централа">Хасково</option>
+          <option value="shumen" data-mail="shumen@mvr.bg" data-tel="054 800 588" data-bg="Шумен" data-en="Shumen" data-addr="ул. „Сан Стефано“ № 2, Шумен" data-tlbg="дежурен ОДМВР" data-tlen="duty officer">Шумен</option>
+          <option value="yambol" data-mail="yambol@mvr.bg" data-tel="046 680 680" data-bg="Ямбол" data-en="Yambol" data-addr="ул. „Преслав“ № 40, Ямбол" data-tlbg="централа" data-tlen="централа">Ямбол</option>
+            </select>
+            <p class="hint"><span lang="bg">Ако не знаете областта, изберете тази, в която живеете, и опишете мястото по-долу.</span><span lang="en">If you do not know the region, choose the one you live in and describe the place below.</span></p>
+          </div>
+
+          <div class="field">
+            <label for="f-place"><span lang="bg">Населено място, адрес, училище</span><span lang="en">Town, address, school</span></label>
+            <input type="text" id="f-place" name="place" autocomplete="off">
+            <p class="hint"><span lang="bg">Например: гр. Пловдив, 25-то СУ, двора зад физкултурния салон.</span><span lang="en">For example: Plovdiv, School No. 25, the yard behind the gym.</span></p>
+          </div>
+
+          <div class="field field--split">
+            <div>
+              <label for="f-when"><span lang="bg">Кога се е случило</span><span lang="en">When it happened</span></label>
+              <input type="text" id="f-when" name="when" autocomplete="off">
+            </div>
+            <div>
+              <label for="f-who"><span lang="bg">Възраст на детето</span><span lang="en">The child’s age</span></label>
+              <input type="text" id="f-who" name="who" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-what"><span lang="bg">Какво се е случило</span><span lang="en">What happened</span> <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="f-what" name="what" rows="7" required></textarea>
+            <p class="hint"><span lang="bg">Опишете всички свидетелства или станали ви известни факти и обстоятелства — кой, какво, кога, колко пъти, има ли свидетели.</span><span lang="en">Describe every piece of evidence and every fact known to you — who, what, when, how many times, whether there were witnesses.</span></p>
+          </div>
+
+          <div class="field field--split">
+            <div>
+              <label for="f-name"><span lang="bg">Вашето име (по избор)</span><span lang="en">Your name (optional)</span></label>
+              <input type="text" id="f-name" name="name" autocomplete="name">
+            </div>
+            <div>
+              <label for="f-contact"><span lang="bg">Телефон или имейл (по избор)</span><span lang="en">Phone or e-mail (optional)</span></label>
+              <input type="text" id="f-contact" name="contact" autocomplete="email">
+            </div>
+          </div>
+          <p class="hint"><span lang="bg">Сигналът може да е анонимен. Без данни за контакт обаче институцията не може да поиска уточнения от вас.</span><span lang="en">A report can be anonymous. Without contact details, though, the institution cannot ask you for clarification.</span></p>
+
+          <div class="formnote"><span lang="bg"><strong>Не прикачвайте снимки или видео на дете.</strong> Ако разполагате с такива, запазете ги и ги предайте лично на разследващия служител. Не ги разпространявайте и не ги публикувайте.</span><span lang="en"><strong>Do not attach photographs or video of a child.</strong> If you have any, keep them safe and hand them over in person to the investigating officer. Do not share or publish them.</span></div>
+
+          <div class="btn-row" style="margin-top:20px">
+            <button class="btn btn--danger btn--lg" type="submit"><span lang="bg">Подготви писмото</span><span lang="en">Prepare the letter</span></button>
+            <button class="btn btn--ghost" type="button" id="copybtn"><span lang="bg">Копирай текста</span><span lang="en">Copy the text</span></button>
+          </div>
+          <p class="hint" id="formstatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <aside class="sidepanel" id="regionbox">
+        <h3 lang="bg">Към кого отива</h3><h3 lang="en">Where it goes</h3>
+        <dl>
+          <dt><span lang="bg">Дирекция</span><span lang="en">Directorate</span></dt><dd id="rb-name"><span lang="bg">Изберете област</span><span lang="en">Choose a region</span></dd>
+          <dt><span lang="bg">Телефон</span><span lang="en">Phone</span></dt><dd id="rb-tel">—</dd>
+          <dt><span lang="bg">Електронна поща</span><span lang="en">E-mail</span></dt><dd id="rb-mail">—</dd>
+          <dt><span lang="bg">Адрес</span><span lang="en">Address</span></dt><dd id="rb-addr">—</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><span lang="bg">Други възможности</span><span lang="en">Other options</span></span>
+      <h2 lang="bg">Сигнал може да подадете и тук</h2><h2 lang="en">You can also report here</h2>
+      <p lang="bg" class="lede">Формулярът не е единственият път. Всеки от тези канали приема сигнал за дете в риск.</p><p lang="en" class="lede">The form is not the only route. Each of these channels accepts a report about a child at risk.</p>
+    </div>
+    <div class="grid grid--2"><article class="card"><h3 lang="bg">Районните полицейски управления по места</h3><h3 lang="en">Local district police departments</h3><p lang="bg">Най-близкото РУ приема сигнал на място и по телефон. Телефоните са публикувани на страницата за контакт на съответната областна дирекция.</p><p lang="en">The nearest district department takes reports in person and by phone. Numbers are published on each regional directorate’s contact page.</p></article><article class="card"><h3 lang="bg">Прокуратура на Република България</h3><h3 lang="en">Prosecutor’s Office of the Republic of Bulgaria</h3><p lang="bg">Сигнал може да се подаде в районната прокуратура по местоживеене или по местоизвършване на деянието.</p><p lang="en">A report can be filed with the district prosecutor’s office where you live or where the act took place.</p></article><article class="card"><h3 lang="bg">Отдели „Закрила на детето“ към Агенцията за социално подпомагане</h3><h3 lang="en">Child Protection Departments at the Social Assistance Agency</h3><p lang="bg">Местната социална служба оценява риска за детето и осигурява подкрепа за него и за семейството му.</p><p lang="en">The local social service assesses the risk to the child and arranges support for the child and the family.</p></article><article class="card"><h3 lang="bg">Национална система 112</h3><h3 lang="en">112 — national emergency number</h3><p lang="bg">При непосредствена опасност за живота или здравето на дете. Денонощно, безплатно, от всеки телефон.</p><p lang="en">When a child’s life or health is in immediate danger. Round the clock, free, from any phone.</p></article></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><span lang="bg">Справочник</span><span lang="en">Directory</span></span>
+      <h2 lang="bg">Областните дирекции на МВР</h2><h2 lang="en">The regional directorates</h2>
+      <p lang="bg" class="lede">Телефоните са активни връзки — на телефон е достатъчно да докоснете номера.</p><p lang="en" class="lede">The phone numbers are active links — on a phone, simply tap the number.</p>
+    </div>
+    <div class="tablewrap" id="spravochnik">
+      <table class="dirtable">
+        <thead><tr><th scope="col"><span lang="bg">Област</span><span lang="en">Region</span></th><th scope="col"><span lang="bg">Телефон</span><span lang="en">Phone</span></th><th scope="col"><span lang="bg">Електронна поща</span><span lang="en">E-mail</span></th><th scope="col"><span lang="bg">Адрес</span><span lang="en">Address</span></th></tr></thead>
+        <tbody><tr>
+  <th scope="row"><span lang="bg">Благоевград</span><span lang="en">Blagoevgrad</span></th>
+  <td data-l="Телефон"><a href="tel:073867676">073 867 676</a><small><span lang="bg">централа</span><span lang="en">централа</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:blagoevgrad@mvr.bg">blagoevgrad@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Владо Черноземски“ № 3, 2700 Благоевград</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Бургас</span><span lang="en">Burgas</span></th>
+  <td data-l="Телефон"><a href="tel:056856555">056 856 555</a><small><span lang="bg">гореща линия / ОДЧ</span><span lang="en">hotline / duty unit</span></small></td>
+  <td data-l="Електронна поща"><span class="muted">—</span></td>
+  <td class="t-addr" data-l="Адрес">ул. „Христо Ботев“ № 46, Бургас</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Варна</span><span lang="en">Varna</span></th>
+  <td data-l="Телефон"><a href="tel:052615166">052 615 166</a><small><span lang="bg">дежурна част</span><span lang="en">duty unit</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:varna@mvr.bg">varna@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Цар Калоян“ № 2, Варна</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Велико Търново</span><span lang="en">Veliko Tarnovo</span></th>
+  <td data-l="Телефон"><a href="tel:062662662">062 662 662</a><small><span lang="bg">централа</span><span lang="en">централа</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:veliko-tarnovo@mvr.bg">veliko-tarnovo@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Бачо Киро“ № 7, Велико Търново</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Видин</span><span lang="en">Vidin</span></th>
+  <td data-l="Телефон"><a href="tel:094600014">094 600 014</a><small><span lang="bg">централа</span><span lang="en">централа</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:vidin@mvr.bg">vidin@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Цар Симеон Велики“ № 87, 3700 Видин</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Враца</span><span lang="en">Vratsa</span></th>
+  <td data-l="Телефон"><a href="tel:092692318">092 692 318</a><small><span lang="bg">оперативна дежурна част</span><span lang="en">duty unit</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:odc.vratza@mvr.bg">odc.vratza@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Поп Косто Буюклийски“ № 10, 3000 Враца</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Габрово</span><span lang="en">Gabrovo</span></th>
+  <td data-l="Телефон"><a href="tel:066800860">066 800 860</a><small><span lang="bg">централа, денонощно</span><span lang="en">switchboard, 24/7</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:gabrovo@mvr.bg">gabrovo@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Орловска“ № 50, 5300 Габрово</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Добрич</span><span lang="en">Dobrich</span></th>
+  <td data-l="Телефон"><a href="tel:058658058">058 658 058</a><small><span lang="bg">централа</span><span lang="en">централа</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:dobrich@mvr.bg">dobrich@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Максим Горки“ № 12, 9300 Добрич</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Кърджали</span><span lang="en">Kardzhali</span></th>
+  <td data-l="Телефон"><a href="tel:036169699">0361 6 96 99</a><small><span lang="bg">централа</span><span lang="en">централа</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:kardjali@mvr.bg">kardjali@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">бул. „България“ № 39, 6600 Кърджали</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Кюстендил</span><span lang="en">Kyustendil</span></th>
+  <td data-l="Телефон"><a href="tel:078557323">078 557 323</a><small><span lang="bg">дежурна част</span><span lang="en">duty unit</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:ODMVR_KN@mvr.bg">ODMVR_KN@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Цар Освободител“ № 12, 2500 Кюстендил</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Ловеч</span><span lang="en">Lovech</span></th>
+  <td data-l="Телефон"><a href="tel:068601112">068 601 112</a><small><span lang="bg">централа</span><span lang="en">централа</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:lovech@mvr.bg">lovech@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Стефан Караджа“ № 2, 5500 Ловеч</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Монтана</span><span lang="en">Montana</span></th>
+  <td data-l="Телефон"><a href="tel:096396396">096 396 396</a><small><span lang="bg">денонощна линия</span><span lang="en">24/7 line</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:montana@mvr.bg">montana@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">бул. „Александър Стамболийски“ № 2, 3400 Монтана</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Пазарджик</span><span lang="en">Pazardzhik</span></th>
+  <td data-l="Телефон"><a href="tel:034434400">034 434 400</a><small><span lang="bg">дежурен РУ Пазарджик</span><span lang="en">duty officer</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:pazardzhik@mvr.bg">pazardzhik@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">пл. „Съединение“ № 3, 4400 Пазарджик</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Перник</span><span lang="en">Pernik</span></th>
+  <td data-l="Телефон"><a href="tel:076676376">076 676 376</a><small><span lang="bg">оперативна дежурна част</span><span lang="en">duty unit</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:pernik@mvr.bg">pernik@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Самоков“ № 1, 2300 Перник</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Плевен</span><span lang="en">Pleven</span></th>
+  <td data-l="Телефон"><a href="tel:064864323">064 864 323</a><small><span lang="bg">дежурен ОДМВР</span><span lang="en">duty officer</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:pleven@mvr.bg">pleven@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Сан Стефано“ № 3, 5800 Плевен</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Пловдив</span><span lang="en">Plovdiv</span></th>
+  <td data-l="Телефон"><span class="muted">—</span></td>
+  <td data-l="Електронна поща"><a href="mailto:odmvr_plovdiv@mvr.bg">odmvr_plovdiv@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Княз Богориди“ № 7, Пловдив</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Разград</span><span lang="en">Razgrad</span></th>
+  <td data-l="Телефон"><a href="tel:084684200">084 684 200</a><small><span lang="bg">централа</span><span lang="en">централа</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:od_razgrad@mvr.bg">od_razgrad@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Кирил и Методий“ № 8, 7200 Разград</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Русе</span><span lang="en">Ruse</span></th>
+  <td data-l="Телефон"><span class="muted">—</span></td>
+  <td data-l="Електронна поща"><a href="mailto:odmvrruse@mvr.bg">odmvrruse@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">бул. „Скобелев“ № 49, 7000 Русе</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Силистра</span><span lang="en">Silistra</span></th>
+  <td data-l="Телефон"><a href="tel:086886286">0868 86 286</a><small><span lang="bg">номератор</span><span lang="en">switchboard</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:silistra@mvr.bg">silistra@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">бул. „Македония“ № 144, Силистра</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Сливен</span><span lang="en">Sliven</span></th>
+  <td data-l="Телефон"><a href="tel:044644644">044 644 644</a><small><span lang="bg">централа</span><span lang="en">централа</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:sliven@mvr.bg">sliven@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Ген. Скобелев“ № 5, 8800 Сливен</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Смолян</span><span lang="en">Smolyan</span></th>
+  <td data-l="Телефон"><a href="tel:030135323">0301 35 323</a><small><span lang="bg">дежурен ОДМВР</span><span lang="en">duty officer</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:smolyan@mvr.bg">smolyan@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">бул. „България“ № 67, 4700 Смолян</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">София-град (СДВР)</span><span lang="en">Sofia city (SDVR)</span></th>
+  <td data-l="Телефон"><a href="tel:029877777">02 987 77 77</a><small><span lang="bg">дежурен център</span><span lang="en">duty centre</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:sdvr@mvr.bg">sdvr@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Антим I“ № 5, 1303 София</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">София-област</span><span lang="en">Sofia region</span></th>
+  <td data-l="Телефон"><a href="tel:028739945">02 873 99 45</a><small><span lang="bg">ОДЧ</span><span lang="en">duty unit</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:odmvr-sofia@mvr.bg">odmvr-sofia@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">бул. „Гео Милев“ № 71, 1574 София</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Стара Загора</span><span lang="en">Stara Zagora</span></th>
+  <td data-l="Телефон"><a href="tel:042602805">042 602 805</a><small><span lang="bg">централа</span><span lang="en">централа</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:stara_zagora@mvr.bg">stara_zagora@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Граф Игнатиев“ № 16, Стара Загора</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Търговище</span><span lang="en">Targovishte</span></th>
+  <td data-l="Телефон"><a href="tel:060163797">0601 63 797</a><small><span lang="bg">дежурна част</span><span lang="en">duty unit</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:targovishte@mvr.bg">targovishte@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Спиридон Грамадов“ № 36, 7700 Търговище</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Хасково</span><span lang="en">Haskovo</span></th>
+  <td data-l="Телефон"><a href="tel:038640640">038 640 640</a><small><span lang="bg">централа</span><span lang="en">централа</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:haskovo@mvr.bg">haskovo@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">бул. „България“ № 85, 6300 Хасково</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Шумен</span><span lang="en">Shumen</span></th>
+  <td data-l="Телефон"><a href="tel:054800588">054 800 588</a><small><span lang="bg">дежурен ОДМВР</span><span lang="en">duty officer</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:shumen@mvr.bg">shumen@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Сан Стефано“ № 2, Шумен</td>
+</tr><tr>
+  <th scope="row"><span lang="bg">Ямбол</span><span lang="en">Yambol</span></th>
+  <td data-l="Телефон"><a href="tel:046680680">046 680 680</a><small><span lang="bg">централа</span><span lang="en">централа</span></small></td>
+  <td data-l="Електронна поща"><a href="mailto:yambol@mvr.bg">yambol@mvr.bg</a></td>
+  <td class="t-addr" data-l="Адрес">ул. „Преслав“ № 40, Ямбол</td>
+</tr></tbody>
+      </table>
+    </div>
+    <p class="note"><span lang="bg">Данните са взети от публичните страници за контакт на областните дирекции на mvr.bg и са проверени на 1 октомври 2026 г. Там, където дирекцията не публикува обща електронна поща, формулярът използва приемната на МВР: <a href="mailto:priemna@mvr.bg">priemna@mvr.bg</a>.</span><span lang="en">The data come from the published contact pages of the regional directorates on mvr.bg and were checked on 1 October 2026. Where a directorate publishes no general e-mail address, the form uses the Ministry’s public reception: <a href="mailto:priemna@mvr.bg">priemna@mvr.bg</a>.</span></p>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">
+          <picture><source type="image/webp" srcset="assets/img/cybercrime-gdbop-sm.webp 192w, assets/img/cybercrime-gdbop.webp 341w" sizes="64px"><img src="assets/img/cybercrime-gdbop-sm.png" srcset="assets/img/cybercrime-gdbop-sm.png 192w, assets/img/cybercrime-gdbop.png 341w" sizes="64px" alt="" width="192" height="236" decoding="async" loading="lazy" class="footer__mark"></picture>
+          <span>
+            <strong>СпасиДете.БГ</strong>
+            <span lang="bg">Безопасен интернет за децата</span><span lang="en">A safer internet for children</span>
+          </span>
+        </div>
+        <p lang="bg">Информационен портал на дирекция „Киберпрестъпност“ при ГДБОП-МВР за онлайн рисковете, агресията и тормоза сред деца — и за това къде всеки може да потърси помощ.</p><p lang="en">An information portal of the Cybercrime Directorate at GDBOP, Ministry of Interior, on online risks, aggression and bullying among children — and on where anyone can seek help.</p>
+      </div>
+      <div>
+        <h2 lang="bg">Разделите</h2><h2 lang="en">Sections</h2>
+        <ul><li><a href="index.html"><span lang="bg">Начало</span><span lang="en">Home</span></a></li><li><a href="bullying.html"><span lang="bg">Агресия и насилие</span><span lang="en">Aggression &amp; violence</span></a></li><li><a href="advice.html"><span lang="bg">Съвети</span><span lang="en">Advice</span></a></li><li><a href="help.html"><span lang="bg">Помощ</span><span lang="en">Help</span></a></li><li><a href="campaigns.html"><span lang="bg">Кампании</span><span lang="en">Campaigns</span></a></li><li><a href="news.html"><span lang="bg">Новини</span><span lang="en">News</span></a></li><li><a href="resources.html"><span lang="bg">Ресурси</span><span lang="en">Resources</span></a></li><li><a href="about.html"><span lang="bg">За нас</span><span lang="en">About</span></a></li><li><a href="report.html"><span lang="bg">Подай сигнал</span><span lang="en">File a report</span></a></li><li><a href="contact.html"><span lang="bg">Контакти</span><span lang="en">Contact</span></a></li></ul>
+      </div>
+      <div>
+        <h2 lang="bg">Институции</h2><h2 lang="en">Institutions</h2>
+        <ul>
+          <li><a href="https://gdbop.bg/" target="_blank" rel="noopener">ГДБОП</a></li>
+          <li><a href="https://www.cybercrime.bg/" target="_blank" rel="noopener">cybercrime.bg</a></li>
+          <li><a href="https://www.mvr.bg/" target="_blank" rel="noopener">МВР</a></li>
+          <li><a href="https://sacp.government.bg/" target="_blank" rel="noopener">ДАЗД</a></li>
+          <li><a href="https://116111.bg/" target="_blank" rel="noopener">116 111</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 lang="bg">Контакт</h2><h2 lang="en">Contact</h2>
+        <ul>
+          <li><span lang="bg">гр. София 1784, бул. „Цариградско шосе“ № 133А</span><span lang="en">133A Tsarigradsko shose Blvd., Sofia 1784, Bulgaria</span></li>
+          <li><a href="tel:+35929828363">+359 2 982 83 63</a></li>
+          <li><a href="mailto:spasidete@cybercrime.bg">spasidete@cybercrime.bg</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__eu">
+      <svg class="eu-flag" viewBox="0 0 90 60" role="img" aria-label="Европейски съюз / European Union"><rect width="90" height="60" fill="#039"/><g fill="#FC0"><polygon points="45.00,7.80 46.00,10.62 48.99,10.70 46.62,12.53 47.47,15.40 45.00,13.70 42.53,15.40 43.38,12.53 41.01,10.70 44.00,10.62"/><polygon points="54.00,10.21 55.00,13.04 57.99,13.11 55.62,14.94 56.47,17.81 54.00,16.11 51.53,17.81 52.38,14.94 50.01,13.11 53.00,13.04"/><polygon points="60.59,16.80 61.59,19.62 64.58,19.70 62.21,21.53 63.06,24.40 60.59,22.70 58.12,24.40 58.97,21.53 56.59,19.70 59.59,19.62"/><polygon points="63.00,25.80 64.00,28.62 66.99,28.70 64.62,30.53 65.47,33.40 63.00,31.70 60.53,33.40 61.38,30.53 59.01,28.70 62.00,28.62"/><polygon points="60.59,34.80 61.59,37.62 64.58,37.70 62.21,39.53 63.06,42.40 60.59,40.70 58.12,42.40 58.97,39.53 56.59,37.70 59.59,37.62"/><polygon points="54.00,41.39 55.00,44.21 57.99,44.29 55.62,46.11 56.47,48.99 54.00,47.29 51.53,48.99 52.38,46.11 50.01,44.29 53.00,44.21"/><polygon points="45.00,43.80 46.00,46.62 48.99,46.70 46.62,48.53 47.47,51.40 45.00,49.70 42.53,51.40 43.38,48.53 41.01,46.70 44.00,46.62"/><polygon points="36.00,41.39 37.00,44.21 39.99,44.29 37.62,46.11 38.47,48.99 36.00,47.29 33.53,48.99 34.38,46.11 32.01,44.29 35.00,44.21"/><polygon points="29.41,34.80 30.41,37.62 33.41,37.70 31.03,39.53 31.88,42.40 29.41,40.70 26.94,42.40 27.79,39.53 25.42,37.70 28.41,37.62"/><polygon points="27.00,25.80 28.00,28.62 30.99,28.70 28.62,30.53 29.47,33.40 27.00,31.70 24.53,33.40 25.38,30.53 23.01,28.70 26.00,28.62"/><polygon points="29.41,16.80 30.41,19.62 33.41,19.70 31.03,21.53 31.88,24.40 29.41,22.70 26.94,24.40 27.79,21.53 25.42,19.70 28.41,19.62"/><polygon points="36.00,10.21 37.00,13.04 39.99,13.11 37.62,14.94 38.47,17.81 36.00,16.11 33.53,17.81 34.38,14.94 32.01,13.11 35.00,13.04"/></g></svg>
+      <span>
+        <span lang="bg">Съ-финансиран по програма „Превенция и борба с престъпността“ на Европейския съюз.</span><span lang="en">Co-funded by the Prevention of and Fight against Crime Programme of the European Union.</span>
+      </span>
+    </div>
+
+    <div class="footer__legal">
+      <span>&copy; <span data-year>2026</span> <span lang="bg">ГДБОП — Министерство на вътрешните работи</span><span lang="en">GDBOP — Ministry of Interior of the Republic of Bulgaria</span></span>
+      <span><span lang="bg">Последна актуализация: октомври 2026 г.</span><span lang="en">Last updated: October 2026</span></span>
+    </div>
+  </div>
+</footer>
+
+<button class="totop" type="button" aria-label="Нагоре / Back to top"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></button>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
