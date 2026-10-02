@@ -12,7 +12,9 @@
 <meta property="og:description" content="За проекта „Децата — потенциални жертви на престъпления в интернет“ (HOME/2012/ISEC/FP/C2/4000003996), партньорите и инициативата за доставчиците на интернет услуги.">
 <meta property="og:locale" content="bg_BG">
 <meta property="og:locale:alternate" content="en_GB">
-<meta property="og:image" content="https://spasidete.bg/assets/img/favicon-180.png">
+<meta property="og:image" content="https://spasidete.bg/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
@@ -37,10 +39,10 @@
 <header class="nav">
   <div class="wrap nav__inner">
     <a class="brand" href="index.html">
-      <picture><source type="image/webp" srcset="assets/img/cybercrime-gdbop-sm.webp 192w, assets/img/cybercrime-gdbop.webp 341w" sizes="64px"><img src="assets/img/cybercrime-gdbop-sm.png" srcset="assets/img/cybercrime-gdbop-sm.png 192w, assets/img/cybercrime-gdbop.png 341w" sizes="64px" alt="" width="192" height="236" decoding="async" class="brand__mark"></picture>
+      <picture><source type="image/svg+xml" srcset="assets/img/logo-spasidete.svg"><img src="assets/img/logo-spasidete.png" alt="" width="192" height="192" decoding="async" class="brand__mark"></picture>
       <span class="brand__text">
         <strong>СпасиДете.БГ</strong>
-        <span class="brand__sub"><span lang="bg">Дирекция „Киберпрестъпност“ · ГДБОП · МВР</span><span lang="en">Cybercrime Directorate · GDBOP · Ministry of Interior</span></span>
+        <span class="brand__sub"><span lang="bg">Министерство на вътрешните работи</span><span lang="en">Ministry of Interior of the Republic of Bulgaria</span></span>
       </span>
     </a>
 
@@ -55,6 +57,14 @@
         <li><a href="about.html" aria-current="page"><span lang="bg">За нас</span><span lang="en">About</span></a></li>
         <li class="nav__extra"><a href="contact.html"><span lang="bg">Контакти</span><span lang="en">Contact</span></a></li>
       </ul>
+      <!-- Вторият превключвател се показва само на най-тесните телефони, където
+           в лентата няма място за него. Скриптът обслужва и двата.
+           The second switch shows only on the narrowest phones, where the bar has
+           no room for it. The script serves both. -->
+      <div class="langswitch langswitch--menu" role="group" aria-label="Език / Language">
+        <button type="button" data-lang="bg" aria-pressed="true">БГ</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </nav>
 
     <div class="nav__actions">
@@ -81,9 +91,9 @@
 <main id="main">
 <section class="pagehead">
   <div class="wrap">
-    <div class="crumbs"><a href="index.html"><span lang="bg">Начало</span><span lang="en">Home</span></a><span>/</span><span lang="bg">За проекта</span><span lang="en">About</span></div>
-    <h1 lang="bg">За проекта и за сайта</h1><h1 lang="en">About the project and the site</h1>
-    <p lang="bg">СпасиДете.БГ е информационен портал на дирекция „Киберпрестъпност“ при ГДБОП-МВР. Създаден е в рамките на европейски проект и днес продължава като постоянен ресурс за деца, родители и учители.</p><p lang="en">SpasiDete.BG is an information portal of the Cybercrime Directorate at GDBOP, Ministry of Interior. It was created within a European project and continues today as a permanent resource for children, parents and teachers.</p>
+    <div class="crumbs"><a href="index.html"><span lang="bg">Начало</span><span lang="en">Home</span></a><span>/</span><span lang="bg">За сайта</span><span lang="en">About</span></div>
+    <h1 lang="bg">За сайта</h1><h1 lang="en">About the site</h1>
+    <p lang="bg">СпасиДете.БГ е национален информационен портал на Министерството на вътрешните работи за агресията в детския свят. Създаден е в рамките на европейски проект за безопасността на децата онлайн и днес обхваща агресията във всичките ѝ форми — като постоянен ресурс за деца, родители и учители.</p><p lang="en">SpasiDete.BG is a national information portal of the Bulgarian Ministry of Interior on aggression in the world of children. It was created within a European project on children’s safety online and today covers aggression in all its forms — as a permanent resource for children, parents and teachers.</p>
   </div>
 </section>
 
@@ -111,7 +121,7 @@
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--sand">
   <div class="wrap">
     <figure class="figure">
       <picture><source type="image/webp" srcset="assets/img/conference.webp"><img src="assets/img/conference.jpg" width="958" height="364" alt="Международна конференция по проекта — „Child sexual exploitation in Bulgaria: scope of the problem and the way forward“" decoding="async" loading="lazy"></picture>
@@ -131,7 +141,7 @@
   </div>
 </section>
 
-<section class="section section--alt" id="isp">
+<section class="section section--sky" id="isp">
   <div class="wrap">
     <div class="grid grid--2" style="gap:40px;align-items:start">
       <div>
@@ -160,7 +170,7 @@
     </div>
     <details class="qa">
   <summary><span lang="bg">Кой поддържа този сайт?</span><span lang="en">Who maintains this site?</span></summary>
-  <div class="qa__body"><p lang="bg">Сайтът се поддържа от дирекция „Киберпрестъпност“ при Главна дирекция „Борба с организираната престъпност“ — Министерство на вътрешните работи.</p><p lang="en">The site is maintained by the Cybercrime Directorate at the General Directorate for Combating Organised Crime — Ministry of Interior.</p></div>
+  <div class="qa__body"><p lang="bg">Сайтът е на Министерството на вътрешните работи. Поддържа се от дирекция „Киберпрестъпност“ при Главна дирекция „Борба с организираната престъпност“, а съдържанието се изготвя съвместно със структурите на МВР, които работят с деца — детските педагогически стаи, районните управления и Главна дирекция „Национална полиция“.</p><p lang="en">The site belongs to the Ministry of Interior. It is maintained by the Cybercrime Directorate at the General Directorate for Combating Organised Crime, and its content is prepared together with the Ministry structures that work with children — the child pedagogical rooms, the regional police departments and the General Directorate National Police.</p></div>
 </details><details class="qa">
   <summary><span lang="bg">Какъв беше проектът „Децата — потенциални жертви на престъпления в интернет“?</span><span lang="en">What was the project “Children — potential victims of crime on the internet”?</span></summary>
   <div class="qa__body"><p lang="bg">Проект HOME/2012/ISEC/FP/C2/4000003996, разработен от ГДБОП по програма „Превенция и борба с престъпността“ на Европейската комисия. Той е насочен към по-ефективно противодействие на сексуалната експлоатация и злоупотреба с деца в интернет, към подобряване на механизмите за международно сътрудничество и към повишаване на професионалния капацитет на компетентните структури.</p><p lang="en">Project HOME/2012/ISEC/FP/C2/4000003996, developed by GDBOP under the European Commission’s Prevention of and Fight against Crime Programme. It aimed at countering the sexual exploitation and abuse of children online more effectively, improving international cooperation mechanisms and raising the professional capacity of the competent structures.</p></div>
@@ -183,13 +193,13 @@
     <div class="footer__grid">
       <div>
         <div class="footer__brand">
-          <picture><source type="image/webp" srcset="assets/img/cybercrime-gdbop-sm.webp 192w, assets/img/cybercrime-gdbop.webp 341w" sizes="64px"><img src="assets/img/cybercrime-gdbop-sm.png" srcset="assets/img/cybercrime-gdbop-sm.png 192w, assets/img/cybercrime-gdbop.png 341w" sizes="64px" alt="" width="192" height="236" decoding="async" loading="lazy" class="footer__mark"></picture>
+          <picture><source type="image/svg+xml" srcset="assets/img/logo-spasidete.svg"><img src="assets/img/logo-spasidete.png" alt="" width="192" height="192" decoding="async" loading="lazy" class="footer__mark"></picture>
           <span>
             <strong>СпасиДете.БГ</strong>
-            <span lang="bg">Безопасен интернет за децата</span><span lang="en">A safer internet for children</span>
+            <span lang="bg">Детство без агресия</span><span lang="en">A childhood without aggression</span>
           </span>
         </div>
-        <p lang="bg">Информационен портал на дирекция „Киберпрестъпност“ при ГДБОП-МВР за онлайн рисковете, агресията и тормоза сред деца — и за това къде всеки може да потърси помощ.</p><p lang="en">An information portal of the Cybercrime Directorate at GDBOP, Ministry of Interior, on online risks, aggression and bullying among children — and on where anyone can seek help.</p>
+        <p lang="bg">Национален информационен портал на Министерството на вътрешните работи за агресията в детския свят във всичките ѝ форми — от деца, към деца и между деца, в училище, на улицата и онлайн — и за това къде всеки може да потърси помощ.</p><p lang="en">A national information portal of the Ministry of Interior on aggression in the world of children in all its forms — by children, against children and between children, at school, in the street and online — and on where anyone can seek help.</p>
       </div>
       <div>
         <h2 lang="bg">Разделите</h2><h2 lang="en">Sections</h2>

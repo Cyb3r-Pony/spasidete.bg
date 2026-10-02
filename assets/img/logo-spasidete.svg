@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Щит с дете">
+  <path d="M32 2.5 L58.5 11.2 V33 C58.5 47.6 47.2 57.9 32 62.5 C16.8 57.9 5.5 47.6 5.5 33 V11.2 Z" fill="#1d4e89"/>
+  <path d="M32 7.6 L53.6 14.7 V33 C53.6 44.8 44.4 53.4 32 57.5 C19.6 53.4 10.4 44.8 10.4 33 V14.7 Z" fill="none" stroke="#ffffff" stroke-opacity=".32" stroke-width="1.6"/>
+  <circle cx="32" cy="23.8" r="6.6" fill="#fff"/>
+  <path d="M32 32.6c-4.6 0-8.4 2.6-10 6.6l-5.1-4.6a3 3 0 0 0-4 4.5l7.4 6.6v8.1h23.4v-8.1l7.4-6.6a3 3 0 0 0-4-4.5L40.4 39c-1.6-4-5.4-6.6-10-6.6z" fill="#fff"/>
+</svg>

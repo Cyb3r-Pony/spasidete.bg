@@ -132,6 +132,23 @@ def pic(name, alt, sizes="100vw", cls="", eager=False, caption=None):
     return img + ("<figcaption>%s</figcaption>" % caption if caption else "")
 
 
+def logo(cls="", alt="", lazy=False):
+    """Марката на сайта — щит с дете. SVG се чертае остро на всеки размер,
+    а PNG остава за браузъри, които не поемат SVG в <picture>.
+
+    The site's mark — a shield with a child. The SVG draws sharply at any size;
+    the PNG remains for browsers that do not take an SVG inside <picture>.
+    """
+    return (
+        '<picture>'
+        '<source type="image/svg+xml" srcset="assets/img/logo-spasidete.svg">'
+        '<img src="assets/img/logo-spasidete.png" alt="{alt}" width="192" height="192" '
+        'decoding="async"{lz}{cls}>'
+        '</picture>'
+    ).format(alt=esc(alt), lz=' loading="lazy"' if lazy else "",
+             cls=(' class="%s"' % cls) if cls else "")
+
+
 def emblem(name, alt="", cls="", w=0, h=0, lazy=True):
     """Емблемите също имат WebP / the emblems have a WebP version too.
 
@@ -240,7 +257,9 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:description" content="{desc_bg}">
 <meta property="og:locale" content="bg_BG">
 <meta property="og:locale:alternate" content="en_GB">
-<meta property="og:image" content="https://spasidete.bg/assets/img/favicon-180.png">
+<meta property="og:image" content="https://spasidete.bg/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
@@ -277,6 +296,14 @@ HEAD = """<!DOCTYPE html>
         {nav}
         <li class="nav__extra"><a href="contact.html"><span lang="bg">Контакти</span><span lang="en">Contact</span></a></li>
       </ul>
+      <!-- Вторият превключвател се показва само на най-тесните телефони, където
+           в лентата няма място за него. Скриптът обслужва и двата.
+           The second switch shows only on the narrowest phones, where the bar has
+           no room for it. The script serves both. -->
+      <div class="langswitch langswitch--menu" role="group" aria-label="Език / Language">
+        <button type="button" data-lang="bg" aria-pressed="true">БГ</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </nav>
 
     <div class="nav__actions">
@@ -383,12 +410,12 @@ def page(filename, title_bg, title_en, desc_bg, desc_en, body, preload=""):
         t_emergency_sm=bi("спешен", "emergency"),
         t_child_sm=bi("линия за деца", "child line"),
         brandsub=bi(
-            "Дирекция „Киберпрестъпност“ · ГДБОП · МВР",
-            "Cybercrime Directorate · GDBOP · Ministry of Interior",
+            "Министерство на вътрешните работи",
+            "Ministry of Interior of the Republic of Bulgaria",
         ),
         nav=nav_html(filename),
         preload=preload,
-        brandmark=emblem("cybercrime-gdbop", cls="brand__mark", w=341, h=420, lazy=False),
+        brandmark=logo(cls="brand__mark"),
     )
 
     site_links = (
@@ -400,14 +427,16 @@ def page(filename, title_bg, title_en, desc_bg, desc_en, body, preload=""):
 
     foot = FOOT.format(
         f_sub=bi(
-            "Безопасен интернет за децата",
-            "A safer internet for children",
+            "Детство без агресия",
+            "A childhood without aggression",
         ),
         f_blurb=p(
-            "Информационен портал на дирекция „Киберпрестъпност“ при ГДБОП-МВР за онлайн рисковете, "
-            "агресията и тормоза сред деца — и за това къде всеки може да потърси помощ.",
-            "An information portal of the Cybercrime Directorate at GDBOP, Ministry of Interior, on online risks, "
-            "aggression and bullying among children — and on where anyone can seek help.",
+            "Национален информационен портал на Министерството на вътрешните работи за агресията в "
+            "детския свят във всичките ѝ форми — от деца, към деца и между деца, в училище, на улицата "
+            "и онлайн — и за това къде всеки може да потърси помощ.",
+            "A national information portal of the Ministry of Interior on aggression in the world of children in "
+            "all its forms — by children, against children and between children, at school, in the street and "
+            "online — and on where anyone can seek help.",
         ),
         f_h_site=h(2, "Разделите", "Sections"),
         f_site_links=site_links,
@@ -422,7 +451,7 @@ def page(filename, title_bg, title_en, desc_bg, desc_en, body, preload=""):
             "GDBOP — Ministry of Interior of the Republic of Bulgaria",
         ),
         f_updated=bi("Последна актуализация: октомври 2026 г.", "Last updated: October 2026"),
-        footmark=emblem("cybercrime-gdbop", cls="footer__mark", w=341, h=420),
+        footmark=logo(cls="footer__mark", lazy=True),
         eu_stars=EU_STARS,
         ic_up=ICON["up"],
     )
@@ -964,6 +993,31 @@ def build_index():
   </div>
 </section>
 
+<section class="section section--sky">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">{feye}</span>
+      {fh}
+      {fp}
+    </div>
+    <div class="grid grid--3">
+      <div class="facet facet--to">
+        <span class="facet__tag">{f1t}</span>
+        {f1h}{f1p}
+      </div>
+      <div class="facet facet--from">
+        <span class="facet__tag">{f2t}</span>
+        {f2h}{f2p}
+      </div>
+      <div class="facet facet--between">
+        <span class="facet__tag">{f3t}</span>
+        {f3h}{f3p}
+      </div>
+    </div>
+    <p class="note" style="margin-top:24px">{fnote}</p>
+  </div>
+</section>
+
 <section class="section section--tight">
   <div class="wrap">
     <div class="callout callout--amber">
@@ -1002,7 +1056,7 @@ def build_index():
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--sand">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{seyebrow}</span>
@@ -1034,7 +1088,7 @@ def build_index():
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--rose">
   <div class="wrap">
     <div class="callout callout--navy">
       <div class="grid grid--2" style="align-items:center;gap:30px">
@@ -1052,19 +1106,21 @@ def build_index():
   </div>
 </section>
 """.format(
-        eyebrow=bi("Дирекция „Киберпрестъпност“ · ГДБОП · МВР",
-                   "Cybercrime Directorate · GDBOP · Ministry of Interior"),
-        h1=h(1, "Агресията онлайн не е детска игра.",
-             "Online aggression is not child’s play."),
+        eyebrow=bi("Министерство на вътрешните работи",
+                   "Ministry of Interior of the Republic of Bulgaria"),
+        h1=h(1, "Агресията не е детска игра.",
+             "Aggression is not child’s play."),
         sub=p(
-            "Всяко дете има право на безопасен интернет и на училище без страх. Тук ще намерите какво е "
-            "тормозът, как да го разпознаете, как да реагирате и към кого да се обърнете — веднага.",
-            "Every child has the right to a safe internet and to a school without fear. Here you will find what "
-            "bullying is, how to recognise it, how to respond and whom to turn to — straight away.",
+            "Удар в междучасието, подигравка в групата, заплаха в съобщение. Агресията в детския свят има "
+            "много лица — и когато детето е жертва, и когато то самото посяга. Тук ще намерите как се "
+            "разпознава, как се реагира и към кого да се обърнете — веднага.",
+            "A blow at break time, mockery in the group chat, a threat in a message. Aggression in the world of "
+            "children has many faces — when a child is the victim, and when a child is the one lashing out. Here "
+            "you will find how to recognise it, how to respond and whom to turn to — straight away.",
             cls="lede",
         ),
         cta1=bi("Подай сигнал", "File a report"),
-        cta2=bi("Какво е булинг?", "What is bullying?"),
+        cta2=bi("Какво е агресия?", "What is aggression?"),
         panelh=h(2, "Бърза помощ", "Quick help"),
         l112=bi("Спешен телефон, денонощно", "Emergency number, 24/7"),
         l116=bi("Линия за деца, безплатна", "Child helpline, free"),
@@ -1072,6 +1128,33 @@ def build_index():
         hpe2=emblem("gdbop-mvr", cls="hp-emblem hp-emblem--round", w=256, h=256, lazy=False),
         lcyber=bi("Сигнал за незаконно съдържание", "Report illegal content"),
         lgdbop=bi("Сигнал до ГДБОП", "Report to GDBOP"),
+        feye=bi("Трите посоки", "The three directions"),
+        fh=h(2, "Агресията в детския свят", "Aggression in the world of children"),
+        fp=p("Не е само онлайн и не е само в училище. Агресията идва от три посоки и всяка иска различен отговор.",
+             "It is not only online and not only at school. Aggression comes from three directions, and each calls for a different answer.",
+             cls="lede"),
+        f1t=bi("Към детето", "Against a child"),
+        f1h=h(3, "Когато детето е жертва", "When the child is the victim"),
+        f1p=p("Побой, заплахи, изнудване, подигравки, изключване от групата, разпространение на снимки и записи. "
+              "Насилие може да идва и от възрастен — вкъщи, в училище или онлайн.",
+              "Beatings, threats, extortion, mockery, exclusion from the group, the spreading of photos and recordings. "
+              "Violence can also come from an adult — at home, at school or online."),
+        f2t=bi("От детето", "By a child"),
+        f2h=h(3, "Когато детето посяга", "When the child lashes out"),
+        f2p=p("Зад агресивното поведение почти винаги стои нещо друго — страх, безсилие, преживяно насилие, "
+              "подражание. Детето, което удря, също има нужда от помощ, а не само от наказание.",
+              "There is almost always something behind aggressive behaviour — fear, powerlessness, violence already "
+              "experienced, imitation. The child who hits needs help too, not only punishment."),
+        f3t=bi("Между децата", "Between children"),
+        f3h=h(3, "Когато класът участва", "When the class takes part"),
+        f3p=p("Тормозът рядко е между двама. Около него има подбудители, помощници и мълчаливи свидетели. "
+              "Той спира тогава, когато групата спре да го поддържа.",
+              "Bullying is rarely between two people. Around it there are instigators, assistants and silent witnesses. "
+              "It stops when the group stops sustaining it."),
+        fnote=bi(
+            "Едно дете често минава и през трите роли. Затова сайтът не дели децата на „лоши“ и „добри“, а говори за поведение, което може да се промени.",
+            "One child often passes through all three roles. That is why this site does not divide children into “bad” and “good”, but speaks about behaviour that can change.",
+        ),
         msgh=h(2, "Посланието", "The message"),
         msgp=p(
             "Зад агресивното поведение почти винаги стои нещо друго. Това не оправдава насилието — "
@@ -1139,10 +1222,10 @@ def build_index():
 
     page(
         "index.html",
-        "СпасиДете.БГ — безопасен интернет и живот без агресия за децата",
-        "SpasiDete.BG — a safe internet and a life without aggression for children",
-        "Информационен портал на дирекция „Киберпрестъпност“ при ГДБОП-МВР: какво е булинг, как се разпознава агресията, съвети за деца, родители и учители, телефони за помощ и подаване на сигнал.",
-        "Information portal of the Cybercrime Directorate at GDBOP, Bulgarian Ministry of Interior: what bullying is, how to recognise aggression, advice for children, parents and teachers, helplines and reporting channels.",
+        "СпасиДете.БГ — агресията в детския свят и къде да потърсим помощ",
+        "SpasiDete.BG — aggression in the world of children and where to seek help",
+        "Национален портал на МВР за агресията в детския свят — от деца, към деца и между деца, в училище, на улицата и онлайн: как се разпознава, как се реагира, съвети за деца, родители и учители, телефони за помощ и подаване на сигнал.",
+        "The Bulgarian Ministry of Interior’s national portal on aggression in the world of children — by children, against children and between children, at school, in the street and online: how to recognise it, how to respond, advice for children, parents and teachers, helplines and reporting channels.",
         body,
         preload='<link rel="preload" as="image" fetchpriority="high" '
                 'href="assets/img/photos/hero.jpg" '
@@ -1196,7 +1279,7 @@ def _materials_section():
         ))
 
     return """
-<section class="section section--alt" id="materiali">
+<section class="section" id="materiali">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{e}</span>
@@ -1316,7 +1399,7 @@ def build_bullying():
                   "Плакат на кампанията на МВР и УНИЦЕФ „Никога повече насилие у дома“",
                   sizes="(max-width: 900px) 260px, 300px", eager=True),
     ) + """
-<section class="section">
+<section class="section section--sky">
   <div class="wrap">
     <div class="grid grid--2" style="gap:40px;align-items:start">
       <div>
@@ -1333,7 +1416,7 @@ def build_bullying():
   </div>
 </section>
 
-<section class="section section--alt" id="types">
+<section class="section" id="types">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{e2}</span>
@@ -1344,7 +1427,7 @@ def build_bullying():
   </div>
 </section>
 
-<section class="section" id="signs">
+<section class="section section--sand" id="signs">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{e3}</span>
@@ -1358,7 +1441,7 @@ def build_bullying():
   </div>
 </section>
 
-<section class="section section--alt" id="react">
+<section class="section section--mint" id="react">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{e4}</span>
@@ -1524,7 +1607,7 @@ def build_advice():
                   "Детска рисунка за Детското полицейско управление",
                   sizes="(max-width: 900px) 260px, 300px", eager=True),
     ) + """
-<section class="section" id="roli">
+<section class="section section--mint" id="roli">
   <div class="wrap">
     <div class="tabs" data-tabs>
       <ul class="tabs__list" role="tablist" aria-label="{tl}">
@@ -1562,7 +1645,7 @@ def build_advice():
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--rose">
   <div class="wrap">
     <div class="callout callout--red">
       {hh}
@@ -1638,7 +1721,7 @@ def build_help():
         "Helplines, institutions and online reporting channels — ordered by urgency. Every line below takes reports both about children and from children.",
         "Потърси помощ", "Get help",
     ) + """
-<section class="section section--tight">
+<section class="section section--sky section--tight">
   <div class="wrap">
     <div class="callout callout--red">
       <div class="grid grid--2" style="align-items:center;gap:26px">
@@ -1676,7 +1759,7 @@ def build_help():
   </div>
 </section>
 
-<section class="section" id="linii">
+<section class="section section--rose" id="linii">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{e2}</span>
@@ -1687,7 +1770,7 @@ def build_help():
   </div>
 </section>
 
-<section class="section section--alt" id="mesten">
+<section class="section" id="mesten">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{e3}</span>
@@ -1699,7 +1782,7 @@ def build_help():
   </div>
 </section>
 
-<section class="section">
+<section class="section section--sand">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{e4}</span>
@@ -1796,7 +1879,7 @@ def build_news():
         "Announcements and initiatives from the Ministry of Interior, the General Directorate National Police, GDBOP and partner organisations.",
         "Новини", "News",
     ) + """
-<section class="section">
+<section class="section section--mint">
   <div class="wrap" style="max-width:920px">
     {items}
   </div>
@@ -1836,7 +1919,7 @@ def build_resources():
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--mint">
   <div class="wrap">
     <div class="callout">
       {h1}
@@ -1900,8 +1983,8 @@ def build_about():
     faq = [
         ("Кой поддържа този сайт?",
          "Who maintains this site?",
-         "Сайтът се поддържа от дирекция „Киберпрестъпност“ при Главна дирекция „Борба с организираната престъпност“ — Министерство на вътрешните работи.",
-         "The site is maintained by the Cybercrime Directorate at the General Directorate for Combating Organised Crime — Ministry of Interior."),
+         "Сайтът е на Министерството на вътрешните работи. Поддържа се от дирекция „Киберпрестъпност“ при Главна дирекция „Борба с организираната престъпност“, а съдържанието се изготвя съвместно със структурите на МВР, които работят с деца — детските педагогически стаи, районните управления и Главна дирекция „Национална полиция“.",
+         "The site belongs to the Ministry of Interior. It is maintained by the Cybercrime Directorate at the General Directorate for Combating Organised Crime, and its content is prepared together with the Ministry structures that work with children — the child pedagogical rooms, the regional police departments and the General Directorate National Police."),
         ("Какъв беше проектът „Децата — потенциални жертви на престъпления в интернет“?",
          "What was the project “Children — potential victims of crime on the internet”?",
          "Проект HOME/2012/ISEC/FP/C2/4000003996, разработен от ГДБОП по програма „Превенция и борба с престъпността“ на Европейската комисия. Той е насочен към по-ефективно противодействие на сексуалната експлоатация и злоупотреба с деца в интернет, към подобряване на механизмите за международно сътрудничество и към повишаване на професионалния капацитет на компетентните структури.",
@@ -1928,11 +2011,11 @@ def build_about():
     )
 
     body = pagehead(
-        "За проекта и за сайта",
-        "About the project and the site",
-        "СпасиДете.БГ е информационен портал на дирекция „Киберпрестъпност“ при ГДБОП-МВР. Създаден е в рамките на европейски проект и днес продължава като постоянен ресурс за деца, родители и учители.",
-        "SpasiDete.BG is an information portal of the Cybercrime Directorate at GDBOP, Ministry of Interior. It was created within a European project and continues today as a permanent resource for children, parents and teachers.",
-        "За проекта", "About",
+        "За сайта",
+        "About the site",
+        "СпасиДете.БГ е национален информационен портал на Министерството на вътрешните работи за агресията в детския свят. Създаден е в рамките на европейски проект за безопасността на децата онлайн и днес обхваща агресията във всичките ѝ форми — като постоянен ресурс за деца, родители и учители.",
+        "SpasiDete.BG is a national information portal of the Bulgarian Ministry of Interior on aggression in the world of children. It was created within a European project on children’s safety online and today covers aggression in all its forms — as a permanent resource for children, parents and teachers.",
+        "За сайта", "About",
     ) + """
 <section class="section">
   <div class="wrap">
@@ -1958,7 +2041,7 @@ def build_about():
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--sand">
   <div class="wrap">
     <figure class="figure">
       <picture><source type="image/webp" srcset="assets/img/conference.webp"><img src="assets/img/conference.jpg" width="958" height="364" alt="{imgalt}" decoding="async" loading="lazy"></picture>
@@ -1978,7 +2061,7 @@ def build_about():
   </div>
 </section>
 
-<section class="section section--alt" id="isp">
+<section class="section section--sky" id="isp">
   <div class="wrap">
     <div class="grid grid--2" style="gap:40px;align-items:start">
       <div>
@@ -2113,7 +2196,7 @@ def build_contact():
   </div>
 </section>
 
-<section class="section" id="kontakt">
+<section class="section section--sky" id="kontakt">
   <div class="wrap">
     <div class="grid grid--2" style="align-items:start">
       <div class="contactbox">
@@ -2234,7 +2317,7 @@ def build_report():
         "The form prepares a letter to the duty unit of the regional directorate responsible for the place where it happened.",
         "Подай сигнал", "File a report",
     ) + """
-<section class="section section--tight">
+<section class="section section--rose section--tight">
   <div class="wrap">
     <div class="callout callout--red">
       <div class="grid grid--2" style="align-items:center;gap:26px">
@@ -2327,7 +2410,7 @@ def build_report():
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--mint">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{e2}</span>
@@ -2493,7 +2576,7 @@ def build_campaigns():
   </div>
 </section>
 
-<section class="section section--alt" id="video">
+<section class="section section--mint" id="video">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{e2}</span>

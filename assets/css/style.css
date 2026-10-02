@@ -14,12 +14,33 @@
   --bg:         #ffffff;
   --bg-alt:     #f5f5f7;
 
-  /* Акценти — само два / accents — only two */
+  /* Акценти за действие / action accents */
   --blue:       #0066cc;
   --blue-dark:  #004f9e;
   --red:        #c4271d;
   --red-dark:   #a01f17;
   --red-soft:   #fdf1f0;
+
+  /* Цветове на секциите. Четири приглушени тона, всеки със своя тема:
+     синьо = обяснение и ориентиране, червено = опасност и спешност,
+     зелено = какво помага, жълто = внимание и данни. Тоновете са бледи
+     нарочно — текстът върху тях остава със същия контраст, както върху бяло.
+     The section colours. Four muted tones, each with its own theme:
+     blue = explanation, red = danger, green = what helps, yellow = attention.
+     The tones are deliberately pale: text on them keeps the contrast it has
+     on white. */
+  --sky:        #edf3fa;
+  --sky-line:   #d3e1f2;
+  --sky-ink:    #1d4e89;
+  --rose:       #fcf1ef;
+  --rose-line:  #f2d8d3;
+  --rose-ink:   #9b2019;
+  --mint:       #eef6f0;
+  --mint-line:  #d3e7d9;
+  --mint-ink:   #2a6442;
+  --sand:       #fbf4e6;
+  --sand-line:  #eddfbe;
+  --sand-ink:   #7a5c0f;
 
   /* Тъмна повърхност (емблемата) / dark surface */
   --navy:       #16283d;
@@ -34,7 +55,7 @@
   /* Слой / layout */
   --wrap: 1280px;
   --gutter: 22px;
-  --headerh: 58px;
+  --headerh: 66px;
 
   /* Системният шрифт на устройството — нищо не се сваля отвън.
      The device's own system font — nothing is downloaded from outside. */
@@ -119,6 +140,51 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 
 .section { padding-block: clamp(3.4rem, 2.2rem + 4.4vw, 6rem); }
 .section--alt { background: var(--bg-alt); }
+
+/* Цветните секции. Всяка пренастройва линиите и приглушеното мастило, за да
+   останат четливи върху тона — така всички вътрешни елементи се нагаждат сами.
+   The coloured sections. Each one retunes the hairlines and the muted ink so
+   they stay legible on the tone — every inner element adapts by itself. */
+.section--sky  { background: var(--sky);  --line: var(--sky-line);  --line-soft: var(--sky-line);  --ink-3: #5f6672; --accent: var(--sky-ink); }
+.section--rose { background: var(--rose); --line: var(--rose-line); --line-soft: var(--rose-line); --ink-3: #6f5f5d; --accent: var(--rose-ink); }
+.section--mint { background: var(--mint); --line: var(--mint-line); --line-soft: var(--mint-line); --ink-3: #5c6a61; --accent: var(--mint-ink); }
+.section--sand { background: var(--sand); --line: var(--sand-line); --line-soft: var(--sand-line); --ink-3: #6b6355; --accent: var(--sand-ink); }
+
+/* Когато две тонирани секции се срещнат, тънка линия показва, че смяната е
+   нарочна, а не грешка в рисуването.
+   When two tinted sections meet, a hairline shows the change is deliberate
+   rather than a rendering glitch. */
+:is(.section--sky, .section--rose, .section--mint, .section--sand)
+  + :is(.section--sky, .section--rose, .section--mint, .section--sand) {
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+
+/* Надредът над заглавието взема цвета на секцията / the eyebrow takes the section's colour */
+:is(.section--sky, .section--rose, .section--mint, .section--sand) .eyebrow { color: var(--accent); }
+
+/* Белите елементи вътре остават бели, без рамка — както върху сивото.
+   The white elements inside stay white and borderless, as they do on grey. */
+:is(.section--sky, .section--rose, .section--mint, .section--sand) :is(.card, .typecard, .stat, .newscard, .helpline, .sidepanel, .qa) {
+  background: var(--bg); border-color: transparent;
+}
+:is(.section--sky, .section--rose, .section--mint, .section--sand) .callout { background: var(--bg); }
+:is(.section--sky, .section--rose, .section--mint, .section--sand) .tabs__list { background: var(--bg); }
+:is(.section--sky, .section--rose, .section--mint, .section--sand) .tabs__btn[aria-selected="true"] { background: var(--sky); box-shadow: none; }
+.section--rose .tabs__btn[aria-selected="true"] { background: var(--rose); }
+.section--mint .tabs__btn[aria-selected="true"] { background: var(--mint); }
+.section--sand .tabs__btn[aria-selected="true"] { background: var(--sand); }
+
+/* Трите посоки на агресията / the three directions of aggression */
+.facet { background: var(--bg); border-radius: var(--r); padding: 26px 24px 28px; }
+.facet__tag {
+  display: inline-block; font-size: .74rem; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; padding: 5px 11px; border-radius: var(--pill); margin-bottom: 14px;
+}
+.facet--to      .facet__tag { background: var(--rose); color: var(--rose-ink); }
+.facet--from    .facet__tag { background: var(--sand); color: var(--sand-ink); }
+.facet--between .facet__tag { background: var(--mint); color: var(--mint-ink); }
+.facet h3 { font-size: 1.12rem; margin: 0 0 .5rem; letter-spacing: -.01em; }
+.facet p { margin: 0; color: var(--ink-2); font-size: .97rem; line-height: 1.6; }
 .section--tight { padding-block: clamp(2.2rem, 1.6rem + 2.4vw, 3.4rem); }
 
 .grid { display: grid; gap: 20px; }
@@ -205,13 +271,25 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
   .nav { background: #fff; }
 }
 
+/* Три колони с еднакви странични коловози: разделите стоят точно в средата
+   на лентата, независимо колко е широка марката или бутонът отдясно.
+   Three columns with equal side tracks: the sections sit exactly in the middle
+   of the bar, however wide the brand or the button on the right happens to be. */
 .nav__inner {
-  display: flex; align-items: center; gap: 22px;
+  display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
+  align-items: center; gap: 18px;
   min-height: var(--headerh);
 }
 
-.brand { display: flex; align-items: center; gap: 10px; flex: none; text-decoration: none !important; }
-.brand__mark { width: auto; height: 32px; flex: none; }
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  /* Основа 0 плюс равно разтягане: двете страни получават еднаква ширина,
+     така разделите остават точно в средата на лентата.
+     Basis 0 plus equal growth: both sides get the same width, which keeps the
+     sections exactly in the middle of the bar. */
+  justify-self: start; min-width: 0; text-decoration: none !important;
+}
+.brand__mark { width: 34px; height: 34px; flex: none; }
 .brand__text { display: flex; flex-direction: column; min-width: 0; }
 .brand__text strong {
   font-size: 1.02rem; font-weight: 600; color: var(--ink);
@@ -219,8 +297,12 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 }
 .brand__sub { display: none; }
 
-.nav__links { flex: 1 1 auto; min-width: 0; }
-.nav__links ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
+.nav__links { justify-self: center; min-width: 0; display: flex; justify-content: center; }
+.nav__links ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  gap: 2px; flex-wrap: nowrap;
+}
 .nav__links li { margin: 0; }
 .nav__links a {
   display: block; padding: 6px 11px;
@@ -233,7 +315,10 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 .nav__links a:hover { color: var(--ink); background: rgba(0,0,0,.04); }
 .nav__links a[aria-current="page"] { color: var(--ink); font-weight: 500; background: rgba(0,0,0,.05); }
 
-.nav__actions { display: flex; align-items: center; gap: 10px; flex: none; margin-left: auto; }
+.nav__actions {
+  display: flex; align-items: center; justify-content: flex-end;
+  gap: 12px; justify-self: end; min-width: 0;
+}
 
 .langswitch { display: inline-flex; align-items: center; gap: 1px; }
 .langswitch button {
@@ -246,6 +331,20 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 .langswitch button[aria-pressed="true"] { color: var(--ink); background: rgba(0,0,0,.06); }
 
 .btn--report .lbl-short { display: none; }
+
+/* „Подай сигнал“ е най-важното действие в лентата и изглежда така.
+   "File a report" is the most important action in the bar and looks like it. */
+.nav__actions .btn--report {
+  padding: .72em 1.5em;
+  font-size: .97rem;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  border-radius: var(--pill);
+  box-shadow: 0 1px 2px rgba(196,39,29,.28), 0 6px 18px -8px rgba(196,39,29,.55);
+}
+.nav__actions .btn--report:hover {
+  box-shadow: 0 1px 2px rgba(196,39,29,.3), 0 10px 24px -8px rgba(196,39,29,.6);
+}
 
 .navtoggle {
   display: none; appearance: none; background: transparent; border: 0;
@@ -292,14 +391,17 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 .hero .eyebrow { color: var(--ink-3); }
 .hero__actions { margin-top: 2.2rem; }
 
+/* Панелът е за спешната помощ, затова носи червения тон на сайта.
+   The panel is for emergency help, so it carries the site's red tone. */
 .hero__panel {
-  background: var(--bg-alt);
+  background: var(--rose);
   border-radius: var(--r-lg);
   padding: 8px 22px 12px;
+  --line-soft: var(--rose-line);
 }
 .hero__panel h2 {
   font-size: .78rem; font-weight: 600; letter-spacing: .02em;
-  color: var(--ink-3); margin: 16px 0 4px;
+  color: var(--rose-ink); margin: 16px 0 4px;
 }
 .hero__panel ul { list-style: none; padding: 0; margin: 0; }
 .hero__panel li + li { border-top: 1px solid var(--line-soft); }
@@ -599,7 +701,7 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 .footer li { margin-bottom: .55em; }
 .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 40px; padding-bottom: 2.6rem; }
 .footer__brand { display: flex; gap: 12px; align-items: center; margin-bottom: .9rem; }
-.footer__mark { width: auto; height: 38px; flex: none; }
+.footer__mark { width: 40px; height: 40px; flex: none; }
 .footer__brand strong { color: var(--ink); font-size: 1rem; display: block; letter-spacing: -.02em; }
 .footer__brand span { font-size: .82rem; color: var(--ink-3); }
 .footer p { font-size: .84rem; line-height: 1.6; color: var(--ink-3); max-width: 42ch; }
@@ -640,7 +742,7 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 
 /* ---------- 26. Responsive ---------- */
 @media (min-width: 1180px) {
-  .brand__mark { height: 36px; }
+  .brand__mark { width: 38px; height: 38px; }
   /* „Контакти“ стои във футъра на широк екран / “Contact” lives in the footer on wide screens */
   .nav__extra { display: none; }
 }
@@ -648,6 +750,17 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 @media (max-width: 1179px) {
   .navtoggle { display: flex; }
   .nav__inner { gap: 14px; }
+  /* Под 1180 px разделите падат в падащо меню (то е извън потока), затова
+     лентата се връща на две части: марка вляво, действия вдясно.
+     Below 1180px the sections drop into the menu (which is out of flow), so the
+     bar goes back to two parts: brand on the left, actions on the right. */
+  .nav__inner { display: flex; }
+  .brand { flex: 0 1 auto; min-width: 0; margin-right: auto; }
+  .brand__text { min-width: 0; }
+  .brand__text strong { overflow: hidden; text-overflow: ellipsis; }
+  .nav__actions { flex: none; justify-self: auto; }
+  .nav__links { justify-self: auto; }
+
   .nav__links {
     position: absolute; left: 0; right: 0; top: 100%;
     background: #fff;
@@ -655,14 +768,48 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
     box-shadow: 0 12px 24px rgba(0,0,0,.07);
     max-height: 0; overflow: hidden; transition: max-height .28s ease;
     flex: none;
+    /* Падащото меню подрежда елементите си един под друг.
+       The dropdown stacks its items one under another. */
+    flex-direction: column; align-items: stretch; justify-content: flex-start;
   }
   .nav__links:not(.is-open) { box-shadow: none; }
   .nav { position: sticky; }
   .nav__links.is-open { max-height: 520px; }
-  .nav__links ul { flex-direction: column; align-items: stretch; padding: 8px var(--gutter) 18px; max-width: var(--wrap); margin-inline: auto; }
+  /* margin-inline:auto би свило списъка до ширината на текста — в менюто го
+     искаме разпънат по цялата лента.
+     margin-inline:auto would shrink the list to the width of its text — in the
+     menu we want it stretched across the whole bar. */
+  .nav__links ul { flex-direction: column; align-items: stretch; justify-content: flex-start;
+    padding: 8px var(--gutter) 18px; margin-inline: 0; width: 100%; max-width: var(--wrap); }
   .nav__links a { padding: 12px 10px; font-size: 1rem; border-radius: var(--r-xs); }
   .nav__links a[aria-current="page"] { background: rgba(0,0,0,.05); }
 }
+
+/* На тесен телефон името на сайта има предимство пред размера на бутона —
+   то никога не се съкращава.
+   On a narrow phone the site's name takes priority over the button's size —
+   it is never truncated. */
+@media (max-width: 460px) {
+  .nav__inner { gap: 8px; }
+  .brand { gap: 8px; }
+  .brand__text strong { font-size: .94rem; }
+  .brand__mark { width: 28px; height: 28px; }
+  .nav__actions { gap: 6px; }
+  .nav__actions .btn--report { padding: .52em .85em; font-size: .86rem; }
+  .langswitch button { padding: .25em .34em; font-size: .76rem; }
+}
+
+/* Най-тесните телефони (320–370 px): превключвателят на езика слиза в менюто,
+   за да остане мястото за името и за бутона „Сигнал“.
+   The narrowest phones (320–370px): the language switch moves into the menu so
+   the space stays with the name and the "Report" button. */
+@media (max-width: 370px) {
+  .nav__actions .langswitch { display: none; }
+  .nav__links .langswitch--menu { display: inline-flex; align-self: flex-start; margin: 2px var(--gutter) 18px; }
+  .brand__text strong { font-size: .9rem; }
+  .nav__actions .btn--report { padding: .5em .78em; font-size: .83rem; }
+}
+.langswitch--menu { display: none; }
 
 @media (max-width: 960px) {
   .hero__inner { grid-template-columns: 1fr; gap: 36px; }
@@ -677,10 +824,11 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 @media (max-width: 620px) {
   :root { --gutter: 18px; }
   body { font-size: 16px; }
-  .brand__mark { height: 28px; }
+  .brand__mark { width: 30px; height: 30px; }
   .brand__text strong { font-size: .96rem; }
-  .nav__actions { gap: 6px; }
+  .nav__actions { gap: 8px; }
   .nav__actions .btn { padding: .42em .8em; font-size: .82rem; }
+  .nav__actions .btn--report { padding: .6em 1.05em; font-size: .9rem; }
   .btn--report .lbl-full { display: none; }
   .btn--report .lbl-short { display: inline; }
   .footer__grid { grid-template-columns: 1fr; gap: 28px; }

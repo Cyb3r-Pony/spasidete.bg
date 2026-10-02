@@ -3,16 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title data-title-bg="СпасиДете.БГ — безопасен интернет и живот без агресия за децата" data-title-en="SpasiDete.BG — a safe internet and a life without aggression for children">СпасиДете.БГ — безопасен интернет и живот без агресия за децата</title>
-<meta name="description" data-desc-bg="Информационен портал на дирекция „Киберпрестъпност“ при ГДБОП-МВР: какво е булинг, как се разпознава агресията, съвети за деца, родители и учители, телефони за помощ и подаване на сигнал." data-desc-en="Information portal of the Cybercrime Directorate at GDBOP, Bulgarian Ministry of Interior: what bullying is, how to recognise aggression, advice for children, parents and teachers, helplines and reporting channels." content="Информационен портал на дирекция „Киберпрестъпност“ при ГДБОП-МВР: какво е булинг, как се разпознава агресията, съвети за деца, родители и учители, телефони за помощ и подаване на сигнал.">
+<title data-title-bg="СпасиДете.БГ — агресията в детския свят и къде да потърсим помощ" data-title-en="SpasiDete.BG — aggression in the world of children and where to seek help">СпасиДете.БГ — агресията в детския свят и къде да потърсим помощ</title>
+<meta name="description" data-desc-bg="Национален портал на МВР за агресията в детския свят — от деца, към деца и между деца, в училище, на улицата и онлайн: как се разпознава, как се реагира, съвети за деца, родители и учители, телефони за помощ и подаване на сигнал." data-desc-en="The Bulgarian Ministry of Interior’s national portal on aggression in the world of children — by children, against children and between children, at school, in the street and online: how to recognise it, how to respond, advice for children, parents and teachers, helplines and reporting channels." content="Национален портал на МВР за агресията в детския свят — от деца, към деца и между деца, в училище, на улицата и онлайн: как се разпознава, как се реагира, съвети за деца, родители и учители, телефони за помощ и подаване на сигнал.">
 <meta name="theme-color" content="#0a1f38">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="СпасиДете.БГ">
-<meta property="og:title" content="СпасиДете.БГ — безопасен интернет и живот без агресия за децата">
-<meta property="og:description" content="Информационен портал на дирекция „Киберпрестъпност“ при ГДБОП-МВР: какво е булинг, как се разпознава агресията, съвети за деца, родители и учители, телефони за помощ и подаване на сигнал.">
+<meta property="og:title" content="СпасиДете.БГ — агресията в детския свят и къде да потърсим помощ">
+<meta property="og:description" content="Национален портал на МВР за агресията в детския свят — от деца, към деца и между деца, в училище, на улицата и онлайн: как се разпознава, как се реагира, съвети за деца, родители и учители, телефони за помощ и подаване на сигнал.">
 <meta property="og:locale" content="bg_BG">
 <meta property="og:locale:alternate" content="en_GB">
-<meta property="og:image" content="https://spasidete.bg/assets/img/favicon-180.png">
+<meta property="og:image" content="https://spasidete.bg/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
@@ -37,10 +39,10 @@
 <header class="nav">
   <div class="wrap nav__inner">
     <a class="brand" href="index.html">
-      <picture><source type="image/webp" srcset="assets/img/cybercrime-gdbop-sm.webp 192w, assets/img/cybercrime-gdbop.webp 341w" sizes="64px"><img src="assets/img/cybercrime-gdbop-sm.png" srcset="assets/img/cybercrime-gdbop-sm.png 192w, assets/img/cybercrime-gdbop.png 341w" sizes="64px" alt="" width="192" height="236" decoding="async" class="brand__mark"></picture>
+      <picture><source type="image/svg+xml" srcset="assets/img/logo-spasidete.svg"><img src="assets/img/logo-spasidete.png" alt="" width="192" height="192" decoding="async" class="brand__mark"></picture>
       <span class="brand__text">
         <strong>СпасиДете.БГ</strong>
-        <span class="brand__sub"><span lang="bg">Дирекция „Киберпрестъпност“ · ГДБОП · МВР</span><span lang="en">Cybercrime Directorate · GDBOP · Ministry of Interior</span></span>
+        <span class="brand__sub"><span lang="bg">Министерство на вътрешните работи</span><span lang="en">Ministry of Interior of the Republic of Bulgaria</span></span>
       </span>
     </a>
 
@@ -55,6 +57,14 @@
         <li><a href="about.html"><span lang="bg">За нас</span><span lang="en">About</span></a></li>
         <li class="nav__extra"><a href="contact.html"><span lang="bg">Контакти</span><span lang="en">Contact</span></a></li>
       </ul>
+      <!-- Вторият превключвател се показва само на най-тесните телефони, където
+           в лентата няма място за него. Скриптът обслужва и двата.
+           The second switch shows only on the narrowest phones, where the bar has
+           no room for it. The script serves both. -->
+      <div class="langswitch langswitch--menu" role="group" aria-label="Език / Language">
+        <button type="button" data-lang="bg" aria-pressed="true">БГ</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </nav>
 
     <div class="nav__actions">
@@ -83,12 +93,12 @@
 <section class="hero">
   <div class="wrap hero__inner">
     <div>
-      <span class="eyebrow"><span lang="bg">Дирекция „Киберпрестъпност“ · ГДБОП · МВР</span><span lang="en">Cybercrime Directorate · GDBOP · Ministry of Interior</span></span>
-      <h1 lang="bg">Агресията онлайн не е детска игра.</h1><h1 lang="en">Online aggression is not child’s play.</h1>
-      <p lang="bg" class="lede">Всяко дете има право на безопасен интернет и на училище без страх. Тук ще намерите какво е тормозът, как да го разпознаете, как да реагирате и към кого да се обърнете — веднага.</p><p lang="en" class="lede">Every child has the right to a safe internet and to a school without fear. Here you will find what bullying is, how to recognise it, how to respond and whom to turn to — straight away.</p>
+      <span class="eyebrow"><span lang="bg">Министерство на вътрешните работи</span><span lang="en">Ministry of Interior of the Republic of Bulgaria</span></span>
+      <h1 lang="bg">Агресията не е детска игра.</h1><h1 lang="en">Aggression is not child’s play.</h1>
+      <p lang="bg" class="lede">Удар в междучасието, подигравка в групата, заплаха в съобщение. Агресията в детския свят има много лица — и когато детето е жертва, и когато то самото посяга. Тук ще намерите как се разпознава, как се реагира и към кого да се обърнете — веднага.</p><p lang="en" class="lede">A blow at break time, mockery in the group chat, a threat in a message. Aggression in the world of children has many faces — when a child is the victim, and when a child is the one lashing out. Here you will find how to recognise it, how to respond and whom to turn to — straight away.</p>
       <div class="btn-row hero__actions">
         <a class="btn btn--lg btn--danger" href="report.html"><span lang="bg">Подай сигнал</span><span lang="en">File a report</span></a>
-        <a class="tlink" href="bullying.html#types" style="margin-left:6px"><span lang="bg">Какво е булинг?</span><span lang="en">What is bullying?</span></a>
+        <a class="tlink" href="bullying.html#types" style="margin-left:6px"><span lang="bg">Какво е агресия?</span><span lang="en">What is aggression?</span></a>
       </div>
     </div>
     <aside class="hero__panel">
@@ -131,6 +141,31 @@
   </div>
 </section>
 
+<section class="section section--sky">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><span lang="bg">Трите посоки</span><span lang="en">The three directions</span></span>
+      <h2 lang="bg">Агресията в детския свят</h2><h2 lang="en">Aggression in the world of children</h2>
+      <p lang="bg" class="lede">Не е само онлайн и не е само в училище. Агресията идва от три посоки и всяка иска различен отговор.</p><p lang="en" class="lede">It is not only online and not only at school. Aggression comes from three directions, and each calls for a different answer.</p>
+    </div>
+    <div class="grid grid--3">
+      <div class="facet facet--to">
+        <span class="facet__tag"><span lang="bg">Към детето</span><span lang="en">Against a child</span></span>
+        <h3 lang="bg">Когато детето е жертва</h3><h3 lang="en">When the child is the victim</h3><p lang="bg">Побой, заплахи, изнудване, подигравки, изключване от групата, разпространение на снимки и записи. Насилие може да идва и от възрастен — вкъщи, в училище или онлайн.</p><p lang="en">Beatings, threats, extortion, mockery, exclusion from the group, the spreading of photos and recordings. Violence can also come from an adult — at home, at school or online.</p>
+      </div>
+      <div class="facet facet--from">
+        <span class="facet__tag"><span lang="bg">От детето</span><span lang="en">By a child</span></span>
+        <h3 lang="bg">Когато детето посяга</h3><h3 lang="en">When the child lashes out</h3><p lang="bg">Зад агресивното поведение почти винаги стои нещо друго — страх, безсилие, преживяно насилие, подражание. Детето, което удря, също има нужда от помощ, а не само от наказание.</p><p lang="en">There is almost always something behind aggressive behaviour — fear, powerlessness, violence already experienced, imitation. The child who hits needs help too, not only punishment.</p>
+      </div>
+      <div class="facet facet--between">
+        <span class="facet__tag"><span lang="bg">Между децата</span><span lang="en">Between children</span></span>
+        <h3 lang="bg">Когато класът участва</h3><h3 lang="en">When the class takes part</h3><p lang="bg">Тормозът рядко е между двама. Около него има подбудители, помощници и мълчаливи свидетели. Той спира тогава, когато групата спре да го поддържа.</p><p lang="en">Bullying is rarely between two people. Around it there are instigators, assistants and silent witnesses. It stops when the group stops sustaining it.</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:24px"><span lang="bg">Едно дете често минава и през трите роли. Затова сайтът не дели децата на „лоши“ и „добри“, а говори за поведение, което може да се промени.</span><span lang="en">One child often passes through all three roles. That is why this site does not divide children into “bad” and “good”, but speaks about behaviour that can change.</span></p>
+  </div>
+</section>
+
 <section class="section section--tight">
   <div class="wrap">
     <div class="callout callout--amber">
@@ -169,7 +204,7 @@
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--sand">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow"><span lang="bg">Данните</span><span lang="en">The data</span></span>
@@ -213,7 +248,7 @@
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--rose">
   <div class="wrap">
     <div class="callout callout--navy">
       <div class="grid grid--2" style="align-items:center;gap:30px">
@@ -237,13 +272,13 @@
     <div class="footer__grid">
       <div>
         <div class="footer__brand">
-          <picture><source type="image/webp" srcset="assets/img/cybercrime-gdbop-sm.webp 192w, assets/img/cybercrime-gdbop.webp 341w" sizes="64px"><img src="assets/img/cybercrime-gdbop-sm.png" srcset="assets/img/cybercrime-gdbop-sm.png 192w, assets/img/cybercrime-gdbop.png 341w" sizes="64px" alt="" width="192" height="236" decoding="async" loading="lazy" class="footer__mark"></picture>
+          <picture><source type="image/svg+xml" srcset="assets/img/logo-spasidete.svg"><img src="assets/img/logo-spasidete.png" alt="" width="192" height="192" decoding="async" loading="lazy" class="footer__mark"></picture>
           <span>
             <strong>СпасиДете.БГ</strong>
-            <span lang="bg">Безопасен интернет за децата</span><span lang="en">A safer internet for children</span>
+            <span lang="bg">Детство без агресия</span><span lang="en">A childhood without aggression</span>
           </span>
         </div>
-        <p lang="bg">Информационен портал на дирекция „Киберпрестъпност“ при ГДБОП-МВР за онлайн рисковете, агресията и тормоза сред деца — и за това къде всеки може да потърси помощ.</p><p lang="en">An information portal of the Cybercrime Directorate at GDBOP, Ministry of Interior, on online risks, aggression and bullying among children — and on where anyone can seek help.</p>
+        <p lang="bg">Национален информационен портал на Министерството на вътрешните работи за агресията в детския свят във всичките ѝ форми — от деца, към деца и между деца, в училище, на улицата и онлайн — и за това къде всеки може да потърси помощ.</p><p lang="en">A national information portal of the Ministry of Interior on aggression in the world of children in all its forms — by children, against children and between children, at school, in the street and online — and on where anyone can seek help.</p>
       </div>
       <div>
         <h2 lang="bg">Разделите</h2><h2 lang="en">Sections</h2>
