@@ -8,7 +8,11 @@
   /* Мастило и повърхности / ink and surfaces */
   --ink:        #1d1d1f;
   --ink-2:      #515154;
-  --ink-3:      #86868b;
+  /* Беше #86868b — само 3,6:1 върху бяло, под прага на WCAG AA за обикновен
+     текст. Сега е 5,1:1 върху бяло и 4,7:1 върху сивото.
+     Was #86868b — only 3.6:1 on white, below the WCAG AA threshold for
+     normal text. Now 5.1:1 on white and 4.7:1 on grey. */
+  --ink-3:      #6e6e73;
   --line:       #d2d2d7;
   --line-soft:  #ececf0;
   --bg:         #ffffff;
@@ -22,24 +26,24 @@
   --red-soft:   #fdf1f0;
 
   /* Цветове на секциите. Четири приглушени тона, всеки със своя тема:
-     синьо = обяснение и ориентиране, червено = опасност и спешност,
-     зелено = какво помага, жълто = внимание и данни. Тоновете са бледи
+     светло синьо = обяснение и ориентиране, по-наситено синьо = какво помага,
+     червено = опасност и спешност, жълто = внимание и данни. Тоновете са бледи
      нарочно — текстът върху тях остава със същия контраст, както върху бяло.
      The section colours. Four muted tones, each with its own theme:
-     blue = explanation, red = danger, green = what helps, yellow = attention.
-     The tones are deliberately pale: text on them keeps the contrast it has
-     on white. */
-  --sky:        #edf3fa;
-  --sky-line:   #d3e1f2;
-  --sky-ink:    #1d4e89;
-  --rose:       #fcf1ef;
-  --rose-line:  #f2d8d3;
+     light blue = explanation, deeper blue = what helps, red = danger,
+     yellow = attention. The tones are deliberately pale: text on them keeps the
+     contrast it has on white. */
+  --sky:        #e6eefa;
+  --sky-line:   #cbdcf2;
+  --sky-ink:    #1b4a85;
+  --azure:      #d5e3f6;
+  --azure-line: #b9d0ec;
+  --azure-ink:  #16406f;
+  --rose:       #fbefec;
+  --rose-line:  #f0d3cd;
   --rose-ink:   #9b2019;
-  --mint:       #eef6f0;
-  --mint-line:  #d3e7d9;
-  --mint-ink:   #2a6442;
-  --sand:       #fbf4e6;
-  --sand-line:  #eddfbe;
+  --sand:       #fbf3e3;
+  --sand-line:  #ecdcb7;
   --sand-ink:   #7a5c0f;
 
   /* Тъмна повърхност (емблемата) / dark surface */
@@ -147,38 +151,61 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
    they stay legible on the tone — every inner element adapts by itself. */
 .section--sky  { background: var(--sky);  --line: var(--sky-line);  --line-soft: var(--sky-line);  --ink-3: #5f6672; --accent: var(--sky-ink); }
 .section--rose { background: var(--rose); --line: var(--rose-line); --line-soft: var(--rose-line); --ink-3: #6f5f5d; --accent: var(--rose-ink); }
-.section--mint { background: var(--mint); --line: var(--mint-line); --line-soft: var(--mint-line); --ink-3: #5c6a61; --accent: var(--mint-ink); }
+/* По-наситеният тон иска по-тъмни връзки и по-тъмно приглушено мастило,
+   за да не падне контрастът под 4,5:1.
+   The deeper tone needs darker links and darker muted ink so the contrast does
+   not fall below 4.5:1. */
+.section--azure {
+  background: var(--azure);
+  --line: var(--azure-line); --line-soft: var(--azure-line);
+  --ink-3: #4e6179; --accent: var(--azure-ink);
+  --blue: #004f9e; --red: #a01f17;
+}
 .section--sand { background: var(--sand); --line: var(--sand-line); --line-soft: var(--sand-line); --ink-3: #6b6355; --accent: var(--sand-ink); }
 
 /* Когато две тонирани секции се срещнат, тънка линия показва, че смяната е
    нарочна, а не грешка в рисуването.
    When two tinted sections meet, a hairline shows the change is deliberate
    rather than a rendering glitch. */
-:is(.section--sky, .section--rose, .section--mint, .section--sand)
-  + :is(.section--sky, .section--rose, .section--mint, .section--sand) {
+:is(.section--sky, .section--rose, .section--azure, .section--sand)
+  + :is(.section--sky, .section--rose, .section--azure, .section--sand) {
   border-top: 1px solid rgba(0,0,0,.06);
 }
 
 /* Надредът над заглавието взема цвета на секцията / the eyebrow takes the section's colour */
-:is(.section--sky, .section--rose, .section--mint, .section--sand) .eyebrow { color: var(--accent); }
+:is(.section--sky, .section--rose, .section--azure, .section--sand) .eyebrow { color: var(--accent); }
 
 /* Белите елементи вътре остават бели, без рамка — както върху сивото.
    The white elements inside stay white and borderless, as they do on grey. */
-:is(.section--sky, .section--rose, .section--mint, .section--sand) :is(.card, .typecard, .stat, .newscard, .helpline, .sidepanel, .qa) {
+/* Дребните етикети и значки са сиви върху бяло; върху тон стават бели, за да
+   се четат като отделен елемент, а не като петно.
+   The small tags and badges are grey on white; on a tint they turn white so they
+   read as a separate element rather than a smudge. */
+:is(.section--sky, .section--rose, .section--azure, .section--sand) :is(.tag, .helpline__badge:not(.helpline--urgent .helpline__badge)) {
+  background: var(--bg);
+}
+
+/* Бял фон получават само истинските кутии. Редовете в списък (новина, линия
+   за помощ, въпрос, число) са с тънка черта и отстояния, а не със собствен фон —
+   бял правоъгълник около тях изглежда като счупен блок.
+   Only real boxes get a white background. List rows (a news item, a helpline, a
+   question, a figure) are built from a hairline and spacing, not their own
+   background — a white rectangle around them looks like a broken block. */
+:is(.section--sky, .section--rose, .section--azure, .section--sand) :is(.card, .typecard, .sidepanel) {
   background: var(--bg); border-color: transparent;
 }
 /* Само обикновената кутия става бяла — цветните варианти (навy, червена,
    кремава) си пазят фона, иначе текстът им остава бял върху бяло.
    Only the plain box turns white — the coloured variants keep their own
    background, otherwise their white text would sit on white. */
-:is(.section--sky, .section--rose, .section--mint, .section--sand) .callout:not([class*="callout--"]) { background: var(--bg); }
-:is(.section--sky, .section--rose, .section--mint, .section--sand) .callout--amber { background: var(--bg); }
-:is(.section--sky, .section--rose, .section--mint, .section--sand) .callout--red { background: var(--red-soft); }
-:is(.section--sky, .section--rose, .section--mint, .section--sand) .callout--navy { background: var(--navy); }
-:is(.section--sky, .section--rose, .section--mint, .section--sand) .tabs__list { background: var(--bg); }
-:is(.section--sky, .section--rose, .section--mint, .section--sand) .tabs__btn[aria-selected="true"] { background: var(--sky); box-shadow: none; }
+:is(.section--sky, .section--rose, .section--azure, .section--sand) .callout:not([class*="callout--"]) { background: var(--bg); }
+:is(.section--sky, .section--rose, .section--azure, .section--sand) .callout--amber { background: var(--bg); }
+:is(.section--sky, .section--rose, .section--azure, .section--sand) .callout--red { background: var(--red-soft); }
+:is(.section--sky, .section--rose, .section--azure, .section--sand) .callout--navy { background: var(--navy); }
+:is(.section--sky, .section--rose, .section--azure, .section--sand) .tabs__list { background: var(--bg); }
+:is(.section--sky, .section--rose, .section--azure, .section--sand) .tabs__btn[aria-selected="true"] { background: var(--sky); box-shadow: none; }
 .section--rose .tabs__btn[aria-selected="true"] { background: var(--rose); }
-.section--mint .tabs__btn[aria-selected="true"] { background: var(--mint); }
+.section--azure .tabs__btn[aria-selected="true"] { background: var(--azure); }
 .section--sand .tabs__btn[aria-selected="true"] { background: var(--sand); }
 
 /* Трите посоки на агресията / the three directions of aggression */
@@ -189,7 +216,7 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 }
 .facet--to      .facet__tag { background: var(--rose); color: var(--rose-ink); }
 .facet--from    .facet__tag { background: var(--sand); color: var(--sand-ink); }
-.facet--between .facet__tag { background: var(--mint); color: var(--mint-ink); }
+.facet--between .facet__tag { background: var(--azure); color: var(--azure-ink); }
 .facet h3 { font-size: 1.12rem; margin: 0 0 .5rem; letter-spacing: -.01em; }
 .facet p { margin: 0; color: var(--ink-2); font-size: .97rem; line-height: 1.6; }
 .section--tight { padding-block: clamp(2.2rem, 1.6rem + 2.4vw, 3.4rem); }
@@ -213,6 +240,12 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
   color: var(--ink-3);
   margin-bottom: .55rem;
 }
+/* Колона за дълъг текст. Остава подравнена вляво като всичко останало —
+   центрирана, тя се разминаваше със заглавието над себе си.
+   A column for long text. It stays left-aligned like everything else — centred,
+   it fell out of line with the heading above it. */
+.measure { max-width: 920px; }
+
 .section-head { max-width: 68ch; margin-bottom: 2.4rem; }
 .center-wrap { margin-inline: auto; }
 
@@ -381,7 +414,7 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
   white-space: nowrap;
 }
 .urgent a small { font-weight: 400; color: var(--ink-3); margin-left: .3em; }
-.urgent .sep { color: var(--line); }
+.urgent .sep { color: var(--ink-3); opacity: .5; }
 
 /* ---------- 8. Hero ---------- */
 .hero { background: var(--bg); border-bottom: 1px solid var(--line-soft); }
@@ -427,7 +460,13 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 .crumbs { font-size: .82rem; color: var(--ink-3); margin-bottom: 1.1rem; }
 .crumbs a { color: var(--ink-3); }
 .crumbs a:hover { color: var(--ink); text-decoration: none; }
-.crumbs span { margin-inline: .5em; color: var(--line); }
+/* Разделителят е единственият директен <span> извън връзка; по-рано правилото
+   хващаше и езиковите спанове в самите връзки и текстът „Начало“ излизаше с
+   цвета на тънката линия — почти невидим.
+   The separator is the only direct <span> outside a link; the earlier rule also
+   caught the language spans inside the links, so "Начало" was rendered in the
+   hairline colour — all but invisible. */
+.crumbs > span:not([lang]) { margin-inline: .5em; color: var(--ink-3); opacity: .55; }
 
 /* ---------- 10. Cards ---------- */
 .card {
@@ -618,7 +657,7 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
   background: var(--bg-alt); color: var(--ink-2);
 }
 .tag--mvr, .tag--gdnp, .tag--unicef, .tag--campaign { background: var(--bg-alt); color: var(--ink-2); }
-.newscard h2 { font-size: clamp(1.25rem, 1.08rem + .7vw, 1.6rem); margin-bottom: .45em; max-width: 34ch; }
+.newscard h2 { font-size: clamp(1.25rem, 1.08rem + .7vw, 1.6rem); margin-bottom: .45em; max-width: 46ch; }
 .newscard__lead { color: var(--ink-2); font-size: 1.02rem; line-height: 1.5; max-width: 72ch; }
 .newscard__body { color: var(--ink-2); font-size: .99rem; line-height: 1.6; max-width: 72ch; margin-top: 1.1em; }
 .newscard__body[hidden] { display: none; }

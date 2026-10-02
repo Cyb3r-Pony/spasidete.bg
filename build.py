@@ -412,11 +412,12 @@ def page(filename, title_bg, title_en, desc_bg, desc_en, body, preload=""):
                        w=382, h=160),
     )
 
-    site_links = (
-        '<li><a href="index.html">%s</a></li>' % bi("Начало", "Home")
-        + "".join('<li><a href="%s">%s</a></li>' % (href, bi(b, e)) for href, b, e in NAV)
-        + '<li><a href="report.html">%s</a></li>' % bi("Подай сигнал", "File a report")
-        + '<li><a href="contact.html">%s</a></li>' % bi("Контакти", "Contact")
+    # Във футъра стоят само разделите. „Начало“, „Подай сигнал“ и „Контакти“
+    # са винаги на един клик в горната лента, затова тук само биха удължили списъка.
+    # The footer lists the sections only. Home, Report and Contact are always one
+    # click away in the top bar, so here they would just lengthen the list.
+    site_links = "".join(
+        '<li><a href="%s">%s</a></li>' % (href, bi(b, e)) for href, b, e in NAV
     )
 
     foot = FOOT.format(
@@ -441,8 +442,8 @@ def page(filename, title_bg, title_en, desc_bg, desc_en, body, preload=""):
             "133A Tsarigradsko shose Blvd., Sofia 1784, Bulgaria",
         ),
         f_owner=bi(
-            "ГДБОП — Министерство на вътрешните работи",
-            "GDBOP — Ministry of Interior of the Republic of Bulgaria",
+            "Министерство на вътрешните работи",
+            "Ministry of Interior of the Republic of Bulgaria",
         ),
         f_updated=bi("Последна актуализация: октомври 2026 г.", "Last updated: October 2026"),
         footmark=logo("logo-mark", cls="footer__mark", alt="", w=156, h=192, lazy=True),
@@ -462,14 +463,14 @@ def pagehead(bg_title, en_title, bg_sub, en_sub, crumb_bg, crumb_en, photo=None)
     if photo:
         inner = """<div class="pagehead__grid">
       <div>
-        <div class="crumbs"><a href="index.html">{home}</a><span>/</span>{crumb}</div>
+        <div class="crumbs"><a href="index.html">{home}</a><span aria-hidden="true">/</span>{crumb}</div>
         {t}
         {s}
       </div>
       <figure class="pagehead__shot">{img}</figure>
     </div>"""
     else:
-        inner = """<div class="crumbs"><a href="index.html">{home}</a><span>/</span>{crumb}</div>
+        inner = """<div class="crumbs"><a href="index.html">{home}</a><span aria-hidden="true">/</span>{crumb}</div>
     {t}
     {s}"""
     return ("""<section class="pagehead">
@@ -1330,8 +1331,8 @@ def _materials_section():
 </section>
 
 <section class="section">
-  <div class="wrap" style="max-width:900px">
-    {arts}
+  <div class="wrap">
+    <div class="measure">{arts}</div>
   </div>
 </section>
 """.format(
@@ -1480,7 +1481,7 @@ def build_bullying():
   </div>
 </section>
 
-<section class="section section--mint" id="react">
+<section class="section section--azure" id="react">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{e4}</span>
@@ -1646,7 +1647,7 @@ def build_advice():
                   "Детска рисунка за Детското полицейско управление",
                   sizes="(max-width: 900px) 260px, 300px", eager=True),
     ) + """
-<section class="section section--mint" id="roli">
+<section class="section section--azure" id="roli">
   <div class="wrap">
     <div class="tabs" data-tabs>
       <ul class="tabs__list" role="tablist" aria-label="{tl}">
@@ -1928,9 +1929,9 @@ def build_news():
         "Announcements and initiatives from the Ministry of Interior, the General Directorate National Police, GDBOP and partner organisations.",
         "Новини", "News",
     ) + """
-<section class="section section--mint">
-  <div class="wrap" style="max-width:920px">
-    {items}
+<section class="section section--azure">
+  <div class="wrap">
+    <div class="measure">{items}</div>
   </div>
 </section>
 """.format(items=items)
@@ -1968,7 +1969,7 @@ def build_resources():
   </div>
 </section>
 
-<section class="section section--mint">
+<section class="section section--azure">
   <div class="wrap">
     <div class="callout">
       {h1}
@@ -2459,7 +2460,7 @@ def build_report():
   </div>
 </section>
 
-<section class="section section--mint">
+<section class="section section--azure">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{e2}</span>
@@ -2625,7 +2626,7 @@ def build_campaigns():
   </div>
 </section>
 
-<section class="section section--mint" id="video">
+<section class="section section--azure" id="video">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">{e2}</span>
