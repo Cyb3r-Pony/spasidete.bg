@@ -38,12 +38,8 @@
 
 <header class="nav">
   <div class="wrap nav__inner">
-    <a class="brand" href="index.html">
-      <picture><source type="image/svg+xml" srcset="assets/img/logo-spasidete.svg"><img src="assets/img/logo-spasidete.png" alt="" width="192" height="192" decoding="async" class="brand__mark"></picture>
-      <span class="brand__text">
-        <strong>СпасиДете.БГ</strong>
-        <span class="brand__sub"><span lang="bg">Министерство на вътрешните работи</span><span lang="en">Ministry of Interior of the Republic of Bulgaria</span></span>
-      </span>
+    <a class="brand" href="index.html" aria-label="СпасиДете.БГ — начало / home">
+      <picture><source type="image/webp" srcset="assets/img/logo-spasidete.webp"><img src="assets/img/logo-spasidete.png" alt="СпасиДете.БГ — превенция, защита, подкрепа" width="382" height="160" decoding="async" class="brand__mark"></picture>
     </a>
 
     <nav class="nav__links" id="mainnav" aria-label="Основна навигация / Main navigation">
@@ -57,14 +53,6 @@
         <li><a href="about.html"><span lang="bg">За нас</span><span lang="en">About</span></a></li>
         <li class="nav__extra"><a href="contact.html"><span lang="bg">Контакти</span><span lang="en">Contact</span></a></li>
       </ul>
-      <!-- Вторият превключвател се показва само на най-тесните телефони, където
-           в лентата няма място за него. Скриптът обслужва и двата.
-           The second switch shows only on the narrowest phones, where the bar has
-           no room for it. The script serves both. -->
-      <div class="langswitch langswitch--menu" role="group" aria-label="Език / Language">
-        <button type="button" data-lang="bg" aria-pressed="true">БГ</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </div>
     </nav>
 
     <div class="nav__actions">
@@ -122,7 +110,7 @@
       <h2 lang="bg">Подай сигнал в МВР</h2><h2 lang="en">Report to the Ministry of Interior</h2>
       <p lang="bg" class="lede">За вредно и незаконно съдържание в българското интернет пространство и за организирана престъпна дейност.</p><p lang="en" class="lede">For harmful and illegal content in the Bulgarian internet space and for organised criminal activity.</p>
     </div>
-    <div class="grid grid--2" style="gap:16px">
+    <div class="grid grid--3" style="gap:16px">
       <a class="card card--link card--emblem" href="https://www.cybercrime.bg/" target="_blank" rel="noopener">
         <picture><source type="image/webp" srcset="assets/img/cybercrime-gdbop-sm.webp 192w, assets/img/cybercrime-gdbop.webp 341w" sizes="64px"><img src="assets/img/cybercrime-gdbop-sm.png" srcset="assets/img/cybercrime-gdbop-sm.png 192w, assets/img/cybercrime-gdbop.png 341w" sizes="64px" alt="" width="192" height="236" decoding="async" loading="lazy" class="emblem"></picture>
         <div><h3 lang="bg">Дирекция „Киберпрестъпност“</h3><h3 lang="en">Cybercrime Directorate</h3><p lang="bg">Материали със сексуална злоупотреба с деца, склоняване на дете онлайн, изнудване с интимни снимки, заплахи, разпространение на записи от насилие.</p><p lang="en">Child sexual abuse material, online grooming, extortion with intimate images, threats, the spreading of recorded violence.</p><span class="card__more">cybercrime.bg</span></div>
@@ -130,6 +118,10 @@
       <a class="card card--link card--emblem" href="https://gdbop.bg/" target="_blank" rel="noopener">
         <picture><source type="image/webp" srcset="assets/img/gdbop-mvr-sm.webp 192w, assets/img/gdbop-mvr.webp 256w" sizes="64px"><img src="assets/img/gdbop-mvr-sm.png" srcset="assets/img/gdbop-mvr-sm.png 192w, assets/img/gdbop-mvr.png 256w" sizes="64px" alt="" width="192" height="192" decoding="async" loading="lazy" class="emblem emblem--round"></picture>
         <div><h3 lang="bg">ГДБОП — подай сигнал</h3><h3 lang="en">GDBOP — file a report</h3><p lang="bg">Официалният канал на Главна дирекция „Борба с организираната престъпност“. Анонимността на подателя се гарантира по реда на закона.</p><p lang="en">The official channel of the General Directorate for Combating Organised Crime. The anonymity of the person reporting is guaranteed by law.</p><span class="card__more">gdbop.bg</span></div>
+      </a>
+      <a class="card card--link card--emblem" href="https://www.mvr.bg/" target="_blank" rel="noopener">
+        <picture><source type="image/webp" srcset="assets/img/mvr-nacionalna-policiya.webp"><img src="assets/img/mvr-nacionalna-policiya.png" alt="" width="153" height="192" decoding="async" loading="lazy" class="emblem"></picture>
+        <div><h3 lang="bg">МВР — приемна и структури</h3><h3 lang="en">Ministry of Interior — reception and structures</h3><p lang="bg">Официалният сайт на Министерството на вътрешните работи: областните дирекции, районните управления, детските педагогически стаи и приемната за граждани.</p><p lang="en">The official site of the Ministry of Interior: the regional directorates, the district departments, the child pedagogical rooms and the citizens’ reception.</p><span class="card__more">mvr.bg</span></div>
       </a>
     </div>
   </div>
@@ -261,7 +253,7 @@
     <div class="footer__grid">
       <div>
         <div class="footer__brand">
-          <picture><source type="image/svg+xml" srcset="assets/img/logo-spasidete.svg"><img src="assets/img/logo-spasidete.png" alt="" width="192" height="192" decoding="async" loading="lazy" class="footer__mark"></picture>
+          <picture><source type="image/webp" srcset="assets/img/logo-mark.webp"><img src="assets/img/logo-mark.png" alt="" width="156" height="192" decoding="async" loading="lazy" class="footer__mark"></picture>
           <span>
             <strong>СпасиДете.БГ</strong>
             <span lang="bg">Детство без агресия</span><span lang="en">A childhood without aggression</span>

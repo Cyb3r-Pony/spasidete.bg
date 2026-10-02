@@ -55,7 +55,7 @@
   /* Слой / layout */
   --wrap: 1280px;
   --gutter: 22px;
-  --headerh: 66px;
+  --headerh: 72px;
 
   /* Системният шрифт на устройството — нищо не се сваля отвън.
      The device's own system font — nothing is downloaded from outside. */
@@ -167,7 +167,14 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 :is(.section--sky, .section--rose, .section--mint, .section--sand) :is(.card, .typecard, .stat, .newscard, .helpline, .sidepanel, .qa) {
   background: var(--bg); border-color: transparent;
 }
-:is(.section--sky, .section--rose, .section--mint, .section--sand) .callout { background: var(--bg); }
+/* Само обикновената кутия става бяла — цветните варианти (навy, червена,
+   кремава) си пазят фона, иначе текстът им остава бял върху бяло.
+   Only the plain box turns white — the coloured variants keep their own
+   background, otherwise their white text would sit on white. */
+:is(.section--sky, .section--rose, .section--mint, .section--sand) .callout:not([class*="callout--"]) { background: var(--bg); }
+:is(.section--sky, .section--rose, .section--mint, .section--sand) .callout--amber { background: var(--bg); }
+:is(.section--sky, .section--rose, .section--mint, .section--sand) .callout--red { background: var(--red-soft); }
+:is(.section--sky, .section--rose, .section--mint, .section--sand) .callout--navy { background: var(--navy); }
 :is(.section--sky, .section--rose, .section--mint, .section--sand) .tabs__list { background: var(--bg); }
 :is(.section--sky, .section--rose, .section--mint, .section--sand) .tabs__btn[aria-selected="true"] { background: var(--sky); box-shadow: none; }
 .section--rose .tabs__btn[aria-selected="true"] { background: var(--rose); }
@@ -289,13 +296,9 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
      sections exactly in the middle of the bar. */
   justify-self: start; min-width: 0; text-decoration: none !important;
 }
-.brand__mark { width: 34px; height: 34px; flex: none; }
-.brand__text { display: flex; flex-direction: column; min-width: 0; }
-.brand__text strong {
-  font-size: 1.02rem; font-weight: 600; color: var(--ink);
-  letter-spacing: -.022em; line-height: 1.15; white-space: nowrap;
-}
-.brand__sub { display: none; }
+/* Логото носи и надписа „СпасиДете.БГ“, затова в лентата няма отделен текст.
+   The logo carries the "СпасиДете.БГ" wordmark, so the bar has no separate text. */
+.brand__mark { width: auto; height: 46px; flex: none; display: block; }
 
 .nav__links { justify-self: center; min-width: 0; display: flex; justify-content: center; }
 .nav__links ul {
@@ -335,8 +338,8 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 /* „Подай сигнал“ е най-важното действие в лентата и изглежда така.
    "File a report" is the most important action in the bar and looks like it. */
 .nav__actions .btn--report {
-  padding: .72em 1.5em;
-  font-size: .97rem;
+  padding: .82em 1.8em;
+  font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: -.01em;
   border-radius: var(--pill);
@@ -446,6 +449,16 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 .card--action .tlink { margin-top: auto; }
 
 /* Официални емблеми / official emblems */
+/* <picture> е само обвивка. Във flex контейнер тя се свива и емблемата
+   излиза сплескана, затова обвивката също не бива да се свива.
+   <picture> is only a wrapper. Inside a flex container it shrinks and the
+   emblem comes out squashed, so the wrapper must not shrink either. */
+.card--emblem > picture,
+.emblem-pair > picture,
+.hp-lbl > picture,
+.brand > picture,
+.footer__brand > picture { flex: none; display: block; }
+
 .emblem { width: auto; height: 62px; flex: none; }
 .emblem--round { height: 58px; }
 .card--emblem { display: flex; align-items: flex-start; gap: 20px; }
@@ -701,7 +714,7 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 .footer li { margin-bottom: .55em; }
 .footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 40px; padding-bottom: 2.6rem; }
 .footer__brand { display: flex; gap: 12px; align-items: center; margin-bottom: .9rem; }
-.footer__mark { width: 40px; height: 40px; flex: none; }
+.footer__mark { width: auto; height: 46px; flex: none; display: block; }
 .footer__brand strong { color: var(--ink); font-size: 1rem; display: block; letter-spacing: -.02em; }
 .footer__brand span { font-size: .82rem; color: var(--ink-3); }
 .footer p { font-size: .84rem; line-height: 1.6; color: var(--ink-3); max-width: 42ch; }
@@ -742,7 +755,7 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 
 /* ---------- 26. Responsive ---------- */
 @media (min-width: 1180px) {
-  .brand__mark { width: 38px; height: 38px; }
+  .brand__mark { height: 52px; }
   /* „Контакти“ стои във футъра на широк екран / “Contact” lives in the footer on wide screens */
   .nav__extra { display: none; }
 }
@@ -755,9 +768,7 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
      Below 1180px the sections drop into the menu (which is out of flow), so the
      bar goes back to two parts: brand on the left, actions on the right. */
   .nav__inner { display: flex; }
-  .brand { flex: 0 1 auto; min-width: 0; margin-right: auto; }
-  .brand__text { min-width: 0; }
-  .brand__text strong { overflow: hidden; text-overflow: ellipsis; }
+  .brand { flex: 0 0 auto; margin-right: auto; }
   .nav__actions { flex: none; justify-self: auto; }
   .nav__links { justify-self: auto; }
 
@@ -785,31 +796,23 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
   .nav__links a[aria-current="page"] { background: rgba(0,0,0,.05); }
 }
 
-/* На тесен телефон името на сайта има предимство пред размера на бутона —
-   то никога не се съкращава.
-   On a narrow phone the site's name takes priority over the button's size —
-   it is never truncated. */
+/* На тесен телефон логото и бутонът се смаляват заедно, за да останат и двете
+   видими без пренасяне.
+   On a narrow phone the logo and the button shrink together so both stay
+   visible without wrapping. */
 @media (max-width: 460px) {
   .nav__inner { gap: 8px; }
-  .brand { gap: 8px; }
-  .brand__text strong { font-size: .94rem; }
-  .brand__mark { width: 28px; height: 28px; }
+  .brand__mark { height: 32px; }
   .nav__actions { gap: 6px; }
-  .nav__actions .btn--report { padding: .52em .85em; font-size: .86rem; }
+  .nav__actions .btn--report { padding: .55em .9em; font-size: .88rem; }
   .langswitch button { padding: .25em .34em; font-size: .76rem; }
 }
 
-/* Най-тесните телефони (320–370 px): превключвателят на езика слиза в менюто,
-   за да остане мястото за името и за бутона „Сигнал“.
-   The narrowest phones (320–370px): the language switch moves into the menu so
-   the space stays with the name and the "Report" button. */
 @media (max-width: 370px) {
-  .nav__actions .langswitch { display: none; }
-  .nav__links .langswitch--menu { display: inline-flex; align-self: flex-start; margin: 2px var(--gutter) 18px; }
-  .brand__text strong { font-size: .9rem; }
-  .nav__actions .btn--report { padding: .5em .78em; font-size: .83rem; }
+  .brand__mark { height: 28px; }
+  .nav__actions .btn--report { padding: .5em .8em; font-size: .84rem; }
+  .langswitch button { padding: .22em .3em; font-size: .74rem; }
 }
-.langswitch--menu { display: none; }
 
 @media (max-width: 960px) {
   .hero__inner { grid-template-columns: 1fr; gap: 36px; }
@@ -824,8 +827,7 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 @media (max-width: 620px) {
   :root { --gutter: 18px; }
   body { font-size: 16px; }
-  .brand__mark { width: 30px; height: 30px; }
-  .brand__text strong { font-size: .96rem; }
+  .brand__mark { height: 36px; }
   .nav__actions { gap: 8px; }
   .nav__actions .btn { padding: .42em .8em; font-size: .82rem; }
   .nav__actions .btn--report { padding: .6em 1.05em; font-size: .9rem; }

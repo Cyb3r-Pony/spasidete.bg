@@ -132,20 +132,28 @@ def pic(name, alt, sizes="100vw", cls="", eager=False, caption=None):
     return img + ("<figcaption>%s</figcaption>" % caption if caption else "")
 
 
-def logo(cls="", alt="", lazy=False):
-    """Марката на сайта — щит с дете. SVG се чертае остро на всеки размер,
-    а PNG остава за браузъри, които не поемат SVG в <picture>.
+def logo(name="logo-spasidete", cls="", alt="", w=0, h=0, lazy=False):
+    """Марката на сайта. Подава се WebP с PNG за резерва.
 
-    The site's mark — a shield with a child. The SVG draws sharply at any size;
-    the PNG remains for browsers that do not take an SVG inside <picture>.
+    `logo-spasidete` е пълното лого с надписа — стои в лентата горе вляво.
+    `logo-mark` е само щитът — ползва се там, където няма място за надпис,
+    и е основата на иконата в браузъра.
+    `logo-full` е логото заедно с реда на МВР — стои във футъра.
+
+    The site's mark. A WebP is served with a PNG fallback.
+    `logo-spasidete` is the full lockup with the wordmark, used in the top bar;
+    `logo-mark` is the shield alone; `logo-full` carries the Ministry line and
+    lives in the footer.
     """
+    base = "assets/img/" + name
     return (
         '<picture>'
-        '<source type="image/svg+xml" srcset="assets/img/logo-spasidete.svg">'
-        '<img src="assets/img/logo-spasidete.png" alt="{alt}" width="192" height="192" '
+        '<source type="image/webp" srcset="{b}.webp">'
+        '<img src="{b}.png" alt="{alt}" width="{w}" height="{h}" '
         'decoding="async"{lz}{cls}>'
         '</picture>'
-    ).format(alt=esc(alt), lz=' loading="lazy"' if lazy else "",
+    ).format(b=base, alt=esc(alt), w=w, h=h,
+             lz=' loading="lazy"' if lazy else "",
              cls=(' class="%s"' % cls) if cls else "")
 
 
@@ -283,12 +291,8 @@ HEAD = """<!DOCTYPE html>
 
 <header class="nav">
   <div class="wrap nav__inner">
-    <a class="brand" href="index.html">
+    <a class="brand" href="index.html" aria-label="СпасиДете.БГ — начало / home">
       {brandmark}
-      <span class="brand__text">
-        <strong>СпасиДете.БГ</strong>
-        <span class="brand__sub">{brandsub}</span>
-      </span>
     </a>
 
     <nav class="nav__links" id="mainnav" aria-label="{t_mainnav}">
@@ -296,14 +300,6 @@ HEAD = """<!DOCTYPE html>
         {nav}
         <li class="nav__extra"><a href="contact.html"><span lang="bg">Контакти</span><span lang="en">Contact</span></a></li>
       </ul>
-      <!-- Вторият превключвател се показва само на най-тесните телефони, където
-           в лентата няма място за него. Скриптът обслужва и двата.
-           The second switch shows only on the narrowest phones, where the bar has
-           no room for it. The script serves both. -->
-      <div class="langswitch langswitch--menu" role="group" aria-label="Език / Language">
-        <button type="button" data-lang="bg" aria-pressed="true">БГ</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </div>
     </nav>
 
     <div class="nav__actions">
@@ -409,13 +405,11 @@ def page(filename, title_bg, title_en, desc_bg, desc_en, body, preload=""):
         ),
         t_emergency_sm=bi("спешен", "emergency"),
         t_child_sm=bi("линия за деца", "child line"),
-        brandsub=bi(
-            "Министерство на вътрешните работи",
-            "Ministry of Interior of the Republic of Bulgaria",
-        ),
         nav=nav_html(filename),
         preload=preload,
-        brandmark=logo(cls="brand__mark"),
+        brandmark=logo("logo-spasidete", cls="brand__mark",
+                       alt="СпасиДете.БГ — превенция, защита, подкрепа",
+                       w=382, h=160),
     )
 
     site_links = (
@@ -451,7 +445,7 @@ def page(filename, title_bg, title_en, desc_bg, desc_en, body, preload=""):
             "GDBOP — Ministry of Interior of the Republic of Bulgaria",
         ),
         f_updated=bi("Последна актуализация: октомври 2026 г.", "Last updated: October 2026"),
-        footmark=logo(cls="footer__mark", lazy=True),
+        footmark=logo("logo-mark", cls="footer__mark", alt="", w=156, h=192, lazy=True),
         eu_stars=EU_STARS,
         ic_up=ICON["up"],
     )
@@ -626,6 +620,48 @@ LOCAL_HELP = [
 
 # --- Новини (от документа на МВР) -----------------------------------------
 NEWS = [
+    {
+        "id": "n-dpu-shesto",
+        "date": "2026-10-02",
+        "date_bg": "2 октомври 2026 г.",
+        "date_en": "2 October 2026",
+        "tag": "mvr", "tag_bg": "МВР", "tag_en": "Ministry of Interior",
+        "title_bg": "Стартира шестото издание на националната превантивна програма „Детско полицейско управление“",
+        "title_en": "The sixth edition of the national preventive programme “Children’s Police Department” begins",
+        "lead_bg": "В училища в цялата страна малките доброволци положиха тържествена клетва и заявиха готовност да спазват Етичния кодекс на Детското полицейско управление.",
+        "lead_en": "In schools across the country the young volunteers took their oath and pledged to follow the Code of Ethics of the Children’s Police Department.",
+        "sum_en": "The sixth edition of the Ministry of Interior’s national preventive programme opened in schools nationwide. Through practical sessions, demonstrations and meetings with officers, the children will get to know the work of different police structures and gain knowledge about personal safety, road safety, crime prevention and how to react in situations of risk. The programme is also aimed at building a sense of responsibility, discipline, respect for the rules and trust between children and the police.",
+        "body_bg": [
+            "В училища в цялата страна тържествено бе даден старт на шестото издание на националната превантивна програма на Министерството на вътрешните работи „Детско полицейско управление“. По време на церемониите малките доброволци положиха тържествена клетва и заявиха готовност да спазват Етичния кодекс на Детското полицейско управление.",
+            "На официалните откривания децата бяха запознати с основните цели и дейности на програмата, както и с предстоящите занятия, в които ще участват. В рамките на инициативата те ще имат възможност чрез практически занимания, демонстрации и срещи с полицейски служители да се запознаят отблизо с различни аспекти от работата на полицията.",
+            "Основната цел на програмата е по достъпен и интересен за децата начин да бъдат формирани знания и умения за безопасно поведение и реакция в различни ситуации. Заниманията са насочени и към изграждане на чувство за отговорност, дисциплина, уважение към правилата и доверие между децата и служителите на реда.",
+            "В рамките на програмата доброволците ще се запознаят с дейността на различни полицейски структури и ще придобият практически знания по теми, свързани с личната безопасност, безопасността на движението, превенцията на престъпността и противообществените прояви, както и с начините за реакция при рискови ситуации.",
+            "Шестото издание на „Детско полицейско управление“ поставя началото на поредица от образователни и практически инициативи, чрез които децата ще могат да учат, да придобиват нови умения и да се докоснат до професията на полицейския служител.",
+        ],
+        "src": "https://www.mvr.bg/gdnp/%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D0%BD-%D1%86%D0%B5%D0%BD%D1%82%D1%8A%D1%80/%D0%BF%D1%80%D0%B5%D1%81%D1%86%D0%B5%D0%BD%D1%82%D1%8A%D1%80/%D0%BD%D0%BE%D0%B2%D0%B8%D0%BD%D0%B8/93298",
+        "src_label": "mvr.bg",
+    },
+    {
+        "id": "n-ubiy-skorostta",
+        "date": "2026-09-26",
+        "date_bg": "26 септември 2026 г.",
+        "date_en": "26 September 2026",
+        "tag": "mvr", "tag_bg": "МВР", "tag_en": "Ministry of Interior",
+        "title_bg": "МВР е партньор на кампанията „Убий скоростта, спаси дете“",
+        "title_en": "The Ministry of Interior is a partner of the campaign “Kill the speed, save a child”",
+        "lead_bg": "Кампанията е насочена към повишаване на вниманието към безопасността на движението по пътищата и превенцията на пътния травматизъм сред децата.",
+        "lead_en": "The campaign is aimed at raising attention to road safety and at preventing road injuries among children.",
+        "sum_en": "Officers from the General Directorate National Police, the General Directorate Fire Safety and Civil Protection and the Sofia Directorate presented information and practical demonstrations on road safety, fire safety, police work and police dogs, first aid and the work of volunteer units. A crash simulator let the children feel how much a seat belt matters: a frontal impact at only 7 km/h showed the force of the blow and the risk to unbelted passengers.",
+        "body_bg": [
+            "МВР е партньор в поредното издание на кампанията „Убий скоростта, спаси дете“ на Радио FM+, насочена към повишаване на вниманието към безопасността на движението по пътищата и превенцията на пътния травматизъм сред децата.",
+            "В рамките на инициативата представители на Главна дирекция „Национална полиция“ и Главна дирекция „Пожарна безопасност и защита на населението“ и СДВР представиха информация и практически демонстрации, свързани с безопасността на движението по пътищата, пожарната безопасност, работата на полицейските служители и полицейските кучета, оказването на първа помощ и дейността на доброволческите формирования.",
+            "Децата имаха възможност по интересен и достъпен начин да се запознаят с основните правила за безопасно поведение на пътя и да научат повече за отговорното участие в движението. За тях бяха организирани различни игри, предизвикателства и демонстрации с награди.",
+            "Особен интерес предизвика специалният „краш симулатор“, чрез който участниците имаха възможност да усетят колко важно е използването на обезопасителен колан в автомобила. Симулацията на челен сблъсък, дори при скорост от едва 7 км/ч, показа нагледно силата на удара и риска за пътниците при непоставен обезопасителен колан.",
+            "Чрез кампанията „Убий скоростта, спаси дете“ организаторите и партньорите ѝ отправят апел към всички участници в движението да спазват правилата, да шофират със съобразена скорост и да бъдат особено внимателни, когато на пътя има деца. Безопасността на пътя е споделена отговорност!",
+        ],
+        "src": "https://www.mvr.bg/gdnp/%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D0%BD-%D1%86%D0%B5%D0%BD%D1%82%D1%8A%D1%80/%D0%BF%D1%80%D0%B5%D1%81%D1%86%D0%B5%D0%BD%D1%82%D1%8A%D1%80/%D0%BD%D0%BE%D0%B2%D0%B8%D0%BD%D0%B8/93129",
+        "src_label": "mvr.bg",
+    },
     {
         "id": "n-malkite-geroi",
         "date": "2026-09-08",
@@ -960,6 +996,7 @@ def build_index():
         <li><a href="tel:116111"><span><span class="lbl">{l116}</span></span><span class="num">116 111</span></a></li>
         <li><a href="https://www.cybercrime.bg/" target="_blank" rel="noopener"><span class="hp-lbl">{hpe1}<span class="lbl">{lcyber}</span></span><span class="num">cybercrime.bg</span></a></li>
         <li><a href="https://gdbop.bg/" target="_blank" rel="noopener"><span class="hp-lbl">{hpe2}<span class="lbl">{lgdbop}</span></span><span class="num">gdbop.bg</span></a></li>
+        <li><a href="https://www.mvr.bg/" target="_blank" rel="noopener"><span class="hp-lbl">{hpe3}<span class="lbl">{lmvr}</span></span><span class="num">mvr.bg</span></a></li>
       </ul>
     </aside>
   </div>
@@ -1128,6 +1165,8 @@ def build_index():
         hpe2=emblem("gdbop-mvr", cls="hp-emblem hp-emblem--round", w=256, h=256, lazy=False),
         lcyber=bi("Сигнал за незаконно съдържание", "Report illegal content"),
         lgdbop=bi("Сигнал до ГДБОП", "Report to GDBOP"),
+        hpe3=emblem("mvr-nacionalna-policiya", cls="hp-emblem", w=153, h=192, lazy=False),
+        lmvr=bi("Министерство на вътрешните работи", "Ministry of Interior"),
         feye=bi("Трите посоки", "The three directions"),
         fh=h(2, "Агресията в детския свят", "Aggression in the world of children"),
         fp=p("Не е само онлайн и не е само в училище. Агресията идва от три посоки и всяка иска различен отговор.",
@@ -1746,7 +1785,7 @@ def build_help():
       {h1}
       {p1}
     </div>
-    <div class="grid grid--2" style="gap:16px">
+    <div class="grid grid--3" style="gap:16px">
       <a class="card card--link card--emblem" href="https://www.cybercrime.bg/" target="_blank" rel="noopener">
         {emb1}
         <div>{c1h}{c1p}<span class="card__more">cybercrime.bg</span></div>
@@ -1754,6 +1793,10 @@ def build_help():
       <a class="card card--link card--emblem" href="https://gdbop.bg/" target="_blank" rel="noopener">
         {emb2}
         <div>{c2h}{c2p}<span class="card__more">gdbop.bg</span></div>
+      </a>
+      <a class="card card--link card--emblem" href="https://www.mvr.bg/" target="_blank" rel="noopener">
+        {emb3}
+        <div>{c3h}{c3p}<span class="card__more">mvr.bg</span></div>
       </a>
     </div>
   </div>
@@ -1803,6 +1846,12 @@ def build_help():
              "For harmful and illegal content in the Bulgarian internet space and for organised criminal activity.", cls="lede"),
         emb1=emblem("cybercrime-gdbop", cls="emblem", w=341, h=420),
         emb2=emblem("gdbop-mvr", cls="emblem emblem--round", w=256, h=256),
+        emb3=emblem("mvr-nacionalna-policiya", cls="emblem", w=153, h=192),
+        c3h=h(3, "МВР — приемна и структури", "Ministry of Interior — reception and structures"),
+        c3p=p("Официалният сайт на Министерството на вътрешните работи: областните дирекции, районните управления, "
+              "детските педагогически стаи и приемната за граждани.",
+              "The official site of the Ministry of Interior: the regional directorates, the district departments, "
+              "the child pedagogical rooms and the citizens\u2019 reception."),
         c1h=h(3, "Дирекция „Киберпрестъпност“", "Cybercrime Directorate"),
         c1p=p("Материали със сексуална злоупотреба с деца, склоняване на дете онлайн, изнудване с интимни снимки, заплахи, разпространение на записи от насилие.",
               "Child sexual abuse material, online grooming, extortion with intimate images, threats, the spreading of recorded violence."),
