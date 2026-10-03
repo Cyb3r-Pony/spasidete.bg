@@ -265,12 +265,18 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:description" content="{desc_bg}">
 <meta property="og:locale" content="bg_BG">
 <meta property="og:locale:alternate" content="en_GB">
-<meta property="og:image" content="https://spasidete.bg/assets/img/og-image.jpg">
+<meta property="og:url" content="{canonical}">
+<meta property="og:image" content="{og_image}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary">
-<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+<meta property="og:image:alt" content="СпасиДете.БГ — агресията в детския свят">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{canonical}">
+<link rel="icon" href="favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64">
+<link rel="icon" href="assets/img/icon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/img/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="mask-icon" href="assets/img/mask-icon.svg" color="#1d4e89">
 <link rel="stylesheet" href="assets/css/style.css">
 {preload}
 <script>
@@ -386,8 +392,20 @@ FOOT = """</main>
 """
 
 
+# Адресът, на който сайтът се обслужва в момента. Абсолютни адреси трябват на
+# три места: og:image, og:url и каноничната връзка. Когато spasidete.bg започне
+# да сочи към GitHub Pages, тук се сменя само този ред.
+# The address the site is served from today. Absolute URLs are needed in three
+# places: og:image, og:url and the canonical link. When spasidete.bg starts
+# pointing at GitHub Pages, only this line changes.
+SITE_BASE = "https://cyb3r-pony.github.io/spasidete.bg/"
+
+
 def page(filename, title_bg, title_en, desc_bg, desc_en, body, preload=""):
+    canonical = SITE_BASE + ("" if filename == "index.html" else filename)
     head = HEAD.format(
+        canonical=canonical,
+        og_image=SITE_BASE + "assets/img/og-image.jpg",
         title_bg=esc(title_bg),
         title_en=esc(title_en),
         desc_bg=esc(desc_bg),
@@ -2710,7 +2728,7 @@ def build_404():
 
 
 def build_extras():
-    base = "https://spasidete.bg/"
+    base = SITE_BASE
     urls = ["index.html"] + [f for f, _, _ in NAV] + ["report.html", "contact.html"]
     items = "".join(
         '  <url><loc>%s%s</loc><changefreq>monthly</changefreq><priority>%s</priority></url>\n'

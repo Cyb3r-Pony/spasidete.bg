@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://spasidete.bg/sitemap.xml
+Sitemap: https://cyb3r-pony.github.io/spasidete.bg/sitemap.xml
