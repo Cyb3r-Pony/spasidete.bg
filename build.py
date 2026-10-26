@@ -14,6 +14,7 @@ switch in the top-right corner shows only the selected language.
 """
 
 import os
+import re
 import html as _html
 
 import content2 as C2
@@ -259,6 +260,8 @@ HEAD = """<!DOCTYPE html>
 <title data-title-bg="{title_bg}" data-title-en="{title_en}">{title_bg}</title>
 <meta name="description" data-desc-bg="{desc_bg}" data-desc-en="{desc_en}" content="{desc_bg}">
 <meta name="theme-color" content="#0a1f38">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'; img-src 'self' data: https://i.ytimg.com https://i9.ytimg.com; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; connect-src 'self'">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="СпасиДете.БГ">
 <meta property="og:title" content="{title_bg}">
@@ -401,6 +404,27 @@ FOOT = """</main>
 SITE_BASE = "https://cyb3r-pony.github.io/spasidete.bg/"
 
 
+_TEL_RX = re.compile(
+    r"(?<=>)([^<>]*?)(\+359(?: \d+)+|\b(?:0\d{3}|116|112)(?: \d{2,3})+)",
+)
+
+
+def _nb_phones(html):
+    """Слепва интервалите в телефонните номера в текста, за да не се пречупват
+    на два реда. Пипа само текста между таговете, не и атрибутите.
+
+    Joins the spaces inside phone numbers in the page text so a number never
+    wraps across two lines. Only text between tags is touched, never attributes.
+    """
+    def fix(m):
+        return m.group(1) + m.group(2).replace(" ", "\u00a0")
+    prev = None
+    while prev != html:
+        prev = html
+        html = _TEL_RX.sub(fix, html)
+    return html
+
+
 def page(filename, title_bg, title_en, desc_bg, desc_en, body, preload=""):
     canonical = SITE_BASE + ("" if filename == "index.html" else filename)
     head = HEAD.format(
@@ -469,7 +493,7 @@ def page(filename, title_bg, title_en, desc_bg, desc_en, body, preload=""):
         ic_up=ICON["up"],
     )
 
-    out = head + body + foot
+    out = _nb_phones(head + body + foot)
     with open(os.path.join(HERE, filename), "w", encoding="utf-8") as fh:
         fh.write(out)
     print("  ->", filename, "%.1f KB" % (len(out.encode("utf-8")) / 1024.0))
@@ -546,7 +570,7 @@ HELPLINES = [
         "tel": "+35929828363", "urgent": False,
         "name_bg": "Главна дирекция „Борба с организираната престъпност“",
         "name_en": "General Directorate for Combating Organised Crime (GDBOP)",
-        "desc_bg": "Официален канал за подаване на сигнал към ГДБОП. Анонимността на подателя се гарантира по реда на закона.",
+        "desc_bg": "Официален канал за подаване на сигнал директно към ГДБОП. При него анонимността на подателя се гарантира по реда на закона.",
         "desc_en": "The official channel for submitting a report to GDBOP. The anonymity of the person reporting is guaranteed by law.",
         "site": "https://gdbop.bg/", "site_label": "gdbop.bg",
         "email": None,
@@ -868,6 +892,12 @@ INSTITUTIONS = [
 # ==========================================================================
 
 
+def nbtel(t):
+    """Телефонен номер с неразделими интервали, за да не се пречупва на два реда.
+    A phone number with non-breaking spaces so it never wraps mid-number."""
+    return t.replace(" ", "\u00a0")
+
+
 def _fmt_tel(t):
     """+35929828363 -> +359 2 982 83 63"""
     if not t.startswith("+359"):
@@ -890,14 +920,14 @@ def render_helpline(item):
     href = ("tel:" + item["tel"]) if numeric else item["site"]
     target = "" if numeric else ' target="_blank" rel="noopener"'
     tel = '<a class="helpline__badge" href="%s"%s>%s<small>%s</small></a>' % (
-        href, target, item["badge"], bi(item["badge_sm_bg"], item["badge_sm_en"])
+        href, target, nbtel(item["badge"]), bi(item["badge_sm_bg"], item["badge_sm_en"])
     )
     meta = []
     if item.get("extra_bg"):
         meta.append(bi(item["extra_bg"], item["extra_en"]))
     elif item.get("tel") and not numeric:
         pretty = _fmt_tel(item["tel"])
-        meta.append(bi('тел. <a href="tel:%s">%s</a>' % (item["tel"], pretty),
+        meta.append(bi('тел. <a href="tel:%s">%s</a>' % (item["tel"], nbtel(pretty)),
                        'tel. <a href="tel:%s">%s</a>' % (item["tel"], pretty)))
     if item.get("email"):
         meta.append('<a href="mailto:%s">%s</a>' % (item["email"], item["email"]))
@@ -1046,7 +1076,7 @@ def build_index():
 
 <section class="section--carousel">
   <div class="wrap">
-    <div class="carousel" data-carousel aria-roledescription="carousel" aria-label="{car_label}">
+    <div class="carousel" role="group" data-carousel aria-roledescription="carousel" aria-label="{car_label}">
       <div class="carousel__track" id="car-track">
         {slides}
       </div>
@@ -1783,8 +1813,8 @@ def build_help():
         c1p=p("Материали със сексуална злоупотреба с деца, склоняване на дете онлайн, изнудване с интимни снимки, заплахи, разпространение на записи от насилие.",
               "Child sexual abuse material, online grooming, extortion with intimate images, threats, the spreading of recorded violence."),
         c2h=h(3, "ГДБОП, подай сигнал", "GDBOP — file a report"),
-        c2p=p("Официалният канал на Главна дирекция „Борба с организираната престъпност“. Анонимността на подателя се гарантира по реда на закона.",
-              "The official channel of the General Directorate for Combating Organised Crime. The anonymity of the person reporting is guaranteed by law."),
+        c2p=p("Официалният канал на Главна дирекция „Борба с организираната престъпност“. При сигнал, подаден директно през него, анонимността на подателя се гарантира по реда на закона.",
+              "The official channel of the General Directorate for Combating Organised Crime. For a report filed directly through it, the anonymity of the person reporting is guaranteed by law."),
         e2=bi("Телефонни линии", "Helplines"),
         h2=h(2, "Институции и линии за помощ", "Institutions and helplines"),
         p2=p("Номерата са активни връзки, на телефон достатъчно е да докоснете номера.",
@@ -1818,9 +1848,9 @@ def _help_faq():
     qa = [
         ("Мога ли да подам сигнал анонимно?",
          "Can I report anonymously?",
-         "Не. Сигналите през този сайт не са анонимни. Подават се от реални български граждани, които попълват изискваните данни във формуляра за контакт: три имена, телефон и електронна поща. "
+         "Не. Сигналите през този сайт не са анонимни. Подават се от реални български граждани, които попълват изискваните данни във формуляра за сигнал: три имена, телефон и електронна поща. "
          "Данните са нужни на дирекцията, за да провери сигнала и да поиска уточнения от вас.",
-         "No. Reports made through this site are not anonymous. They are filed by real Bulgarian citizens who fill in the required details in the contact form: full name, phone number and e-mail address. "
+         "No. Reports made through this site are not anonymous. They are filed by real Bulgarian citizens who fill in the required details in the report form: full name, phone number and e-mail address. "
          "The directorate needs these details in order to check the report and to ask you for clarification."),
         ("Дете съм. Мога ли да се обадя сам?",
          "I am a child. Can I call on my own?",
@@ -2282,7 +2312,9 @@ def build_report():
         'data-addr="бул. „Цариградско шосе“ № 133А, гр. София" '
         'data-tlbg="дежурен ГДБОП" data-tlen="GDBOP duty officer">В интернет</option>')
     opts.append(
-        '<option value="nesum-siguren" data-mail="%s" data-tel="" data-fallback="1" '
+        '<option value="nesum-siguren" data-mail="%s" data-tel="" '
+        'data-notebg="Когато мястото не е известно, писмото тръгва към приемната на МВР, която го насочва към компетентната структура." '
+        'data-noteen="When the place is not known, the letter goes to the Ministry\u2019s public reception, which forwards it to the competent unit." '
         'data-bg="Не съм сигурен" data-en="Not sure" data-nodir="1" '
         'data-dirbg="Приемна на МВР" data-diren="Ministry of Interior reception" '
         'data-addr="" data-tlbg="" data-tlen="">Не съм сигурен</option>' % C2.FALLBACK_EMAIL)
@@ -2296,7 +2328,7 @@ def build_report():
   <td class="t-addr" data-l="{dl_addr}">{addr}</td>
 </tr>""".format(
             bg=bi(bg, en),
-            tel=('<a href="tel:%s">%s</a><small>%s</small>' % (tel.replace(" ", ""), tel, bi(tl_bg, tl_en))) if tel else "<span class=\"muted\">—</span>",
+            tel=('<a href="tel:%s">%s</a><small>%s</small>' % (tel.replace(" ", ""), nbtel(tel), bi(tl_bg, tl_en))) if tel else "<span class=\"muted\">—</span>",
             mail=('<a href="mailto:%s">%s</a>' % (mail, mail)) if mail else "<span class=\"muted\">—</span>",
             addr=esc(addr),
             dl_tel="Телефон", dl_mail="Електронна поща", dl_addr="Адрес",
@@ -2313,9 +2345,11 @@ def build_report():
         "Подай сигнал",
         "File a report",
         "Опишете всички свидетелства или станали ви известни факти и обстоятелства около случая. "
-        "Формулярът подготвя писмо до дежурната част на областната дирекция на МВР, която отговаря за мястото на случилото се.",
+        "Формулярът подготвя писмо до дежурната част на областната дирекция на МВР, която отговаря за мястото на случилото се, "
+        "а при случай в интернет, до дирекция „Киберпрестъпност“.",
         "Describe every piece of evidence and every fact or circumstance of the case known to you. "
-        "The form prepares a letter to the duty unit of the regional directorate responsible for the place where it happened.",
+        "The form prepares a letter to the duty unit of the regional directorate responsible for the place where it happened, "
+        "or, for an online case, to the Cybercrime Directorate.",
         "Подай сигнал", "File a report",
     ) + """
 <section class="section section--rose section--tight">
@@ -2464,8 +2498,10 @@ def build_report():
              cls="lede"),
         l_region=bi("Област, в която се е случило", "Region where it happened"),
         options=options,
-        hint_region=bi("Ако не знаете областта, изберете тази, в която живеете, и опишете мястото по-долу.",
-                       "If you do not know the region, choose the one you live in and describe the place below."),
+        hint_region=bi("Ако случаят е изцяло в интернет, изберете „В интернет“, за да тръгне писмото към дирекция „Киберпрестъпност“. "
+                       "Ако не знаете къде се е случило, изберете „Не съм сигурен“ и опишете мястото по-долу.",
+                       "If the case is entirely online, choose “Online” so the letter goes to the Cybercrime Directorate. "
+                       "If you do not know where it happened, choose “Not sure” and describe the place below."),
         l_place=bi("Населено място, адрес, училище", "Town, address, school"),
         hint_place=bi("Например: гр. Пловдив, 25-то СУ, двора зад физкултурния салон.",
                       "For example: Plovdiv, School No. 25, the yard behind the gym."),

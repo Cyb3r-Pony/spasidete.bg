@@ -394,6 +394,7 @@
         tl: o.getAttribute('data-tl' + lang()) || o.getAttribute('data-tlbg') || '',
         dir: o.getAttribute('data-dir' + lang()) || o.getAttribute('data-dirbg') || '',
         nodir: o.getAttribute('data-nodir') === '1',
+        note: o.getAttribute('data-note' + lang()) || o.getAttribute('data-notebg') || '',
         fallback: o.getAttribute('data-fallback') === '1'
       };
     }
@@ -412,15 +413,16 @@
         : (lang() === 'en' ? 'Regional Directorate ' : 'ОДМВР ') + c.name;
       var telEl = document.getElementById('rb-tel');
       telEl.innerHTML = c.tel
-        ? '<a href="tel:' + c.tel.replace(/\s/g, '') + '">' + c.tel + '</a>' +
+        ? '<a href="tel:' + c.tel.replace(/\s/g, '') + '">' + c.tel.replace(/ /g, '\u00a0') + '</a>' +
           (c.tl ? ' <span class="muted">(' + c.tl + ')</span>' : '')
         : '<span class="muted">—</span>';
       var mailEl = document.getElementById('rb-mail');
+      var note = c.note || (c.fallback
+        ? t('Тази дирекция не публикува електронен адрес. Писмото тръгва към приемната на МВР, която го пренасочва.',
+            'This directorate publishes no e-mail address. The letter goes to the Ministry of Interior’s reception, which forwards it.')
+        : '');
       mailEl.innerHTML = '<a href="mailto:' + c.mail + '">' + c.mail + '</a>' +
-        (c.fallback
-          ? '<small>' + t('Тази дирекция не публикува електронен адрес. Писмото тръгва към приемната на МВР, която го пренасочва.',
-                          'This directorate publishes no e-mail address. The letter goes to the Ministry of Interior’s reception, which forwards it.') + '</small>'
-          : '');
+        (note ? '<small>' + note + '</small>' : '');
       document.getElementById('rb-addr').textContent = c.addr || '—';
     }
 
@@ -490,9 +492,9 @@
         document.getElementById('f-name').focus();
         say(t('Моля, въведете трите си имена.', 'Please enter your full name.'), false); return;
       }
-      if (!val('f-phone')) {
+      if ((val('f-phone').match(/\d/g) || []).length < 6) {
         document.getElementById('f-phone').focus();
-        say(t('Моля, въведете телефон за връзка.', 'Please enter a contact phone number.'), false); return;
+        say(t('Моля, въведете валиден телефон за връзка.', 'Please enter a valid contact phone number.'), false); return;
       }
       if (!/^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/.test(val('f-email'))) {
         document.getElementById('f-email').focus();
@@ -504,7 +506,7 @@
         say(t('Моля, потвърдете, че сте запознат/а с последиците от неверен сигнал.',
               'Please confirm that you have read the consequences of a false report.'), false); return;
       }
-      var subj = t('Сигнал за насилие/агресия над дете — ', 'Report of violence/aggression against a child — ') + c.name;
+      var subj = t('Сигнал за насилие/агресия над дете — ', 'Report of violence/aggression against a child — ') + (c.dir || c.name);
       var href = 'mailto:' + c.mail +
                  '?subject=' + encodeURIComponent(subj) +
                  '&body=' + encodeURIComponent(buildText());

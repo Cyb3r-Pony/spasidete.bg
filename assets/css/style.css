@@ -553,7 +553,6 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
   content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ink-3); flex: none;
 }
 .typecard.t-verbal h3::before { background: #c4271d; }
-.typecard.t-social h3::before { background: #7d5ba6; }
 .typecard.t-sexual h3::before { background: #7d5ba6; }
 .typecard.t-neglect h3::before { background: #4f6d7a; }
 .typecard.t-physical h3::before { background: #c07a12; }
@@ -677,13 +676,6 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 .linkout { font-size: .88rem; color: var(--ink-3); }
 .linkout:hover { color: var(--ink-2); }
 
-.newsteaser {
-  display: block; padding: 0; text-decoration: none !important;
-}
-.newsteaser time { font-size: .8rem; color: var(--ink-3); }
-.newsteaser h3 { font-size: 1.05rem; margin: .5em 0 .3em; color: var(--ink); }
-.newsteaser p { font-size: .92rem; color: var(--ink-2); margin: 0; line-height: 1.5; }
-.newsteaser:hover h3 { color: var(--blue); }
 
 /* ---------- 19. Връзки / resource links ---------- */
 .reslink {
@@ -697,12 +689,6 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 .reslink p { margin: 0; font-size: .93rem; color: var(--ink-2); line-height: 1.5; }
 
 /* ---------- 20. Данни / stats ---------- */
-.stat { padding: 0; }
-.stat__num {
-  font-size: clamp(2.4rem, 1.7rem + 2.6vw, 3.4rem); font-weight: 600;
-  color: var(--ink); line-height: 1; letter-spacing: -.04em;
-}
-.stat p { margin: .55em 0 0; font-size: .92rem; color: var(--ink-2); line-height: 1.5; max-width: 30ch; }
 
 /* ---------- 21. Партньори и данни / partners and data ---------- */
 .partner { padding: 24px 0; border-top: 1px solid var(--line-soft); }
@@ -948,12 +934,19 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 .carousel__btn--prev { left: 12px; }
 .carousel__btn--next { right: 12px; }
 .carousel__btn[disabled] { opacity: .35; cursor: default; }
-.carousel__dots { display: flex; justify-content: center; gap: 7px; margin-top: 16px; }
+.carousel__dots { display: flex; justify-content: center; gap: 0; margin-top: 10px; }
+/* Точката изглежда малка, но целта за докосване е 26 px, за да се улучва
+   и с пръст. The dot looks small, but the touch target is 26px. */
 .carousel__dots button {
-  width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; cursor: pointer;
+  width: 26px; height: 26px; padding: 0; border: 0; background: none;
+  cursor: pointer; display: grid; place-items: center;
+}
+.carousel__dots button::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
   background: var(--line); transition: background-color .18s ease, transform .18s ease;
 }
-.carousel__dots button[aria-selected="true"] { background: var(--ink-3); transform: scale(1.35); }
+.carousel__dots button[aria-selected="true"]::before { background: var(--ink-3); transform: scale(1.35); }
+.carousel__dots button:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; border-radius: 50%; }
 
 .figure--inline { margin: 0 0 2rem; max-width: 620px; }
 .figure--inline img { border-radius: var(--r); width: 100%; }
@@ -974,20 +967,7 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
   color: var(--ink); font-size: .99rem; text-decoration: none !important;
 }
 .toc a:hover { color: var(--blue); }
-.toc__n { color: var(--ink-3); font-size: .82rem; font-variant-numeric: tabular-nums; flex: none; }
 
-.material { padding-block: clamp(2.4rem, 2rem + 2vw, 3.6rem); border-top: 1px solid var(--line-soft); position: relative; }
-.material:first-child { border-top: 0; padding-top: 0; }
-.material__num {
-  font-size: .78rem; font-weight: 600; color: var(--ink-3);
-  letter-spacing: .02em; margin-bottom: .5rem;
-}
-.material__num::before { content: "Материал "; }
-html[data-lang="en"] .material__num::before { content: "Material "; }
-.matblock { margin-top: 2rem; }
-.matblock h3 { margin-bottom: .6em; }
-.matblock p { color: var(--ink-2); line-height: 1.6; }
-.matblock .advice { margin-top: 1rem; }
 
 /* ==========================================================
    29. Формуляр за сигнал / report form
@@ -1030,7 +1010,7 @@ html[data-lang="en"] .material__num::before { content: "Material "; }
   align-items: start; margin-top: 18px;
 }
 .field--check input[type="checkbox"] {
-  width: 20px; height: 20px; margin: 1px 0 0; flex: none; accent-color: var(--blue);
+  width: 24px; height: 24px; margin: 0; flex: none; accent-color: var(--blue);
 }
 .field--check label { margin: 0; font-weight: 400; font-size: .92rem; line-height: 1.5; color: var(--ink-2); }
 
@@ -1183,7 +1163,7 @@ html[data-lang="en"] .material__num::before { content: "Material "; }
   .footer a, .reslink, .toc a { min-height: 32px; }
   .nav__links a { padding-block: 13px; }
   .langswitch button { padding: .5em .7em; }
-  .carousel__dots button { width: 9px; height: 9px; }
+  .carousel__dots button::before { width: 9px; height: 9px; }
   .carousel__dots { gap: 14px; padding-block: 6px; }
   .qa summary { padding-block: 18px; }
   .helpline__badge { padding: 13px 15px; }
