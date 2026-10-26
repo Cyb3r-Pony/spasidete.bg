@@ -82,9 +82,9 @@ FALLBACK_EMAIL = "priemna@mvr.bg"
 # ==========================================================================
 
 OTHER_CHANNELS = [
-    ("Районните полицейски управления по места",
+    ("Районно управление на МВР",
      "Local district police departments",
-     "Най-близкото РУ приема сигнал на място и по телефон. Телефоните са публикувани на страницата за контакт на съответната областна дирекция.",
+     "Най-близкото районно управление приема сигнал на място и по телефон. Телефоните са публикувани на страницата за контакт на съответната областна дирекция.",
      "The nearest district department takes reports in person and by phone. Numbers are published on each regional directorate’s contact page."),
     ("Прокуратура на Република България",
      "Prosecutor’s Office of the Republic of Bulgaria",
@@ -119,7 +119,7 @@ MATERIALS = [
                 "body_bg": [
                     "Това е най-разпространената форма, която подрастващите проявяват помежду си или приемат от средата. Включва обиди, социално изключване, злепоставяне, разпространение на слухове и заплахи.",
                     "<strong>Статистика:</strong> според представителното национално изследване на УНИЦЕФ, емоционалното насилие засяга 45,9% от децата в България.",
-                    "<strong>Къде:</strong> училището е основното място на проява — данните на PISA показват, че между 20% от момичетата и 24% от момчетата в България са подложени на системен училищен тормоз поне няколко пъти месечно.",
+                    "<strong>Къде:</strong> училището е основното място на проява, данните на PISA показват, че между 20% от момичетата и 24% от момчетата в България са подложени на системен училищен тормоз поне няколко пъти месечно.",
                 ],
                 "body_en": [
                     "This is the most widespread form, which adolescents display towards each other or absorb from their environment. It includes insults, social exclusion, discrediting, the spreading of rumours and threats.",
@@ -131,7 +131,7 @@ MATERIALS = [
                 "h_bg": "2. Физическо насилие",
                 "h_en": "2. Physical violence",
                 "body_bg": [
-                    "Проявява се чрез блъскане, удряне, сбивания и физическа саморазправа — често записвани с телефон и разпространявани в мрежите заради статус.",
+                    "Проявява се чрез блъскане, удряне, сбивания и физическа саморазправа, често записвани с телефон и разпространявани в мрежите заради статус.",
                     "<strong>Статистика:</strong> заема второ място с 31,2% разпространение сред подрастващите.",
                     "<strong>Тенденция:</strong> мониторинговите доклади на Държавната агенция за закрила на детето отчитат устойчив ръст на сигналите за физическа агресия сред непълнолетните през последните години.",
                 ],
@@ -167,10 +167,10 @@ MATERIALS = [
             },
         ],
         "sources_bg": [
-            "<strong>УНИЦЕФ България</strong> — национално представително проучване „Изследване на насилието над деца в България“, проведено от Coram International и ЕСТАТ.",
-            "<strong>Национален статистически институт</strong> — данни и методология от изследването за насилието, основано на пол (EU-GBV).",
-            "<strong>Държавна агенция за закрила на детето</strong> — годишни мониторингови доклади за насилието над децата и регистър на сигналите.",
-            "<strong>PISA (ОИСР)</strong> — данни за тормоза в училищна среда и сигурността на учениците в България.",
+            "<strong>УНИЦЕФ България</strong>, национално представително проучване „Изследване на насилието над деца в България“, проведено от Coram International и ЕСТАТ.",
+            "<strong>Национален статистически институт</strong>, данни и методология от изследването за насилието, основано на пол (EU-GBV).",
+            "<strong>Държавна агенция за закрила на детето</strong>, годишни мониторингови доклади за насилието над децата и регистър на сигналите.",
+            "<strong>PISA (ОИСР)</strong>, данни за тормоза в училищна среда и сигурността на учениците в България.",
         ],
         "sources_en": [
             "<strong>UNICEF Bulgaria</strong> — the nationally representative study “Research on violence against children in Bulgaria”, carried out by Coram International and ESTAT.",
@@ -184,11 +184,11 @@ MATERIALS = [
         "num": "2",
         "title_bg": "Цената на непълноценната грижа",
         "title_en": "The price of inadequate care",
-        "lead_bg": "Липса на привързаност, свръхконтрол, липса на качествено общуване с родителите, неглижиране, презадоволяване, отсъстващи родители, „интернет възпитание“ — всяко от тях оставя следа.",
+        "lead_bg": "Липса на привързаност, свръхконтрол, липса на качествено общуване с родителите, неглижиране, презадоволяване, отсъстващи родители, „интернет възпитание“, всяко от тях оставя следа.",
         "lead_en": "A lack of attachment, over-control, the absence of real conversation with parents, neglect, over-indulgence, absent parents, “upbringing by internet” — each of these leaves a mark.",
         "blocks": [
             {
-                "h_bg": "Агресия и насилие — къде е границата",
+                "h_bg": "Агресия и насилие, къде е границата",
                 "h_en": "Aggression and violence — where the line falls",
                 "body_bg": [
                     "Под „агресия“ се разбира съвкупност от действия и постъпки, които нарушават физическата или психическата цялостност на друг човек или група от хора. Агресивното поведение се свързва с нанасяне на материални вреди, физическа болка, словесни обиди, възпрепятстване на желанията и противодействие на интересите на другите.",
@@ -203,10 +203,10 @@ MATERIALS = [
                 "h_bg": "Основни форми на насилие",
                 "h_en": "The basic forms of violence",
                 "list_bg": [
-                    "<strong>Физическо:</strong> всяко умишлено използване на физическа сила, което води до болка, нараняване, телесна повреда или смърт — удряне, блъскане, скубане, душене, лишаване от свобода на движение.",
-                    "<strong>Психическо (емоционално):</strong> системно вербално или невербално въздействие, което уврежда самооценката и психическото здраве — обиди, унижения, заплахи, изолация, крайна ревност, манипулация, газлайтинг.",
-                    "<strong>Сексуално:</strong> всяко сексуално действие, опит за такова или принуда към сексуални прояви без изрично и свободно дадено съгласие — нежелано докосване, сексуален тормоз, изнасилване, принуда към гледане или заснемане на порнографски материали.",
-                    "<strong>Икономическо:</strong> поставяне на жертвата в пълна финансова зависимост и/или контрол над нейните ресурси — отнемане на лични доходи, забрана за работа или учене, отказ от средства за основни нужди като храна и лекарства.",
+                    "<strong>Физическо:</strong> всяко умишлено използване на физическа сила, което води до болка, нараняване, телесна повреда или смърт, удряне, блъскане, скубане, душене, лишаване от свобода на движение.",
+                    "<strong>Психическо (емоционално):</strong> системно вербално или невербално въздействие, което уврежда самооценката и психическото здраве, обиди, унижения, заплахи, изолация, крайна ревност, манипулация, газлайтинг.",
+                    "<strong>Сексуално:</strong> всяко сексуално действие, опит за такова или принуда към сексуални прояви без изрично и свободно дадено съгласие, нежелано докосване, сексуален тормоз, изнасилване, принуда към гледане или заснемане на порнографски материали.",
+                    "<strong>Икономическо:</strong> поставяне на жертвата в пълна финансова зависимост и/или контрол над нейните ресурси, отнемане на лични доходи, забрана за работа или учене, отказ от средства за основни нужди като храна и лекарства.",
                 ],
                 "list_en": [
                     "<strong>Physical:</strong> any deliberate use of physical force that causes pain, injury, bodily harm or death — hitting, pushing, hair-pulling, strangling, restricting freedom of movement.",
@@ -220,7 +220,7 @@ MATERIALS = [
                 "h_en": "Forms by setting and context",
                 "list_bg": [
                     "<strong>Домашно насилие:</strong> всеки акт на физическо, сексуално, психическо или икономическо насилие в рамките на семейството, домакинството или между бивши и настоящи партньори.",
-                    "<strong>Училищен тормоз (булинг):</strong> системна агресия — физическа, вербална или социална — между ученици в образователна среда.",
+                    "<strong>Училищен тормоз (булинг):</strong> системна агресия, физическа, вербална или социална, между ученици в образователна среда.",
                     "<strong>Кибернасилие:</strong> използване на дигитални технологии и социални мрежи за злепоставяне, обиди, заплахи, разпространение на снимки, слухове или изнудване.",
                     "<strong>Насилие на работното място (мобинг):</strong> системен психологически тормоз от колеги или ръководители с цел дискредитиране или принуда служителят да напусне.",
                 ],
@@ -235,10 +235,10 @@ MATERIALS = [
                 "h_bg": "Специфични и структурни форми",
                 "h_en": "Specific and structural forms",
                 "list_bg": [
-                    "<strong>Насилие чрез неглижиране:</strong> системно, хронично незадоволяване на основните нужди на зависимо лице — дете, възрастен или болен човек — лишаване от храна, медицински грижи, образование, сигурност и емоционална подкрепа.",
+                    "<strong>Насилие чрез неглижиране:</strong> системно, хронично незадоволяване на основните нужди на зависимо лице, дете, възрастен или болен човек, лишаване от храна, медицински грижи, образование, сигурност и емоционална подкрепа.",
                     "<strong>Насилие, основано на пола:</strong> насилие, насочено срещу лице заради неговия пол или засягащо непропорционално лица от определен пол.",
                     "<strong>Институционално насилие:</strong> тормоз, лошо отношение или системно лишаване от права на хора, настанени в институции.",
-                    "<strong>Трафик на хора:</strong> набиране, транспортиране и укриване на хора чрез принуда и измама с цел експлоатация — трудова, сексуална или за отнемане на органи.",
+                    "<strong>Трафик на хора:</strong> набиране, транспортиране и укриване на хора чрез принуда и измама с цел експлоатация, трудова, сексуална или за отнемане на органи.",
                 ],
                 "list_en": [
                     "<strong>Violence through neglect:</strong> the systematic, chronic failure to meet the basic needs of a dependent person — a child, an elderly or a sick person — depriving them of food, medical care, education, safety and emotional support.",
@@ -248,7 +248,7 @@ MATERIALS = [
                 ],
             },
         ],
-        "closing_bg": "Агресията, проявявана от подрастващите, почти никога не е просто „лош характер“ — тя е видимият симптом на по-дълбок вътрешен или външен проблем. Психолозите я разглеждат като силен сигнал за помощ, като неспособност за справяне със средата или като знак за емоционален дефицит.",
+        "closing_bg": "Агресията, проявявана от подрастващите, почти никога не е просто „лош характер“, тя е видимият симптом на по-дълбок вътрешен или външен проблем. Психолозите я разглеждат като силен сигнал за помощ, като неспособност за справяне със средата или като знак за емоционален дефицит.",
         "closing_en": "Aggression displayed by adolescents is almost never simply “a bad character” — it is the visible symptom of a deeper internal or external problem. Psychologists view it as a strong call for help, an inability to cope with the environment, or a sign of emotional deficit.",
     },
     {
@@ -263,8 +263,8 @@ MATERIALS = [
                 "h_bg": "1. Зов за внимание",
                 "h_en": "1. A call for attention",
                 "body_bg": [
-                    "<strong>Неосъзнат вик за помощ.</strong> Често агресивното поведение е сигнал за затруднения в семейството. Някои тийнейджъри, когато се чувстват невидими или неразбрани, „избират“ — несъзнавано — скандала или физическата проява, защото това гарантира, че възрастните най-накрая ще ги забележат.",
-                    "<strong>Огледален модел.</strong> Агресията може да е знак, че самото дете е жертва на тормоз — в училище или у дома. Детето копира модела на поведение, на който е подложено: от една страна подражава на насилника, който е „всесилен“, а от друга се освобождава от натрупаните емоции, защото не може да отвърне на своя насилник — особено ако той е родител.",
+                    "<strong>Неосъзнат вик за помощ.</strong> Често агресивното поведение е сигнал за затруднения в семейството. Някои тийнейджъри, когато се чувстват невидими или неразбрани, „избират“, несъзнавано, скандала или физическата проява, защото това гарантира, че възрастните най-накрая ще ги забележат.",
+                    "<strong>Огледален модел.</strong> Агресията може да е знак, че самото дете е жертва на тормоз, в училище или у дома. Детето копира модела на поведение, на който е подложено: от една страна подражава на насилника, който е „всесилен“, а от друга се освобождава от натрупаните емоции, защото не може да отвърне на своя насилник, особено ако той е родител.",
                 ],
                 "body_en": [
                     "<strong>An unrecognised cry for help.</strong> Aggressive behaviour is often a signal of difficulties at home. Some teenagers, when they feel invisible or misunderstood, unconsciously “choose” a row or a physical outburst, because that guarantees adults will finally notice them.",
@@ -275,7 +275,7 @@ MATERIALS = [
                 "h_bg": "2. Хормонална и емоционална буря",
                 "h_en": "2. A hormonal and emotional storm",
                 "body_bg": [
-                    "<strong>Липса на емоционална регулация.</strong> Юношеството е период на интензивни физиологични промени. Агресията сигнализира, че нервната система на подрастващия е претоварена — той все още няма зрели механизми да изразява страха, тревожността или гнева си по здравословен начин, а вероятно няма и емоционално здрав възрастен за пример около себе си.",
+                    "<strong>Липса на емоционална регулация.</strong> Юношеството е период на интензивни физиологични промени. Агресията сигнализира, че нервната система на подрастващия е претоварена, той все още няма зрели механизми да изразява страха, тревожността или гнева си по здравословен начин, а вероятно няма и емоционално здрав възрастен за пример около себе си.",
                     "<strong>Маскирана депресия.</strong> При възрастните депресията често се проявява с тъга и изолиране. При подрастващите обаче скритата депресия и високите нива на тревожност много често се маскират като раздразнителност, враждебност и изблици на ярост.",
                 ],
                 "body_en": [
@@ -287,7 +287,7 @@ MATERIALS = [
                 "h_bg": "3. Социален натиск и търсене на идентичност",
                 "h_en": "3. Social pressure and the search for identity",
                 "body_bg": [
-                    "<strong>Статус и лидерство.</strong> В тази възраст мнението на връстниците е по-важно от това на родителите. Агресията може да е опит за приемане, за доказване, за издигане в йерархията на групата или страх от социално изключване. Често такава група — формирана основно от „сърдити и гневни“ подрастващи — замества значими липси в семейната среда: липса на емоционална връзка с родител, занижен родителски капацитет, насилие в семейството, прекалено обгрижване, възпитание чрез контрол и подчиненост или свръхидеализация на способностите на детето.",
+                    "<strong>Статус и лидерство.</strong> В тази възраст мнението на връстниците е по-важно от това на родителите. Агресията може да е опит за приемане, за доказване, за издигане в йерархията на групата или страх от социално изключване. Често такава група, формирана основно от „сърдити и гневни“ подрастващи, замества значими липси в семейната среда: липса на емоционална връзка с родител, занижен родителски капацитет, насилие в семейството, прекалено обгрижване, възпитание чрез контрол и подчиненост или свръхидеализация на способностите на детето.",
                     "<strong>Проверка на границите.</strong> Подрастващите умишлено провокират средата, за да тестват докъде се простира тяхната автономия и къде се чупят правилата на възрастните.",
                 ],
                 "body_en": [
@@ -324,7 +324,7 @@ MATERIALS = [
                 "h_en": "2. A sign of psychological and emotional disorders",
                 "body_bg": [
                     "<strong>Разстройство на поведението.</strong> Когато насилието е насочено към хора или животни и е придружено от разрушаване на имущество или кражби, това е знак за поведенческо разстройство, което изисква намесата на клиничен психолог или психиатър.",
-                    "<strong>Липса на емпатия.</strong> Насилието показва сериозен дефицит в развитието на емпатия — детето не може да се постави на мястото на жертвата и да изпита състрадание. Състоянието има различни причини, но се нуждае от намесата на детски специалист.",
+                    "<strong>Липса на емпатия.</strong> Насилието показва сериозен дефицит в развитието на емпатия, детето не може да се постави на мястото на жертвата и да изпита състрадание. Състоянието има различни причини, но се нуждае от намесата на детски специалист.",
                     "<strong>Хронично висок стрес и тревожност.</strong> Когато тийнейджърът живее в постоянна среда на стрес, нервната му система е в режим „борба или бягство“. Насилието е знак за неконтролируем взрив на натрупано вътрешно напрежение.",
                 ],
                 "body_en": [
@@ -338,7 +338,7 @@ MATERIALS = [
                 "h_en": "3. A sign of social and systemic dysfunction",
                 "body_bg": [
                     "<strong>Влияние на токсична субкултура.</strong> Насилието често е знак за силен натиск от улични компании, банди или онлайн общности. За да бъде приет и да спечели статус на „лидер“, подрастващият прекрачва моралните граници.",
-                    "<strong>Липса на здрави граници в семейството.</strong> Поведението е знак, че у дома липсват ясни правила, авторитет и последствия — или обратното: възпитанието е изградено върху краен диктат, който предизвиква мощен бунт.",
+                    "<strong>Липса на здрави граници в семейството.</strong> Поведението е знак, че у дома липсват ясни правила, авторитет и последствия, или обратното: възпитанието е изградено върху краен диктат, който предизвиква мощен бунт.",
                 ],
                 "body_en": [
                     "<strong>The pull of a toxic subculture.</strong> Violence is often a sign of strong pressure from street groups, gangs or online communities. To be accepted and gain the status of a “leader”, the adolescent crosses moral lines.",
@@ -362,7 +362,7 @@ MATERIALS = [
                     "<strong>Вербална агресия:</strong> чести викове, обиди, заплахи към членове на семейството, учители или връстници.",
                     "<strong>Физическа агресия:</strong> налитане на бой, блъскане, ритане или чупене на предмети с цел „изпускане на парата“.",
                     "<strong>Индиректна агресия и тормоз:</strong> разпространение на слухове, злонамерени инсинуации, ирония, подигравки и съзнателно социално изолиране на конкретни връстници.",
-                    "<strong>Автоагресия (самонараняване):</strong> насочване на агресивния импулс навътре — рязане, горене на кожата, силно гризане на ноктите или чоплене на рани.",
+                    "<strong>Автоагресия (самонараняване):</strong> насочване на агресивния импулс навътре, рязане, горене на кожата, силно гризане на ноктите или чоплене на рани.",
                 ],
                 "list_en": [
                     "<strong>Verbal aggression:</strong> frequent shouting, insults and threats towards family members, teachers or peers.",
@@ -375,7 +375,7 @@ MATERIALS = [
                 "h_bg": "Психо-емоционални признаци",
                 "h_en": "Psycho-emotional signs",
                 "list_bg": [
-                    "<strong>Внезапни изблици на гняв:</strong> прекомерна и яростна реакция на дребни или незначителни поводи — нарушен импулсен контрол.",
+                    "<strong>Внезапни изблици на гняв:</strong> прекомерна и яростна реакция на дребни или незначителни поводи, нарушен импулсен контрол.",
                     "<strong>Обвиняване на околните:</strong> липса на поемане на отговорност; тийнейджърът твърди, че другите са виновни за поведението му или че съзнателно го провокират.",
                     "<strong>Хронична раздразнителност и фрустрация:</strong> постоянно чувство на недоволство от себе си и от околния свят.",
                 ],
@@ -391,7 +391,7 @@ MATERIALS = [
                 "list_bg": [
                     "<strong>Проблеми със съня:</strong> трудно заспиване, неспокоен сън, кошмари или необичайна сънливост поради натрупано напрежение.",
                     "<strong>Нервни тикове:</strong> физически прояви на потиснат емоционален стрес и тревожност.",
-                    "<strong>Безразсъдно поведение:</strong> склонност към високорискови дейности — злоупотреба с алкохол или вещества, опасно шофиране, кражби.",
+                    "<strong>Безразсъдно поведение:</strong> склонност към високорискови дейности, злоупотреба с алкохол или вещества, опасно шофиране, кражби.",
                     "<strong>Рязка промяна във външния вид:</strong> крайни модификации или умишлено провокативен вид, които понякога сигнализират вътрешен бунт и саморазрушителни тенденции.",
                 ],
                 "list_en": [
@@ -421,9 +421,9 @@ CITIZENS_INTRO_EN = (
 )
 
 CITIZENS_BG = [
-    "<strong>Не снимай, а помогни.</strong> Вместо да извадиш телефона за Facebook, Instagram или TikTok, използвай го, за да набереш 112 или 116 111. Ако ситуацията не е физически опасна, просто застани близо до тормозеното дете — присъствието на възрастен често е достатъчно агресорите да се оттеглят.",
+    "<strong>Не снимай, а помогни.</strong> Вместо да извадиш телефона за Facebook, Instagram или TikTok, използвай го, за да набереш 112 или 116 111. Ако ситуацията не е физически опасна, просто застани близо до тормозеното дете, присъствието на възрастен често е достатъчно агресорите да се оттеглят.",
     "<strong>Разсей ситуацията.</strong> Намеси се с добронамерен тон. Приближи се и попитай силно: „Здравейте, нещо сериозно ли става тук? Имате ли нужда от полиция?“ Или се обърни към детето: „Здравей, ела с мен до касата за малко.“",
-    "<strong>Ангажирай още хора.</strong> В градския транспорт — кажи на шофьора. В мола — на охраната. На улицата — извикай силно към другите минувачи, за да не си сам.",
+    "<strong>Ангажирай още хора.</strong> В градския транспорт, кажи на шофьора. В мола, на охраната. На улицата, извикай силно към другите минувачи, за да не си сам.",
     "<strong>Не се излагай на опасност.</strong> Ако ситуацията е физически опасна, не влизай в нея. Обади се на 112 и остани наблизо като свидетел.",
     "<strong>Опиши фактите, когато подаваш сигнал.</strong> Място, час, колко са участниците, как изглеждат, в каква посока са тръгнали. Всяка подробност помага.",
 ]
@@ -437,7 +437,7 @@ CITIZENS_EN = [
 
 CITIZENS_CLOSING_BG = (
     "За едно уплашено дете ти можеш да си единственият спасителен пояс в този момент. "
-    "С реакцията си помагаш не само на жертвата, но и на агресорите — така поведението им "
+    "С реакцията си помагаш не само на жертвата, но и на агресорите, така поведението им "
     "получава внимание и вероятността да го променят е голяма."
 )
 CITIZENS_CLOSING_EN = (
@@ -452,23 +452,25 @@ CITIZENS_CLOSING_EN = (
 
 CAMPAIGNS = [
     {
-        "id": "dobriyat-primer",
-        "title_bg": "Добрият пример",
-        "title_en": "The Good Example",
-        "lead_bg": "Детско полицейско управление — Велинград. Как изглежда превенцията, когато полицаят е познато лице, а не униформа отдалеч.",
-        "lead_en": "The Children’s Police Department in Velingrad. What prevention looks like when the officer is a familiar face rather than a uniform seen from afar.",
+        "id": "dpu",
+        "title_bg": "Детско полицейско управление",
+        "title_en": "The Children’s Police Department",
+        "lead_bg": "Превантивна образователна програма на МВР с двугодишен курс на обучение. Днес в страната работят 154 детски полицейски управления, в които се обучават 3213 деца.",
+        "lead_en": "A preventive education programme of the Ministry with a two-year course. Today 154 Children’s Police Departments operate across the country, training 3,213 children.",
         "youtube": "fyiXOyATDhk",
         "body_bg": [
-            "Детските полицейски управления събират деца от началния и прогимназиалния курс в редовни занимания с униформени служители — за пътна безопасност, за това какво е престъпление, какво е тормоз и към кого да се обърнеш.",
-            "Смисълът им не е да изглеждат добре на снимка. Децата, които познават полицая по име, се обръщат към него, когато нещо се обърка — и това е цялата разлика.",
+            "Програмата е насочена към опазване на живота, здравето, правата и имуществото на децата, към формиране на умения за безопасно поведение и към изграждане на отговорно отношение към обществото и законите. Чрез достъпни и интерактивни занимания, практически упражнения и срещи с полицейски служители децата придобиват знания за личната безопасност, за безопасността на движението по пътищата, за превенцията на престъпността и противообществените прояви, както и за правилните действия при рискови ситуации.",
+            "Основен акцент е възпитаването на дисциплина, отговорност, уважение към правилата, нетърпимост към противоправните деяния и готовност за оказване на помощ. Участниците се запознават с дейността на различни полицейски структури и изграждат доверие към служителите на реда и към институциите в България.",
+            "През октомври 2026 г. стартира обучението на шестата група доброволци. В откритите 154 детски полицейски управления към районните управления на ОДМВР в страната и в едното ДПУ в Специалното училище за деца с увреден слух в София, което се управлява от служители на ГДНП, обучението продължава до май 2027 г.",
         ],
         "body_en": [
-            "Children’s Police Departments bring primary and lower-secondary pupils into regular sessions with uniformed officers — on road safety, on what counts as a crime, on what bullying is and whom to turn to.",
-            "Their point is not to look good in a photograph. Children who know the officer by name turn to him when something goes wrong — and that is the whole difference.",
+            "The programme aims to protect children’s lives, health, rights and property, to build skills for safe behaviour and to form a responsible attitude towards society and the law. Through accessible, interactive sessions, practical exercises and meetings with police officers, children learn about personal safety, road safety, crime prevention and the right thing to do in risky situations.",
+            "The main emphasis is on discipline, responsibility, respect for the rules, intolerance of unlawful acts and a readiness to help. Participants get to know the work of the various police structures and build trust in officers and institutions.",
+            "In October 2026 the sixth group of volunteers began their training. In the 154 Children’s Police Departments attached to the regional police units across the country, and in the one at the Special School for Children with Impaired Hearing in Sofia run by National Police officers, teaching continues until May 2027.",
         ],
-        "photo": "dpu-10-godini.jpg",
-        "photo_alt_bg": "Торта за 10 години Детско полицейско управление",
-        "photo_alt_en": "A cake marking ten years of the Children’s Police Department",
+        "photo": "kampaniya-dpu.jpg",
+        "photo_alt_bg": "Момиче с полицейска жилетка и стоп‑палка на МВР до полицейска служителка",
+        "photo_alt_en": "A girl in a police vest holding a Ministry stop paddle, next to a police officer",
         "credit_bg": "Видео: „Доброволци от Детското полицейско управление във Велинград създадоха обучителен клип“, публикувано в канала znamee Pazardjik.",
         "credit_en": "Video: “Volunteers from the Children’s Police Department in Velingrad made a training clip”, published on the znamee Pazardjik channel.",
     },
@@ -476,16 +478,18 @@ CAMPAIGNS = [
         "id": "nasilieto-e-bezsilie",
         "title_bg": "Насилието е безсилие",
         "title_en": "Violence is powerlessness",
-        "lead_bg": "Съвместна програма на МВР и Министерството на образованието и науката. Насочена е към учениците от VIII и IX клас и се разширява към минимум 100 000 ученици в над 1000 училища.",
-        "lead_en": "A joint programme of the Ministry of Interior and the Ministry of Education and Science. It targets pupils in grades VIII and IX and is expanding to at least 100,000 pupils in over 1,000 schools.",
+        "lead_bg": "Национална програма за превенция на насилието сред подрастващите, разработена от сектор „Домашно насилие“ в ГДНП и Института по психология към МВР.",
+        "lead_en": "A national programme for the prevention of violence among young people, developed by the Domestic Violence sector of the National Police and the Ministry’s Institute of Psychology.",
         "youtube": "",
         "body_bg": [
-            "Програмата учи младите хора да разпознават домашното насилие и оскърбителното поведение, да отреагират на травматични преживявания, да премахнат чувството за вина и да повишат самооценката си.",
-            "Целта не е просто да бъдат информирани какво е токсична връзка, а да разпознават ранните сигнали, да изграждат самоуважение и граници и да знаят, че имат право на здрава, подкрепяща и безопасна връзка — независимо от модела, който са виждали у дома.",
+            "След утвърждаване от Министерството на вътрешните работи и Министерството на образованието и науката програмата стартира през учебната 2025/2026 г. с обучения на ученици от VIII и IX клас в пет столични училища.",
+            "Целта е учениците да изградят умения да разпознават домашното насилие и оскърбителното поведение, да се справят с травматични преживявания, да преодоляват чувството за вина и да повишат самооценката си. Инициативата поставя акцент върху изграждането на чувствителност, емпатия и нетърпимост към насилието във всичките му проявления.",
+            "Чрез сътрудничеството между институциите и образователната общност програмата насърчава безопасна и подкрепяща среда за децата и допринася за прекъсването на цикъла на насилие между поколенията. През учебната 2026/2027 г. тя се разширява с амбицията да обхване най‑малко 100 000 ученици в над 1000 училища в цялата страна.",
         ],
         "body_en": [
-            "The programme teaches young people to recognise domestic violence and abusive behaviour, to respond to traumatic experience, to let go of guilt and to build their self-esteem.",
-            "The aim is not simply to inform them what a toxic relationship is, but to have them recognise the early signals, build self-respect and boundaries, and know they have a right to a healthy, supportive and safe relationship — whatever model they have seen at home.",
+            "Approved by the Ministry of Interior and the Ministry of Education and Science, the programme started in the 2025/2026 school year with sessions for pupils in grades VIII and IX at five Sofia schools.",
+            "The aim is for pupils to recognise domestic violence and abusive behaviour, to cope with traumatic experience, to let go of guilt and to build their self-esteem. The initiative stresses sensitivity, empathy and intolerance of violence in all its forms.",
+            "Through cooperation between the institutions and the education community the programme fosters a safe, supportive environment for children and helps break the cycle of violence between generations. In the 2026/2027 school year it expands with the ambition of reaching at least 100,000 pupils in over 1,000 schools nationwide.",
         ],
         "photo": "kampaniya-presconf.jpg",
         "photo_alt_bg": "Представяне на кампанията пред медиите",
@@ -495,20 +499,102 @@ CAMPAIGNS = [
         "id": "nikoga-poveche",
         "title_bg": "Никога повече насилие у дома",
         "title_en": "Never again violence at home",
-        "lead_bg": "Кампания на МВР и УНИЦЕФ срещу домашното насилие. От домашното насилие има изход — потърси помощ и закрила.",
-        "lead_en": "A campaign of the Ministry of Interior and UNICEF against domestic violence. There is a way out of domestic violence — seek help and protection.",
+        "lead_bg": "Национална кампания на МВР и УНИЦЕФ за повишаване на обществената осведоменост за формите на домашно насилие и за утвърждаване на нулевата толерантност към него.",
+        "lead_en": "A national campaign of the Ministry of Interior and UNICEF, raising public awareness of the forms of domestic violence and asserting zero tolerance towards it.",
         "youtube": "",
         "body_bg": [
-            "Всеки акт на насилие причинява болка и за него няма оправдание. Кампанията насочва пострадалите и свидетелите към линиите за помощ и към институциите, които могат да се намесят.",
-            "Домашното насилие рядко остава само между възрастните. Детето, което го вижда, го носи със себе си — в училище, сред връстниците и по-късно в собствените си връзки.",
+            "Кампанията се провежда от 25 ноември, Международния ден за елиминиране на насилието срещу жени, до 10 декември, Деня на човешките права, и обединява усилията на институции и неправителствени организации в подкрепа на пострадалите.",
+            "Основен акцент е информирането за възможностите за защита, за безплатната правна и психологическа помощ, за социалната подкрепа и настаняването в кризисни центрове, както и за услугите по модела „Зона ЗаКрила“, които осигуряват комплексна подкрепа на деца, преживели насилие, и на техните семейства.",
+            "Посланието на кампанията е ясно: домашното насилие не е личен, а обществен проблем, от него има изход и всеки пострадал има право на защита, подкрепа и достоен живот без страх.",
         ],
         "body_en": [
-            "Every act of violence causes pain and there is no excuse for it. The campaign points those affected and those who witness it towards the helplines and the institutions that can step in.",
-            "Domestic violence rarely stays between the adults. A child who sees it carries it onward — into school, among peers, and later into their own relationships.",
+            "The campaign runs from 25 November, the International Day for the Elimination of Violence against Women, to 10 December, Human Rights Day, bringing together institutions and non-governmental organisations in support of those affected.",
+            "Its main emphasis is on the available protection, on free legal and psychological help, on social support and placement in crisis centres, and on the “Protection Zone” services, which give comprehensive support to children who have experienced violence and to their families.",
+            "The message is plain: domestic violence is not a private matter but a public one, there is a way out of it, and everyone affected has a right to protection, support and a life without fear.",
         ],
         "photo": "kampaniya-nikoga-poveche.jpg",
         "photo_alt_bg": "Плакат на кампанията „Никога повече насилие у дома“",
         "photo_alt_en": "Poster of the “Never again violence at home” campaign",
+    },
+    {
+        "id": "predpazvane",
+        "title_bg": "Предпазване на младите хора от престъпления",
+        "title_en": "Protecting young people from crime",
+        "lead_bg": "Национална превантивна програма, която се провежда всяка учебна година в цялата страна и е насочена към учениците от XII клас, на които предстои преход към самостоятелен живот.",
+        "lead_en": "A national prevention programme run every school year across the country, aimed at pupils in grade XII who are about to move into independent life.",
+        "youtube": "",
+        "body_bg": [
+            "Чрез тематични обучения и срещи със специалисти програмата повишава информираността на младежите за основните рискове, свързани с престъпността, и изгражда умения за разпознаване и предотвратяване на опасни ситуации.",
+            "Разглеждат се пет теми: превенция на трафика на хора, употребата на наркотични вещества, престъпленията против собствеността, личната безопасност и престъпленията и виктимизацията в онлайн пространството.",
+            "В провеждането ѝ участват служители на МВР, на Главна дирекция „Борба с организираната престъпност“, местните комисии за борба с трафика на хора и превантивно‑информационните центрове по проблемите на наркоманиите.",
+        ],
+        "body_en": [
+            "Through themed sessions and meetings with specialists, the programme raises young people’s awareness of the main risks of crime and builds the skills to recognise and avoid dangerous situations.",
+            "Five themes are covered: the prevention of human trafficking, drug use, crimes against property, personal safety, and crime and victimisation online.",
+            "It is delivered by officers of the Ministry of Interior and of the Directorate General for Combating Organised Crime, together with the local anti-trafficking commissions and the drug prevention and information centres.",
+        ],
+        "photo": "kampaniya-predpazvane.jpg",
+        "photo_alt_bg": "Занятие с ученици в класна стая, водено от специалист",
+        "photo_alt_en": "A specialist running a session with pupils in a classroom",
+    },
+    {
+        "id": "kod-otgovorni",
+        "title_bg": "Код: Отговорни заедно",
+        "title_en": "Code: Responsible together",
+        "lead_bg": "Превантивна кампания на Главна дирекция „Национална полиция“ в партньорство със Съюза на пивоварите в България за здравословен и активен начин на живот сред младите хора.",
+        "lead_en": "A prevention campaign of the Directorate General National Police together with the Brewers’ Union of Bulgaria, promoting a healthy, active way of life among young people.",
+        "youtube": "",
+        "body_bg": [
+            "Чрез спортни състезания в различни градове на страната инициативата ангажира свободното време на младежите с полезни дейности и популяризира спорта като алтернатива на рисковото поведение и употребата на алкохол.",
+            "Паралелно със спортните прояви се провежда конкурс за авторска фотография или рисунка. Идеята му е да покаже на децата, че свободното време може да бъде запълнено със смисъл и творчество, да насърчи младите хора да изразят себе си и своя поглед към света и да открият красотата в заобикалящата ги среда.",
+        ],
+        "body_en": [
+            "Through sports contests in towns across the country the initiative fills young people’s free time with worthwhile activity and promotes sport as an alternative to risky behaviour and alcohol.",
+            "Alongside the sport runs a competition for original photography or drawing. Its idea is to show children that free time can be filled with meaning and creativity, to encourage young people to express themselves and their view of the world, and to find the beauty around them.",
+        ],
+        "photo": "kampaniya-kod-otgovorni.jpg",
+        "photo_alt_bg": "Деца вдигат заедно отличие след спортно състезание",
+        "photo_alt_en": "Children lifting an award together after a sports contest",
+    },
+    {
+        "id": "prevenciya-narkotici",
+        "title_bg": "Превенция на употребата на наркотични вещества",
+        "title_en": "Preventing drug use",
+        "lead_bg": "Национална превантивна кампания на сектор „Контингент и превенция“ в ГДНП. Първият ѝ етап е насочен към родителите на подрастващите.",
+        "lead_en": "A national prevention campaign of the National Police’s Prevention sector. Its first stage is addressed to the parents of adolescents.",
+        "youtube": "",
+        "body_bg": [
+            "Когато родителят разговаря с детето си, когато го изслушва, когато знае какво се случва в живота му, рискът то да попадне в опасна среда е много по‑малък. Затова целта на този етап е да накара родителите да се замислят колко добре познават света на своето дете: какво го тревожи, какво го радва и с кого прекарва свободното си време.",
+            "Понякога един обикновен въпрос като „Как мина денят ти?“ или „Искаш ли да поговорим?“ може да бъде началото на разговор, който ще предпази детето от сериозни грешки.",
+            "Разработените информационни материали съдържат съвети от специалисти: какви са първите предупредителни признаци, как да разговаряте с детето си по тази трудна тема и как можете да го предпазите.",
+        ],
+        "body_en": [
+            "When a parent talks with their child, listens to them and knows what is going on in their life, the risk of the child ending up in a dangerous environment is far lower. The stage therefore asks parents to consider how well they know their child’s world: what worries them, what makes them happy and whom they spend their free time with.",
+            "Sometimes an ordinary question such as “How was your day?” or “Shall we talk?” is the beginning of a conversation that keeps a child from serious mistakes.",
+            "The information materials carry advice from specialists: the first warning signs, how to talk with your child about this difficult subject, and how you can protect them.",
+        ],
+        "photo": "kampaniya-narkotici.jpg",
+        "photo_alt_bg": "Илюстрация на кампанията: две пътеки пред младеж, едната мрачна, другата светла",
+        "photo_alt_en": "Campaign illustration: a young person before two paths, one dark, one bright",
+    },
+    {
+        "id": "malkite-golemi-geroi",
+        "title_bg": "Малките големи герои",
+        "title_en": "Little big heroes",
+        "lead_bg": "Инициатива на МВР, която популяризира и поощрява проявите на гражданска доблест, смелост и отговорност сред децата и младежите.",
+        "lead_en": "A Ministry of Interior initiative that recognises and encourages civic courage, bravery and responsibility among children and young people.",
+        "youtube": "",
+        "body_bg": [
+            "Кампанията поставя във фокуса на общественото внимание младите хора, чиито действия са допринесли за предотвратяване или разкриване на престъпления, за оказване на помощ при бедствия или за справяне с други критични ситуации.",
+            "Чрез публично признание и изразена благодарност инициативата насърчава добрия пример, солидарността и активната гражданска позиция. Посланието ѝ е, че героизмът няма възраст и че дори най‑малкият добър жест може да има голямо значение за обществото.",
+        ],
+        "body_en": [
+            "The campaign puts in the public eye young people whose actions have helped prevent or solve crimes, helped during disasters or resolved other critical situations.",
+            "Through public recognition and thanks, the initiative encourages the good example, solidarity and active citizenship. Its message is that heroism has no age, and that even the smallest good deed can matter greatly to society.",
+        ],
+        "photo": "kampaniya-malkite-geroi.jpg",
+        "photo_alt_bg": "Служител на МВР раздава материали на деца пред училище",
+        "photo_alt_en": "A Ministry officer handing out materials to children outside a school",
     },
 ]
 

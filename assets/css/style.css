@@ -224,6 +224,9 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 .grid { display: grid; gap: 20px; }
 .grid--2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .grid--3 { grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); }
+/* Петте вида насилие изглеждат по-добре на три колони, отколкото на 4 + 1.
+   The five types of violence sit better on three columns than on 4 + 1. */
+@media (min-width: 1000px) { #types .grid--3 { grid-template-columns: repeat(3, 1fr); } }
 .grid--4 { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
 
 .lede {
@@ -451,6 +454,13 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 .hero__panel .hp-lbl { display: inline-flex; align-items: center; gap: 9px; min-width: 0; }
 .hp-emblem { width: auto; height: 22px; flex: none; }
 .hp-emblem--round { height: 21px; }
+/* Гербът на МВР е висок и тесен, затова му трябва повече височина,
+   за да изглежда наравно с останалите емблеми.
+   The Ministry's emblem is tall and narrow, so it needs more height to
+   look the same size as the others. */
+.hp-emblem--tall { height: 30px; }
+.emblem--tall { height: 78px; }
+.emblem-pair .emblem--tall { height: 60px; }
 
 /* ---------- 9. Page header ---------- */
 .pagehead { background: var(--bg); border-bottom: 1px solid var(--line-soft); }
@@ -544,6 +554,8 @@ html[data-lang="en"] [lang="bg"] { display: none !important; }
 }
 .typecard.t-verbal h3::before { background: #c4271d; }
 .typecard.t-social h3::before { background: #7d5ba6; }
+.typecard.t-sexual h3::before { background: #7d5ba6; }
+.typecard.t-neglect h3::before { background: #4f6d7a; }
 .typecard.t-physical h3::before { background: #c07a12; }
 .typecard.t-cyber h3::before { background: var(--blue); }
 .typecard p { font-size: .94rem; color: var(--ink-2); margin: 0; line-height: 1.5; }
@@ -1000,6 +1012,28 @@ html[data-lang="en"] .material__num::before { content: "Material "; }
   outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,102,204,.14);
 }
 .field input:user-invalid, .field textarea:user-invalid, .field select:user-invalid { border-color: var(--red); }
+/* Групата „Данни за подателя“ / the sender fieldset */
+.fieldset {
+  border: 1px solid var(--line); border-radius: var(--r-sm);
+  padding: 20px 20px 6px; margin: 0 0 20px;
+}
+.fieldset > legend {
+  padding: 0 8px; margin-left: -8px;
+  font-size: .82rem; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.fieldset .field:last-of-type { margin-bottom: 14px; }
+
+/* Отметка за потвърждение / the confirmation checkbox */
+.field--check {
+  display: grid; grid-template-columns: auto 1fr; gap: 12px;
+  align-items: start; margin-top: 18px;
+}
+.field--check input[type="checkbox"] {
+  width: 20px; height: 20px; margin: 1px 0 0; flex: none; accent-color: var(--blue);
+}
+.field--check label { margin: 0; font-weight: 400; font-size: .92rem; line-height: 1.5; color: var(--ink-2); }
+
 .hint { font-size: .85rem; color: var(--ink-3); margin: 7px 0 0; line-height: 1.45; }
 .formnote {
   margin-top: 22px; padding: 16px 18px; border-radius: var(--r-sm);

@@ -392,6 +392,8 @@
         name: o.getAttribute('data-' + lang()) || o.getAttribute('data-bg') || '',
         addr: o.getAttribute('data-addr') || '',
         tl: o.getAttribute('data-tl' + lang()) || o.getAttribute('data-tlbg') || '',
+        dir: o.getAttribute('data-dir' + lang()) || o.getAttribute('data-dirbg') || '',
+        nodir: o.getAttribute('data-nodir') === '1',
         fallback: o.getAttribute('data-fallback') === '1'
       };
     }
@@ -405,7 +407,9 @@
         document.getElementById('rb-addr').textContent = '—';
         return;
       }
-      document.getElementById('rb-name').textContent = (lang() === 'en' ? 'Regional Directorate ' : 'ОДМВР ') + c.name;
+      document.getElementById('rb-name').textContent = c.nodir
+        ? c.dir
+        : (lang() === 'en' ? 'Regional Directorate ' : 'ОДМВР ') + c.name;
       var telEl = document.getElementById('rb-tel');
       telEl.innerHTML = c.tel
         ? '<a href="tel:' + c.tel.replace(/\s/g, '') + '">' + c.tel + '</a>' +
@@ -452,18 +456,18 @@
       lines.push((L ? 'Region: ' : 'Област: ') + (c ? c.name : '—'));
       if (val('f-place')) { lines.push((L ? 'Place: ' : 'Място: ') + val('f-place')); }
       if (val('f-when')) { lines.push((L ? 'When: ' : 'Кога: ') + val('f-when')); }
-      if (val('f-who')) { lines.push((L ? 'Age of the child: ' : 'Възраст на детето: ') + val('f-who')); }
       lines.push('');
       lines.push(L ? 'What happened:' : 'Какво се е случило:');
       lines.push(val('f-what'));
       lines.push('');
-      if (val('f-name') || val('f-contact')) {
-        lines.push(L ? 'Submitted by:' : 'Подател:');
-        if (val('f-name')) { lines.push('  ' + val('f-name')); }
-        if (val('f-contact')) { lines.push('  ' + val('f-contact')); }
-      } else {
-        lines.push(L ? 'Submitted anonymously.' : 'Сигналът се подава анонимно.');
-      }
+      lines.push(L ? 'Submitted by:' : 'Подател:');
+      lines.push('  ' + (L ? 'Name: ' : 'Три имена: ') + val('f-name'));
+      lines.push('  ' + (L ? 'Phone: ' : 'Телефон: ') + val('f-phone'));
+      lines.push('  ' + (L ? 'E-mail: ' : 'Електронна поща: ') + val('f-email'));
+      if (val('f-age')) { lines.push('  ' + (L ? 'Age: ' : 'Възраст: ') + val('f-age')); }
+      lines.push('');
+      lines.push(L ? 'I confirm that the details above are true and that I am aware of the liability for a false report.'
+                   : 'Потвърждавам, че посочените данни са верни и че съм запознат/а с отговорността за неверен сигнал.');
       lines.push('');
       lines.push(L ? '— Prepared via spasidete.bg' : '— Подготвено чрез spasidete.bg');
       return lines.join('\n');
@@ -481,6 +485,24 @@
       if (!val('f-what')) {
         document.getElementById('f-what').focus();
         say(t('Моля, опишете какво се е случило.', 'Please describe what happened.'), false); return;
+      }
+      if (!val('f-name') || val('f-name').split(/\s+/).length < 2) {
+        document.getElementById('f-name').focus();
+        say(t('Моля, въведете трите си имена.', 'Please enter your full name.'), false); return;
+      }
+      if (!val('f-phone')) {
+        document.getElementById('f-phone').focus();
+        say(t('Моля, въведете телефон за връзка.', 'Please enter a contact phone number.'), false); return;
+      }
+      if (!/^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/.test(val('f-email'))) {
+        document.getElementById('f-email').focus();
+        say(t('Моля, въведете валиден адрес на електронна поща.', 'Please enter a valid e-mail address.'), false); return;
+      }
+      var acc = document.getElementById('f-accept');
+      if (acc && !acc.checked) {
+        acc.focus();
+        say(t('Моля, потвърдете, че сте запознат/а с последиците от неверен сигнал.',
+              'Please confirm that you have read the consequences of a false report.'), false); return;
       }
       var subj = t('Сигнал за насилие/агресия над дете — ', 'Report of violence/aggression against a child — ') + c.name;
       var href = 'mailto:' + c.mail +
@@ -526,7 +548,7 @@
       ta.style.position = 'absolute'; ta.style.left = '-9999px';
       document.body.appendChild(ta); ta.select();
       try { document.execCommand('copy'); done(); }
-      catch (e) { say(t('Копирането не бе успешно — маркирайте текста ръчно.',
+      catch (e) { say(t('Копирането не бе успешно, маркирайте текста ръчно.',
                         'Copying failed — please select the text manually.'), false); }
       document.body.removeChild(ta);
     }
